@@ -1,0 +1,147 @@
+
+
+<!-- START BLOCK : product_manufacture -->
+{slideshow}
+<div class="c"></div>
+{pathpage}
+
+
+<div class="c20"></div>
+<div class="grid">
+
+
+
+    <h1 class="title-page"><span>{cat_title}</span></h1>
+    <div class="c20"></div>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+        "@type":"WebPage",
+        "@id":"{site_address}{cat_link}"
+        },
+        "headline": "{cat_title}",
+        "image": [
+        "{site_address}{cat_image}"
+        ],			
+        "datePublished": "{create_date}",
+        "dateModified": "{create_date}",
+        "author": {
+        "@type": "Person",
+        "name": "Admin"
+        },
+        "description": "{cat_description}"
+        }
+    </script>	
+
+    <div class=""> {cat_intro}</div>
+    <div class="c5"></div>
+    <div class="cat-content">{cat_content} </div>    
+    <div class="c30"></div>
+
+
+
+    <div class="flex-container">
+
+        <!-- START BLOCK : product_manufacture_item -->
+        <div class="cell-1-4 tab-cell-1-2" style="margin-bottom: 30px;"> 
+            <div class="manufacture-item ">
+                <a  href="{link_detail}" title="{name}">{image}</a>
+            </div>
+            <div class="c10"></div>
+            <h2 class="author-name"><a style="text-transform: uppercase;" href="{link_detail}">{name}</a></h2> 
+            <div class="c5"></div>
+            <div>Tác phẩm: 15</div>
+            <div class="c5"></div>
+            <div class="text-line-4">{content}</div>
+
+        </div>
+        <!-- END BLOCK : product_manufacture_item -->
+        <div class="cell-1-4"> </div>
+        <div class="cell-1-4"> </div>
+        <div class="cell-1-4"> </div>
+
+    </div>
+
+
+
+</div>
+
+
+<!-- END BLOCK : product_manufacture --> 
+
+
+<!-- START BLOCK : proDetail -->
+{pathpage}    
+<div class="c"></div>
+{slideshow}
+<div class="c"></div>
+
+<div style="background: #ebebeb;">
+    <div class="grid" style="position: relative;">
+
+        <div class="author-detail-content">
+            <div class="flex-container">
+                <div class="cell-1-3 tab-cell-1-3"> 
+                    <div style="background: #FFF; padding: 10px;"> {catimage} </div>
+                    <div class="c10"></div>
+                    <div class="author-intro">{catintro}</div>
+
+                </div>
+                <div class="cell-2-3 tab-cell-2-3"> 
+                    <div class="c20"></div>
+                    <h1 class="tab-title"><span>{catname}</span></h1>
+                    <div class="c20"></div>
+                    <div class="cat-content">{catcontent} </div>    
+
+                </div>
+            </div>	
+
+        </div>
+
+        <div class="c30"></div>
+    </div>
+</div>    
+
+<div class="c20"></div>
+<div class="c20 hide-on-tab"></div>
+
+<div class="grid" >
+    
+    <div class="tab-title"> Tác phẩm của họa sỹ </div>
+    <div class="c20"></div>
+    
+    <div class="flex-container">
+
+        <!-- START BLOCK : product_item -->
+        <div class="cell-1-3 tab-cell-1-2" style="margin-bottom: 30px;"> 
+            <div class="product-item ">
+                <a class="hvr-grow" href="{link_detail}" title="{name}">{image}</a>
+            </div>
+            <div class="c5" ></div>
+            <h3 class="product-name"><a href="{link_detail}" title="{name}">{name}</a></h3>
+            <div class="c5" ></div>
+            <div style="color: #666; font-size: 14px;">
+                <strong>Chuyên mục:</strong> {chuyenmuc}
+                <div class="c5" ></div>
+                <strong>Kích thước:</strong> {size}
+                <div class="c10" ></div>
+            </div>
+            <div class="pricekm"> {price}  </div>
+            <div class="price"><s>{pricekm} </s></div>
+
+
+        </div>
+        <!-- END BLOCK : product_item -->
+        <div class="cell-1-3"> </div>
+        
+    </div>
+
+
+
+</div>
+
+<!-- END BLOCK : proDetail --> 
+

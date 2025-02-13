@@ -1,0 +1,126 @@
+{slideshow}
+<div class="c"></div>
+{pathpage}
+<div class="c20"></div>
+
+<div class="c20"></div>
+
+<div class="grid">
+
+    <!-- START BLOCK : itemList  -->
+
+    <div class="c10"></div>
+
+    <h1 class="title-page" ><span>{catname}</span></h1>
+    <div class="c10"></div>
+    <div class="cat-content">{catintro} </div>
+    <div class="c10"></div>
+
+    <div class=" flex-space-between flex-container">
+        <!-- START BLOCK : newsItem  -->
+        <div class="cell-1-3 tab-cell-1-2" style="margin-bottom:30px;">
+            
+            <div style="padding: 20px;border: solid 1px #EEE;border-radius: 10px;" class="hvr-float">
+            
+            <div class="article-item-img">
+                <a  href="{link_detail}"> {image} </a>
+            </div>
+            
+            <div class="c10"></div>
+            <h2 class="article-name" style="text-align: center;"><a href="{link_detail}">{author_name}</a></h2>
+            <div style="text-align: center;" >{author_info}</div>
+            <div class="text-line-3 hide-on-mobile">{intro}</div>
+            
+            </div>
+            
+        </div>
+        <!-- END BLOCK : newsItem  -->
+        <div class="cell-1-3"></div>
+        
+    </div>
+    <div class="c20"></div>
+    <div>{pages}</div>
+    <div class="c20"></div>
+
+    <!-- END BLOCK : itemList  -->
+
+
+    <!-- START BLOCK : itemDetail  -->
+<script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{site_address}{link_detail}"
+        },
+        "headline": "{name}",
+        "image": [
+        "{site_address}{image}"
+        ],
+        "datePublished": "{createdate}",
+        "dateModified": "{createdate}",
+        "author": {
+        "@type": "Person",
+        "name": "Admin"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "MRM",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "{site_address}/uploaded/logo/logo.png"
+        }
+        },
+        "description": "{description}"
+        }
+    </script>    
+    
+    <div class=" flex-space-between flex-container">
+        <div class="cell-1-5 tab-cell-1-1">
+    
+                <div class="article-item-img" style="float: left; margin: 0px;">
+                    <a  href="{link_detail}"> {image} </a>
+                </div>    
+                <div class="c5"></div>
+                
+            
+        </div>
+        <div class="cell-4-5 tab-cell-1-1">
+                <h1 class="title-news-detail" style="text-align:left"> {name}</h1>
+                <div class="c20"></div>
+                <div style="">
+                        <strong>{author_name}</strong>
+                        <div>{author_info}</div>
+                </div>            
+                <div class="c10"></div>
+                <div class="intro-detail" >{intro}</div>
+            
+        </div>
+    </div>
+    
+
+    <div class="c10"></div>
+    <div class="content-detail ">
+        {content}
+    </div>
+    <div class="c20"></div>
+
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> <a class="addthis_counter addthis_pill_style"></a> </div>
+    <!-- AddThis Button END -->
+    <div class="c30"></div>
+
+
+    <h3 class="title-other-news" ><a>{_othernews}</a></h3>
+    <div class="c10" style="border-bottom: solid 1px #EEE;"></div>
+    <div class="c10"></div>
+    <ul class="other-article">
+        <!-- START BLOCK : lstOther -->
+        <li><a href="{link_detail}">{author_name} - {author_info}</a></li>
+        <!-- END BLOCK : lstOther --> 
+    </ul>    
+    
+    <!-- END BLOCK : itemDetail  -->
+</div>
+<div class="c20"></div>

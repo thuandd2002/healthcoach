@@ -1,0 +1,346 @@
+
+
+
+<!--
+<div style="background: #1c4d99;">
+    <div class="grid" >
+        {menufooter}
+    </div>
+</div>
+
+<a class="js-open-modal  dang-ky-tu-van hide-on-tab" data-modal-id="popupDangKy" href="#">
+    <img src="/images/dang-ky-tu-van.gif" width="150"  > 
+
+</a>
+
+-->
+
+
+
+<!-- START BLOCK : showPopUp -->
+
+<div id="popup_qc" style="max-width:600px; padding:0px;" class="modal-box">
+    <a href="#" class="js-modal-close close">[X]</a>
+
+    <div style="text-align:center; color:#FFF; ">
+        <a href="{link}?popshowed=1" target="_blank" >
+            {image}
+        </a>
+    </div>	
+
+</div>
+
+<script>
+    setTimeout(showPop, 5000);
+
+    function showPop() {
+        var appendthis = ("<div class='modal-overlay js-modal-close'></div>");
+        $("body").append(appendthis);
+        $(".modal-overlay").fadeTo(500, 0.7);
+        $('#popup_qc').fadeIn(500);
+
+    }
+</script>
+<!-- END BLOCK : showPopUp -->
+
+
+
+<div class="c10"></div>
+
+<!-- footer -->
+<footer class="footer">
+    <div class="c50"></div>
+
+    <div class="c30 hide-on-pad hide-on-tab"></div>
+    <div class="grid">
+        <div class="flex-container">
+            <div class="cell-1-3 tab-cell-1-1">
+
+                <!-- START BLOCK : footerItem  -->
+
+                <div class="footer-title footer-title-mobile" rel="ct">
+                    {footername}
+                </div>
+                <div class="c5"></div>
+                <div class="c10"></div>
+                <div class="footer-text" id="boxcolct">
+                    {textfooter}
+                    <div class="c5"></div>
+                </div>		
+                <div class="c10"></div>
+
+                <!-- END BLOCK : footerItem  -->
+
+            </div>
+
+            <div class="cell-2-3 tab-cell-1-1 ">
+
+                <div class="flex-container flex-space-between">
+                    <div class="cell-1-3 tab-cell-1-1"> 
+                        {boxmenufooter1}
+                        <div class="c10"></div>
+                    </div>
+                    <div class="cell-1-3 tab-cell-1-1">
+
+                        {boxmenufooter2}
+
+                        <div class="c10"></div>
+                    </div>
+                    <div class="cell-1-3 tab-cell-1-1">
+                        <div class="footer-title hide-on-tab ">   Mạng xã hội  </div>
+                        <div class="footer-title footer-title-mobile hide-on-pc hide-on-pad " rel="6">  Mạng xã hội </div>
+
+
+                        <ul class="menuboxfooter" id="">
+                            <li>
+                                <i class="fab fa-youtube" style="width: 22px;padding-right: 8px;"></i>
+                                <a href=""> Youtube </a>
+                            </li>
+                            <li>
+                                <i class="fab fa-facebook-f" style="width: 22px;padding-right: 8px;"></i>
+                                <a href=""> Facebook </a>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram" style="width: 22px;padding-right: 8px;"></i>
+                                <a href=""> Instagram </a>
+                            </li>
+                        </ul>
+                        <div class="c10"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="c30"></div>
+        <div class="c30 hide-on-pad hide-on-tab"></div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="grid">
+            <div class="flex-container flex_center" style="padding: 18px 0;">
+                <img src="/uploaded/logo/logo-footer.png" alt="">
+                <div style="flex:1;">
+                    <div style="text-align: center;">Copyright © 2020 by Company. All Right Reserved </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+
+<div id="popupDangKy" class="modal-box">
+    <a href="#" class="js-modal-close close btn-close"> [×] </a>
+    <div class="modal-body">
+
+        <div class="dangky">
+
+            <div style="padding:20px; border-radius:10px; min-height:320px; ">
+
+
+                <form action="{dir_path}/index4.php?page=contact&lang={lang}" method="post" id="regform" data-alert="{_ban_can_nhap_thong_tin}" data-captcha ="{_captcha_invalid}" data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/" >
+
+                    <input type="hidden"  name="code" value="save" />                
+
+                    <div class="form-title"> Tư vấn </div>
+                    <div class="c10"></div>
+                    <div class="form-label" style="text-align:center;"><i> Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất </i>  </div>
+                    <div class="c10"></div>
+                    <div class="c20"></div>
+
+                    <input name="yourname" type="text" class="txt-contact notNull" placeholder="Họ tên (*)" id="yourname"  />
+                    <div class="c10"></div>
+
+                    <input name="phone" type="text" class="txt-contact notNull"  placeholder="Điện thoại (*)"  />
+                    <div class="c10"></div>
+                    <input name="address" type="text" class="txt-contact "  placeholder="Địa chỉ" />
+                    <div class="c10"></div>
+
+                    <select name="other_request" type="text" class="txt-contact">
+                        <option value=""> Chọn hình thức tư vấn  </option>
+                        <option value="Tư vấn mua hàng"> Tư vấn mua hàng </option>
+                        <option value="Tìm đại lý, cửa hàng gần nhất">Tìm đại lý, cửa hàng gần nhất </option>
+
+                    </select>
+                    <div class="c10"></div>
+
+                    <div style="position:relative;">
+                        <input class="newsletter newsletter_b notNull" placeholder="Enter Captcha" name="sercurity"/>
+                        <img src="{dir_path}/lib/imagesercurity.php?recaptcha=n" name="imgCaptcha" align="absmiddle" class="imgCaptcha newsletter-capt-img" style="height: 35px; position: absolute; top: 0px; right: 0px; " />
+
+                    </div>
+
+
+                    <div class="c20"></div>
+                    <input name="input" type="button" onClick="$('#regform').submit()" class="btn-send" value="{_send}" />
+                    <div class="c5"></div>
+                    <div class="msgbox" style="font-size: 20px; text-align:center;"> </div>		
+                </form>
+
+
+            </div>
+
+        </div>			
+
+
+    </div>
+</div>	
+
+<script>
+    $(function () {
+
+        var appendthis = ("<div class='modal-overlay js-modal-close'></div>");
+
+        $('a[data-modal-id]').click(function (e) {
+            e.preventDefault();
+            $("body").append(appendthis);
+            $(".modal-overlay").fadeTo(500, 0.7);
+            var modalBox = $(this).attr('data-modal-id');
+            $('#' + modalBox).fadeIn($(this).data());
+        });
+
+        $(".js-modal-close, .modal-overlay").click(function () {
+            $(".modal-box, .modal-overlay").fadeOut(500, function () {
+                $(".modal-overlay").remove();
+            });
+            return false;
+        });
+
+    });
+</script>
+
+
+
+<!--Video Modal Play-->
+
+<script>
+    $(function () {
+        var appendthis = ("<div class='modal-overlay js-modal-close'></div>");
+        $('a[video-modal-id]').click(function (e) {
+            e.preventDefault();
+            $("body").append(appendthis);
+            $(".modal-overlay").fadeTo(500, 0.7);
+            var modalBox = $(this).attr('video-modal-id');
+            $('#' + modalBox).fadeIn($(this).data());
+
+
+            var videocode = $(this).attr('href');
+
+            //var content_text = $(this).find(".pop-content-text").html();
+
+            var framesrc = '<iframe id="video" allowfullscreen="" frameborder="0" height="360" src="//www.youtube.com/embed/' + videocode + '?modestbranding=1&amp;fs=1&amp;rel=0&autoplay=1&mute=0" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" width="640"></iframe>';
+            $(".pop-content").html(framesrc);
+
+
+        });
+
+        $(".js-modal-close, .modal-overlay").click(function () {
+            $(".modal-box, .modal-overlay").fadeOut(500, function () {
+                $(".modal-overlay").remove();
+            });
+
+            $(".pop-content").html("");
+
+            return false;
+        });
+
+
+    });
+</script>
+
+<div id="popupVideo" class="modal-box">
+    <div class="modal-body">
+        <div class="">
+
+            <div class="pop-content" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;">
+
+            </div>  
+
+        </div>
+    </div>
+    <footer> <a href="#" class="btn btn-small js-modal-close">Đóng lại</a> </footer>
+</div>
+<!--Video Modal Play-->
+
+
+</div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" />
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/4.7.5/js/jquery.mmenu.min.all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/4.7.5/css/jquery.mmenu.all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<div id="button-btt">
+    <a href="#"><i class="fa fa-chevron-up"></i> </a>
+</div>
+
+<script>
+    function check_newsletter() {
+        ok = true;
+        $('#newsletterForm .error').removeClass('error');
+        $('#newsletterForm .notNull').each(function () {
+            if ($(this).val() == '') {
+                $(this).addClass('error');
+                ok = false;
+            }
+        }
+        );
+        return ok;
+    }
+
+    $(function () {
+        $('.countcart').html('({quantity})');
+    });
+</script>
+
+{menuMobile}
+
+{bottompage}
+
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=648acdfc93018600124e74fc&product=inline-share-buttons' async='async'></script>
+
+
+
+<link rel="stylesheet" href="/css/widget-call-left.css" />
+<div class="widget_wbt_call_now_widget">
+    <div class="float-icon-hotline">
+        <ul>
+            <li class="hotline_float_icon"><a id="messengerButton" href="tel:{hotline}"><i class="fa fa-hotline animated infinite tada"></i><span>Hotline: {hotline}</span></a></li>
+            <li class="hotline_float_icon"><a id="messengerButton" href="//zalo.me/{hotline}" target="_blank"><i class="fa fa-zalo animated infinite tada"></i><span>Nhắn tin qua Zalo</span></a></li>
+            <li class="hotline_float_icon"><a id="messengerButton" href="https://m.me/{fb_appid}" target="_blank"><i class="fa fa-messenger animated infinite tada"></i><span>Nhắn tin qua Facebook</span></a></li>
+
+        </ul>
+    </div>
+</div>
+
+
+
+</body>
+
+
+
+<!----
+☺☺☺ Design by Minh Nguyen. Email nguyensyminh@gmail.com - Hotline : 0968 67 55 68 ☺☺☺
+---->
+
+</html>

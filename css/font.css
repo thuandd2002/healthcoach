@@ -1,0 +1,27 @@
+
+@font-face {
+    font-family:Arial-B;
+    src: url('fonts/SVN-Arial\ Bold.ttf');
+    font-display: swap;
+    font-weight: normal;
+}
+
+
+@font-face {
+    font-family: Arial;
+    src: url('fonts/SVN-Arial\ 2.ttf');
+    font-display: swap;
+    font-weight: normal;
+    font-weight: normal;
+}
+
+
+/* @font-face {
+    font-family: Arial-M;
+    src: url('fonts/SVN-Arial\ 2.ttf');
+    font-display: swap;
+    font-weight: normal;
+    font-weight: normal;
+} */
+
+

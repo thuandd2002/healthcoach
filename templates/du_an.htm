@@ -1,0 +1,315 @@
+
+
+{pathpage}
+<div class="c"></div>
+
+{slideshow}
+<div class="c"></div>
+
+<!-- phân loại -->
+<div class="select-wrapper flex_center">
+    <div class="grid">
+        <div class="flex-container flex-centered">
+            <select name="" id="" class="select-option">
+                <option value="">Loại sản phẩm</option>
+            </select>
+            <select name="" id="" class="select-option">
+
+                <option value="">Loại dự án</option>
+
+            </select>
+            <div class="search-pc-phanloai">
+                <form action="/search/" method="get" id="searchformtab">
+                    <input name="qr" class="kw" placeholder="Từ khóa tìm kiếm" type="text">
+                    <a href="#" class="submit-search-pc-phanloai" onclick="$('#searchformtab').submit();
+                            return false;">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end phân loại -->
+
+
+
+<!-- START BLOCK : lstcat -->
+
+<div class="grid">
+
+    <div class="c30"></div>
+    <!-- Giới thiệu đầu -->
+    <div class="duan-info">
+        <div class="grid">
+            <div class="flex-container">
+                <div style="width:10%;"></div>
+                <div class="cell-4-5 tab-cell-1-1">
+                    <h1 class="info-heading">{catname}</h1>
+                    <div class="c20"></div>
+                    <div class="info-desc">
+                        {catintro}
+                        <div class="c5"></div>
+                        {catcontent}
+
+                    </div>
+
+                    <div class="c"></div>
+                </div>
+                <div style="width:10%;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end Giới thiệu đầu -->
+    <div class="c5"></div>
+    {menutab}
+    <div class="c20"></div>    
+
+
+    <div class="duan-wrapper">
+        <div class="grid">
+            <div class="flex-container">
+
+                <!-- START BLOCK : lstDuAn -->
+
+                <div class="cell-1-3 pad-cell-1-2 tab-cell-1-1">
+                    <div class="duan-card">
+                        <a href="{link_detail}">{image}</a>
+                        <div class="duan-detail">
+                            <a href="{link_detail}">
+                                <div class="text-line-2 duan-detail--title">
+                                    {name}
+                                </div>
+                            </a>
+                            <div class="c5"></div>
+                            <div class="text-line-3 duan-card_intro">
+                                {intro}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END BLOCK : lstDuAn -->
+
+                <div class="cell-1-3"></div>
+            </div>
+        </div>
+    </div>    
+
+    <div class="c20"></div>
+    <div class="c20"></div>
+
+    <!-- Phân trang -->
+    <div class="grid flex_center">
+        {pages}
+    </div>
+
+</div>
+<!-- END BLOCK : lstcat -->
+
+<!-- START BLOCK : detail -->
+<script type="text/javascript" src="{dir_path}/highslide/highslide-with-gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="{dir_path}/highslide/highslide.css" />
+<script type="text/javascript">
+    hs.graphicsDir = '{dir_path}/highslide/graphics/';
+    hs.align = 'center';
+    hs.transitions = ['expand', 'crossfade'];
+    hs.wrapperClassName = 'dark borderless floating-caption';
+    hs.fadeInOut = true;
+    hs.dimmingOpacity = .75;
+    if (hs.addSlideshow)
+        hs.addSlideshow({
+            interval: 5000,
+            repeat: false,
+            useControls: true,
+            fixedControls: 'fit',
+            overlayOptions: {
+                opacity: .6,
+                position: 'bottom center',
+                hideOnMouseOut: true
+            }
+        });
+</script>
+<div class="c20 hide-on-tab"></div>
+<!-- DỰ án chi tiết -->
+<div class="news-details">
+    <div class="grid">
+        <div class="flex-container">
+            <div class="cell-3-4 tab-cell-1-1">
+                <h1 class="news-name-detail">{name}</h1>
+                <div class="c5"></div>
+                <div class="intro-detail">
+                    {tienich}
+                </div>
+
+                <div class="c10"></div>
+                <div class="c10 hide-on-pad hide-on-tab"></div>
+
+                <div class="swiper-container gallery-top"  style="border: 1px solid #eee;">
+                    <div class="swiper-wrapper">
+
+                        <!-- START BLOCK : slider_image -->
+                        <div class="swiper-slide">
+                            <a href="{bigimage}"  onclick="return hs.expand(this)">
+                                {image}
+                            </a>
+                        </div>
+                        <!-- END BLOCK : slider_image -->                                    
+
+                    </div>
+                    <div class="swiper-button-next swiper-button-black"></div>
+                    <div class="swiper-button-prev swiper-button-black"></div>
+                </div>
+
+                
+                <div style="background: #EEE; padding: 12px; padding-bottom: 10px; ">
+                    <div class="swiper-container gallery-thumbs-pro">
+                        <div class="swiper-wrapper" >
+                            {thumbimage} 
+                        </div>
+                    </div>                                            
+                </div>
+
+
+                <script>
+                    $(function () {
+                        var galleryTop = new Swiper('.gallery-top', {
+                            spaceBetween: 1,
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            }
+                        });
+                        var galleryThumbs = new Swiper('.gallery-thumbs-pro', {
+                            centeredSlides: false,
+                            slidesPerView: 6,
+                            spaceBetween: 10,
+                            navigation: {
+                                nextEl: '.thumb-prev',
+                                prevEl: '.thumb-next',
+                            }
+                        });
+                        $('.gallery-thumbs-pro .swiper-slide').click(function () {
+                            galleryTop.slideTo($(this).index(), 400, false);
+                        });
+                    });
+                </script>                 
+
+                <div class="c20"></div>
+
+                <div class="content-detail tocContent">
+                    {content}
+                </div>
+                <div class="c15"></div>
+                <div class="sharethis-inline-share-buttons"></div>
+
+                <div class="c20"></div>
+            </div>
+
+
+            <!-- MENU TIN RIGHT -->
+            <div class="cell-1-4 hide-on-tab hide-on-mobile">
+
+                {leftcol}
+
+                <div class="c20"></div>
+                <div class="c30"></div>
+            </div>
+            <!-- MENU TIN RIGHT -->
+        </div>
+    </div>
+</div>
+
+<!-- end dự án chi tiết -->
+
+<!-- Dự án cùng danh mục -->
+
+<div class="du_an">
+    <div class="grid">
+        <div class="c20"></div>
+        <div class="c20"></div>
+        <h2 class="du_an-title">Dự án cùng danh mục</h2>
+        <div class="c20"></div>
+        <div class="c10"></div>
+        <!-- slide sản phẩm -->
+        <div class="flex-container" style="position: relative;">
+            <div class="btn-next du_an-next flex_center hide-on-tab hide-on-pad" style="top: 40%;">
+                <img src="/images/icon-next.png" alt="">
+            </div>
+            <div class="btn-prev du_an-prev flex_center hide-on-tab hide-on-pad" style="top: 40%;">
+                <img src="/images/icon-prev.png" alt="">
+            </div>
+            <div class="swiper-container" id="du_an" style="position: relative;">
+
+                <div class="swiper-wrapper">
+                    <!-- START BLOCK : itemOther  -->
+                    <div class="swiper-slide">
+                        <div class="duan-card" style="background-color: #fff;margin-top: 0;">
+                            <a href="{link_detail}">{image}</a>
+                            <div class="duan-detail">
+                                <a href="{link_detail}">
+                                    <div class="text-line-2 duan-detail--title">
+                                        {name}
+                                    </div>
+                                </a>
+                                <div class="c15"></div>
+                                <div class="text-line-3 duan-card_intro">
+                                    {intro}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END BLOCK : itemOther  -->
+
+                </div>
+                <div class="c"></div>
+                <script>
+                    $(function () {
+                        var swiper_du_an = new Swiper('#du_an', {
+                            slidesPerView: 3,
+                            autoplay: {
+                                delay: 2000,
+                                disableOnInteraction: false,
+                            },
+                            spaceBetween: 26,
+                            navigation: {
+                                nextEl: '.du_an-next',
+                                prevEl: '.du_an-prev',
+                            },
+                            speed: 400,
+                            loop: true,
+                            breakpoints: {
+                                739: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 30
+                                },
+                                1023: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 30
+                                }
+                            }
+                        });
+                        $('#du_an').on('mouseover', function () {
+                            swiper_du_an.autoplay.stop();
+                        });
+                        $('#du_an').on('mouseout', function () {
+                            swiper_du_an.autoplay.start();
+                        });
+                    });
+                </script>
+                <div class="c"></div>
+            </div>
+        </div>
+
+        <!-- end slide sản phẩm -->
+    </div>
+    <div class="c30"></div>
+    <div class="c30"></div>
+</div>
+
+<!-- end dự án cùng danh mục -->
+
+<div class="c20"></div>
+
+<!-- END BLOCK : detail -->

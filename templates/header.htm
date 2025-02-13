@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi" xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>{site_name}</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+    {no_index}
+    <meta name="theme-color" content="#0099ff" />
+    <meta http-equiv="Content-Language" content="{langcode}" />
+    <meta name="description" content="{site_description}" />
+    <meta name="keywords" content="{site_keywords}" />
+    <meta property="og:url" name="og:url" content="{site_url}" data-app />
+    <meta property="og:type" name="og:type" content="website" data-app />
+    <meta property="og:description" name="og:description" content="{site_description}" data-app />
+    <meta property="og:title" name="og:title" content="{site_name}" data-app />
+
+    {site_image}
+    {site_image_alt}
+    {canonical_url}
+
+    <link href="/favicon.ico" rel="shortcut icon" />
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css" />
+
+    <script src="/js/script.js"></script>
+
+
+
+
+    {toppage}
+
+    {header_tag}
+
+
+</head>
+
+<body>
+
+    {bodypage}
+
+    <img src="{dir_path}/lib/imagesercurity.php" style="display:none; " />
+    <div id="page">
+
+        <div class="top-bar topheader-mb">
+            <div class="grid">
+                <div class="flex-container">
+                    <p class="welcome">{companyname}</p>
+                    <div class="social">
+                        <ul class="icon-social">
+                            <li>
+                             <a href=""> <i class="fa-brands fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                            </li>
+                            <li>
+                             <a href="">   <i class="fa-brands fa-twitter"></i></a>
+                            </li>
+                            <li>
+                               <a href=""> <i class="fa-brands fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                              <a href="">  <i class="fa-brands fa-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header hide-on-tab hide-on-mobile">
+            <div class="grid">
+
+                <div class="flex-container align-center">
+                    <div class="cell-1-5 tab-cell-1-1">
+                        <div class="logo">
+                            {logo}
+                        </div>
+                    </div>
+                    <div class="cell-4-5 tab-cell-1-1">
+                        <div class="menubar">
+                            {menubar}
+                            <div class="icon-search">
+                                <i class="fa fa-search search-icon" aria-hidden="true"></i>
+
+                                <div class="search-pc" style="display: none;">
+                                    <form action="/search/" method="get" id="searchformtab">
+                                        <input name="qr" class="kw" placeholder="Tìm kiếm " type="text">
+                                        <a href="#" class="submit-search-pc" onClick="$('#searchformtab').submit();
+                                                return false;"> <i class="fa fa-search" aria-hidden="true"></i> </a>
+
+                                        <a href="#" class="closeX" onClick="$('.search-pc').hide();
+                                                return false;">x</a>
+                                    </form>
+                                </div>
+
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        $(".search-icon").click(function () {
+                                            $(".search-pc").stop().slideToggle("fast");
+                                            return false;
+                                        });
+                                    });
+                                </script>
+                            </div>
+                            <div class="hotline hide-on-tab">
+                                <i style="color: yellow;" class="fa-solid fa-phone"></i>
+                               {hotline}
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="c"></div>
+        </div>
+
+
+        <div class="content">
