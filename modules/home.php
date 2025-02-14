@@ -16,40 +16,43 @@ $home = new clsHome;
 
 $tpl->printToScreen();
 
-class clsHome {
+class clsHome
+{
 
-    function __construct() {
+    function __construct()
+    {
         global $DBi, $idc, $tpl, $dir_path, $cache_image_path, $SETTING, $dbHome;
 
         $tpl->assignGlobal("slideshow", slideshow());
-        
+
         $db = $dbHome->selectByLocation('hothome');
         foreach ($db as $rs) {
 
             if ($rs['id_category'] > 0) {
-                
+
                 if ($rs['data_type'] == 'logo') {
-                    
                 }
                 if ($rs['data_type'] == 'product') {
-
                 }
                 if ($rs['data_type'] == 'news') {
-                    
+                    $tpl->newBlock("newsHot");
+                    $tpl->assign("catname", html_entity_decode($rs['subname']));
+                    $tpl->assign("link", $dir_path . '/' . $rs['url']);
+                    $tpl->assign("catintro", $rs['intro']);
+                    $this->newsHot($rs['id_category']);
                 }
 
                 if ($rs['data_type'] == 'info') {
                     $tpl->newBlock("infoHot");
-					$tpl->assign("catname", $rs['catname']);
+                    $tpl->assign("catname", $rs['catname']);
                     $tpl->assign("subname", html_entity_decode($rs['subname']));
                     $tpl->assign("link", $dir_path . '/' . $rs['url']);
                     $tpl->assign("catintro", $rs['intro']);
                     $this->infoHot($rs['id_category']);
                 }
-
             }
-        }        
-        
+        }
+
         $db = $dbHome->selectByLocation('cathome');
         foreach ($db as $rs) {
 
@@ -95,13 +98,13 @@ class clsHome {
                     */
                     $this->proHome($rs['id_category']);
                 }
-                if ($rs['data_type'] == 'news') {
-                    $tpl->newBlock("news");
-                    $tpl->assign("catname", html_entity_decode($rs['subname']));
-                    $tpl->assign("link", $dir_path . '/' . $rs['url']);
-                    $tpl->assign("catintro", $rs['intro']);
-                    $this->newsHome($rs['id_category']);
-                }
+                // if ($rs['data_type'] == 'news') {
+                //     $tpl->newBlock("news");
+                //     $tpl->assign("catname", html_entity_decode($rs['subname']));
+                //     $tpl->assign("link", $dir_path . '/' . $rs['url']);
+                //     $tpl->assign("catintro", $rs['intro']);
+                //     $this->newsHome($rs['id_category']);
+                // }
 
                 if ($rs['data_type'] == 'info') {
                     $tpl->newBlock("info");
@@ -117,7 +120,19 @@ class clsHome {
                     $tpl->assign("catname", html_entity_decode($rs['subname']));
                     $tpl->assign("link", $dir_path . '/' . $rs['url']);
                     $tpl->assign("catintro", $rs['intro']);
-                    $this->serviceHome($rs['id_category']);
+                    $menusub = $dbHome->listSubCat($rs['id_category']);
+                    if (count($menusub) > 0) {
+                        foreach ($menusub as $rs_sub) {
+                            $tpl->newBlock("service_sub");
+                            $tpl->assign("id_cat", $rs_sub['id_category']);
+                            $tpl->assign("sub_catname", $rs_sub['name']);
+                            $tpl->assign("sub_link", $dir_path . '/' . $rs_sub['url']);
+                            $tpl->assign("sub_image", '<img src="' . $cache_image_path . cropimage(300, 250, $dir_path . '/' . $rs_sub['imageadv']) . '"  width="100%">');
+                            $this->serviceHome($rs_sub['id_category']);
+                        }
+                    } else {
+                        $this->serviceHome($rs['id_category']);
+                    }
                 }
                 if ($rs['data_type'] == 'article') {
                     $tpl->newBlock("article");
@@ -126,15 +141,21 @@ class clsHome {
                     $tpl->assign("catintro", $rs['intro']);
                     $this->articleHome($rs['id_category']);
                 }
-                
+
                 if ($rs['data_type'] == 'du_an') {
                     $tpl->newBlock("du_an");
                     $tpl->assign("catname", html_entity_decode($rs['subname']));
                     $tpl->assign("link", $dir_path . '/' . $rs['url']);
                     $tpl->assign("catintro", $rs['intro']);
                     $this->duanHome($rs['id_category']);
-                }                
-
+                }
+                if ($rs['data_type'] == 'faq') {
+                    $tpl->newBlock("faq");
+                    $tpl->assign("catname", $rs['name']);
+                    $tpl->assign("link", $dir_path . '/' . $rs['url']);
+                    $tpl->assign("catintro", $rs['intro']);
+                    $this->faqHome($rs['id_category']);
+                }
                 if ($rs['data_type'] == 'product_manufacture') {
                     $tpl->newBlock("manufactureHome");
                     $tpl->assign("catname", $rs['name']);
@@ -142,26 +163,35 @@ class clsHome {
                     $tpl->assign("catintro", $rs['intro']);
                     $this->manufactureHome($rs['id_category']);
                 }
+
+                if ($rs['data_type'] == 'info_leader') {
+                    $tpl->newBlock("info_leaderHome");
+                    $tpl->assign("catname", $rs['name']);
+                    $tpl->assign("subname", $rs['subname']);
+                    $tpl->assign("link", $dir_path . '/' . $rs['url']);
+                    $tpl->assign("catintro", $rs['intro']);
+                    $this->infoLeaderHomeItem($rs['id_category']);
+                }
             }
         }
 
-        
-        
-        
+
+
+
         include_once("modules/inhome.php");
         $tpl->assignGlobal("inhome", inHome());
-         
+
         /*
           $tpl->assignGlobal("menuProduct", menuProduct());
           $this->support_online();
          */
-        
+
         include_once("modules/partner_logo.php");
         $tpl->assignGlobal("s_partner", partner_logo());
-        
     }
 
-    private function infoHot($idc) {
+    private function infoHot($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $SETTING;
         include_once('db.provider/db.info.php');
         $info = new dbInfo();
@@ -169,32 +199,37 @@ class clsHome {
         foreach ($db as $rs) {
             if ($rs['id_info'] > 0) {
                 $tpl->newBlock("infoHotItem");
-                $tpl->assign(array(
-                    name => $rs['name'],
-                    intro => $rs['intro'] )
+                $tpl->assign(
+                    array(
+                        name => $rs['name'],
+                        intro => $rs['intro']
+                    )
                 );
 
                 if ($rs['image']) {
                     //$tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 220, $dir_path . '/' . $rs['image']) . '" width="100%"  alt="' . $rs['name'] . '"  style="display:block" class="image-info-home" >');
-					
-					$tpl->assign("image", '<img src="' . $rs['image'] . '"  alt="' . $rs['name'] . '"  style="display:inline-block" class="image-info-home" >');
+
+                    $tpl->assign("image", '<img src="' . $rs['image'] . '"  alt="' . $rs['name'] . '"  style="display:inline-block" class="image-info-home" >');
                     $tpl->assign("image_url", $rs['image']);
                 }
                 $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
             }
         }
-    }    
-    private function infoHome($idc) {
+    }
+    private function infoHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $SETTING;
         include_once('db.provider/db.info.php');
         $info = new dbInfo();
         $db = $info->itemList($idc, 1);
         foreach ($db as $rs) {
             if ($rs['id_info'] > 0) {
-                $tpl->assign(array(
-                    name => $rs['name'],
-                    intro => $rs['intro'],
-                    content => $rs['content'])
+                $tpl->assign(
+                    array(
+                        name => $rs['name'],
+                        intro => $rs['intro'],
+                        content => $rs['content']
+                    )
                 );
 
                 if ($rs['image']) {
@@ -206,12 +241,13 @@ class clsHome {
         }
     }
 
-    function videoHome($idc) {
+    function videoHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $SETTING;
         $idc = intval($idc);
-        
-        $sql = "SELECT * FROM video WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_video DESC LIMIT 3"; 
-        
+
+        $sql = "SELECT * FROM video WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_video DESC LIMIT 3";
+
         $db = $DBi->query($sql);
 
         while ($rs = $DBi->fetch_array($db)) {
@@ -224,19 +260,19 @@ class clsHome {
                 $image_src =  $cache_image_path . cropimage(600, 420, $dir_path . '/' . $rs['image']);
             else
                 $image_src = 'https://img.youtube.com/vi/' . parseVideoUrl($rs['video']) . '/0.jpg';
-            
-            
+
+
             $tpl->assign("image", '<img src="' . $image_src . '" width="100%"  alt="' . $rs['name'] . '"  style="display:block">');
-            
+
             $tpl->assign("name", $rs['name']);
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-            
         }
     }
 
-    function proHome($idc) {
+    function proHome($idc)
+    {
         global $DBi, $tpl, $cache_image_path, $dir_path, $SETTING, $langLabel, $objProduct;
-        
+
         $idc = intval($idc);
         $tpl->assign("id_cat", $idc);
 
@@ -249,15 +285,15 @@ class clsHome {
                 $tpl->assign("name", $rs['name']);
                 $tpl->assign("ma", $rs['ma']);
                 //$tpl->assign("tacgia", $pro->getManufactureName($rs['id_manufacture']));
-                
+
                 $tpl->assign("ttkhuyenmai", $rs['ttkhuyenmai']);
-                
+
                 if ($rs['image'])
                     $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 210, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" >');
-                
+
                 if ($rs['icon'])
                     $tpl->assign("icon", '<div class="' . $rs['icon'] . '">' . $rs['texticon'] . '</div>');
-                
+
                 $tpl->assign("link_cart", $dir_path . '/' . $lang_dir . 'addcart/' . $rs['url']);
                 $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
                 /*
@@ -268,17 +304,15 @@ class clsHome {
                     $tpl->assign("attrvalue", $val);
                 }
                 */
-                $tpl->assign("attribute",$objProduct->getAttr(intval($rs['id_category']),$rs['attr']));
-                
+                $tpl->assign("attribute", $objProduct->getAttr(intval($rs['id_category']), $rs['attr']));
+
                 $objProduct->showPrice($rs);
-                
-                
-                
             }
         }
     }
 
-    function advHome($idc) {
+    function advHome($idc)
+    {
         global $DBi, $tpl, $cache_image_path, $dir_path;
         $idc = intval($idc);
         $lg = new dbLogo;
@@ -293,29 +327,49 @@ class clsHome {
         }
     }
 
-    function newsHot($idc) {
+    function newsHot($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
         $sql = "SELECT * FROM news WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_news DESC LIMIT 5"; //.;
         $db = $DBi->query($sql);
+        $i = 0;
         while ($rs = $DBi->fetch_array($db)) {
-            $tpl->newBlock("newshotItem");
-            if ($rs['image'])
-                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 200, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
+            $i++;
+            if ($i == 1) {
+                $tpl->newBlock("newsHotBig");
+                if ($rs['image'])
+                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 180, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
+            } else {
+                $tpl->newBlock("newsHotItem");
+                if ($rs['image'])
+                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 180, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
+            }
+            $tpl->assign("createdate", date('d/m/Y', $rs['ngay_dang']));
+            $tpl->assign("intro", strstrim(strip_tags($rs['intro']), 20));
             $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", strstrim(strip_tags($rs['intro'], 15)));
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
         }
     }
 
-    function newsHome($idc) {
+    function newsHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
-        $sql = "SELECT * FROM news WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_news DESC LIMIT 3"; 
+        $sql = "SELECT * FROM news WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_news DESC Limit 4";
         $db = $DBi->query($sql);
 
         while ($rs = $DBi->fetch_array($db)) {
             $tpl->newBlock("news_item");
+            // if ($rs['hot'] == 1) {
+            //     $tpl->newBlock("news_item_hot");
+            //     if ($rs['image'])
+            //         $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(390, 250, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
+            //     $tpl->assign("createdate", date('d/m/Y', $rs['ngay_dang']));
+            //     $tpl->assign("name", $rs['name']);
+            //     $tpl->assign("intro", strip_tags($rs['intro']));
+            //     $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+            // }
             if ($rs['image'])
                 $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(390, 250, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
             $tpl->assign("createdate", date('d/m/Y', $rs['ngay_dang']));
@@ -323,6 +377,7 @@ class clsHome {
             $tpl->assign("intro", strip_tags($rs['intro']));
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
         }
+
         /*
           while ($rs = $DBi->fetch_array($db)) {
           $i++;
@@ -343,7 +398,8 @@ class clsHome {
          */
     }
 
-    function serviceHome($idc) {
+    function serviceHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
         $sql = "SELECT * FROM service WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_service DESC LIMIT 4"; //.;
@@ -361,7 +417,8 @@ class clsHome {
         }
     }
 
-    function articleHome($idc) {
+    function articleHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
         $sql = "SELECT * FROM article WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_article DESC LIMIT 5"; //.;
@@ -380,10 +437,11 @@ class clsHome {
                 $tpl->assign("image", '<img  src="' . $cache_image_path . cropimage(311, 311, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%" />');
         }
     }
-    
-    
 
-    function duanHome($idc) {
+
+
+    function duanHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
         $sql = "SELECT * FROM du_an WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%')  ORDER BY thu_tu DESC LIMIT 4";
@@ -391,23 +449,23 @@ class clsHome {
         $i = 0;
         while ($rs = $DBi->fetch_array($db)) {
             $i++;
-            
+
             $tpl->newBlock("duanItem");
-            
+
             if ($rs['image'])
-                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 150, $dir_path . '/' . $rs['image']) . '" width="100%" alt="' . $rs['name'] . '">');
-            
+                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 150, $dir_path . '/' . $rs['image']) . '" width="100%" alt="' . $rs['name'] . '">');
+
             $tpl->assign("name", $rs['name']);
             $tpl->assign("intro", strstrim(strip_tags($rs['intro']), 30));
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-            
         }
     }
 
-    function albumHome($idc) {
+    function albumHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
-        $sql = "SELECT * FROM album WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_album DESC LIMIT 3"; 
+        $sql = "SELECT * FROM album WHERE active=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_album DESC LIMIT 3";
         $db = $DBi->query($sql);
         while ($rs = $DBi->fetch_array($db)) {
             $tpl->newBlock("albumItem");
@@ -415,14 +473,15 @@ class clsHome {
                 $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(600, 400, $dir_path . '/' . $rs['image']) . '" width="100%" alt="' . $rs['name'] . '">');
             $tpl->assign("name", $rs['name']);
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-			$this->sliderAlbumImage($rs['image_list']);
+            $this->sliderAlbumImage($rs['image_list']);
         }
     }
-	
-    private function sliderAlbumImage($image_list) {
+
+    private function sliderAlbumImage($image_list)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path;
         $images = json_decode($image_list);
-        usort($images, function($a, $b) {
+        usort($images, function ($a, $b) {
             return $a->image_thu_tu > $b->image_thu_tu ? 1 : -1;
         });
 
@@ -439,9 +498,10 @@ class clsHome {
             $tpl->assign("bigimage_url", $cache_image_path . resizeimage(1200, 1200, $dir_path . '/' . $rs->image_path));
         }
         $tpl->assignGlobal("item_paged", $db['pages']);
-    }	
+    }
 
-    function support_online() {
+    function support_online()
+    {
         global $DBi, $tpl, $cache_image_path, $dir_path, $SETTING, $language;
         $db = $DBi->query("SELECT * FROM yahoo WHERE active = 1 $language ORDER BY thu_tu");
         $tpl->assign("emailsupport", $SETTING->emailsupport);
@@ -456,7 +516,8 @@ class clsHome {
         }
     }
 
-    function manufactureHome($idc) {
+    function manufactureHome($idc)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
         $idc = intval($idc);
         $sql = "SELECT * FROM product_manufacture WHERE active=1 AND id_category IN(" . Category::getParentId($idc) . ") ORDER BY thu_tu";
@@ -469,9 +530,33 @@ class clsHome {
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
         }
     }
-
-
-
+    function infoLeaderHomeItem($idc)
+    {
+        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+        $idc = intval($idc);
+        $sql = "SELECT * FROM info_leader WHERE active=1 AND id_category = $idc";
+        $db = $DBi->query($sql);
+        while ($rs = $DBi->fetch_array($db)) {
+            $tpl->newBlock("items_lead");
+            if ($rs['image'])
+                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(280, 420, $dir_path . '/' . $rs['image']) . '" width="100%" alt="' . $rs['name'] . '">');
+            $tpl->assign("name", $rs['name']);
+            $tpl->assign("intro", $rs['intro']);
+            $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
+        }
+    }
+    function faqHome($idc)
+    {
+        global $DBi, $tpl, $dir_path, $cache_image_path, $lang, $SETTING;
+        $idc = intval($idc);
+        $sql = "SELECT * FROM faq WHERE active = 1 AND id_category = $idc ORDER BY thu_tu DESC LIMIT 5";
+        $db = $DBi->query($sql);
+        while ($rs = $DBi->fetch_array($db)) {
+            $tpl->newBlock("item_faq");
+            if ($rs['image'])
+                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(280, 420, $dir_path . '/' . $rs['image']) . '" width="100%" alt="' . $rs['name'] . '">');
+            $tpl->assign("name", $rs['name']);
+            $tpl->assign("content", $rs['content']);
+        }
+    }
 }
-
-?>

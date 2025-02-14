@@ -302,7 +302,7 @@ header.header-fixed {
   background: #fbfbfb;
   border-bottom: 1px solid #d3d2d2;
   z-index: 14;
-  top: 0
+  top: 0;
 }
 
 .header-fixed .logo {
@@ -312,7 +312,7 @@ header.header-fixed {
 
 .logo {
   float: left;
-  
+
   width: 100%;
 }
 
@@ -347,7 +347,8 @@ header.header-fixed {
 .social li {
   margin-left: 20px;
 }
-.welcome, .social{
+.welcome,
+.social {
   padding: 0px 60px;
 }
 .icon-social {
@@ -394,7 +395,7 @@ header.header-fixed {
 .homeslide-next,
 .homeslide-prev {
   position: absolute;
-  top: 50%;
+  top: 9%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
@@ -419,6 +420,35 @@ header.header-fixed {
 .homeslide-prev:hover {
   background-color: var(--maincolor);
 }
+
+.homeslide-next-solution,
+.homeslide-prev-solution {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+.homeslide-prev-solution {
+  left: 10px;
+}
+.homeslide-next-solution {
+  right: 10px;
+}
+
+.homeslide-prev-solution :hover,
+.homeslide-next-solution:hover {
+  background-color: var(--maincolor);
+}
+
 .nav > li > a {
   text-decoration: none;
   color: #404040;
@@ -1106,6 +1136,8 @@ a.close:hover {
 }
 
 .line {
+  width: 50px;
+  height: 2px;
   border-bottom: 1px solid var(--maincolor);
 }
 
@@ -1293,7 +1325,7 @@ a.close:hover {
 }
 .btn-buy {
   display: inline-block;
-  padding: 6px 12px;  /* Giảm padding cho nhỏ hơn */
+  padding: 6px 12px; /* Giảm padding cho nhỏ hơn */
   background: #ff5e00; /* Màu cam nổi bật */
   color: white;
   font-size: 14px; /* Nhỏ hơn */
@@ -1308,48 +1340,42 @@ a.close:hover {
 .btn-buy:hover {
   background: #e64a00; /* Tối màu khi hover */
 }
-.product-item
-{
+.product-item {
   text-align: center;
   padding: 30px 10px;
   margin-bottom: 30px;
   position: relative;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   background-color: #f8f8f8;
   border-radius: 5px;
 }
-.product-name
-{
+.product-name {
   font-weight: bold;
   padding: 10px 0px 5px;
   font-size: 20px;
 }
-.pricekm
-{
+.pricekm {
   text-decoration: line-through;
   color: #6b6b6b;
 }
-.price
-{
-
+.price {
   color: rgb(255, 0, 0);
   padding-top: 10px;
   font-size: 18px;
 }
-.discount
-{
+.discount {
   position: absolute;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  color: #FFF;
+  color: #fff;
   background-color: var(--maincolor);
   text-align: center;
   line-height: 50px;
   font-size: 15px;
   right: -12px;
   top: -2px;
-  border:2px solid #FFF;
+  border: 2px solid #fff;
 }
 .search-form input::placeholder {
   color: #909090;
@@ -1650,7 +1676,7 @@ select:focus-visible {
   transition: 0.3s;
   filter: brightness(40%);
   object-fit: cover; /* Giữ tỉ lệ ảnh, không bị méo */
-  object-position: center; 
+  object-position: center;
 }
 .box {
   position: relative; /* Đảm bảo overlay nằm chính xác trên ảnh */
@@ -1665,7 +1691,7 @@ select:focus-visible {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   align-items: center;
   color: white;
   font-size: 20px;
@@ -1683,7 +1709,7 @@ select:focus-visible {
   text-align: center;
   z-index: 2;
 }
-.line {
+.line-white {
   width: 50px;
   height: 2px;
   background: white;
@@ -1786,17 +1812,17 @@ select:focus-visible {
 .intro-homenews {
   width: 80%;
 }
-.homenews-image, .homenews-items img{
+.homenews-image,
+.homenews-items img {
   width: 100%;
-  aspect-ratio: 3 / 2; 
-  object-fit: cover; 
-  object-position: center ; 
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
   /* width: 100%;
   aspect-ratio: 3 / 2; 
   object-fit: contain; 
   object-position: center; */
 }
-
 
 .homenews.overlay {
   position: absolute;
@@ -1834,14 +1860,12 @@ select:focus-visible {
 }
 /* solution */
 .homesolution-item {
-
   border: 1px solid #ddd; /* Viền xung quanh */
   text-align: center;
   background: white;
   /* margin-bottom: 20px; */
 
   padding: 20px 0px;
-
 }
 .homesolution-item img {
   width: 100%;
@@ -1849,7 +1873,8 @@ select:focus-visible {
   object-fit: cover;
 }
 
-.homesolution-item h3, .homesolution-item p {
+.homesolution-item h3,
+.homesolution-item p {
   padding: 10px 0;
 }
 
@@ -1882,7 +1907,7 @@ select:focus-visible {
 }
 
 .homespecialist-item img {
-  width: 100%;  
+  width: 100%;
   aspect-ratio: 3 / 4; /* Chiều dọc dài hơn ngang */
   object-fit: cover; /* Giữ ảnh không bị méo, cắt vừa khung */
   padding: 40px 40px;
@@ -1951,7 +1976,7 @@ select:focus-visible {
 /* faq appoitment */
 
 .appointment {
-  background-image:url(/uploaded/san-pham/img-2.jpg);
+  background-image: url(/uploaded/san-pham/img-2.jpg);
   padding: 70px;
   background-position: center;
   position: relative;
@@ -1980,15 +2005,14 @@ select:focus-visible {
   padding: 20px 0px;
   background: none;
   border: none;
-  border-bottom:1px solid #4242423f;
+  border-bottom: 1px solid #4242423f;
 }
 
-.appointment input::placeholder{
+.appointment input::placeholder {
   color: black;
 }
 
 .faq {
-
 }
 .faq h2 {
   color: #ffffff;
@@ -2034,18 +2058,16 @@ select:focus-visible {
 
 footer {
   background-color: var(--maincolor);
-
 }
 
 .content-box {
   position: relative;
   top: -50px;
-  background-color:#FFF;
+  background-color: #fff;
   padding: 60px;
   border-radius: 5px;
   box-shadow: 0 4px 10px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  
 }
 
 .info-container {
@@ -2057,7 +2079,7 @@ footer {
   width: 500px;
   height: 400px;
 }
-.map{
+.map {
   text-align: center;
 }
 
@@ -2066,9 +2088,8 @@ footer {
   color: #333;
   margin: 20px 0;
 }
-.find-us-here{
-  color:  var(--maincolor);
-
+.find-us-here {
+  color: var(--maincolor);
 }
 .location {
   width: 40%;
@@ -2095,8 +2116,7 @@ footer {
   font-size: 14px;
   color: #ffffff;
 }
-.location i{
-
+.location i {
   transform: rotate(90deg);
   width: 40px;
   height: 40px;
@@ -2111,4 +2131,3 @@ footer {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
   /* transition: background 0.3s, transform 0.2s; */
 }
-

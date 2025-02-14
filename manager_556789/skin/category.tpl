@@ -78,12 +78,12 @@
             $('#chooselocation li input').attr('disabled', true);
             $('#chooselocation li label').addClass('classdisable');
 
-            if (data_type == 'news' || data_type == 'service' || data_type == 'article' || data_type == 'info' || data_type == 'daily' || data_type == 'du_an' || data_type == 'product_manufacture' || data_type == 'video' || data_type == 'support' || data_type == 'album' || data_type == 'info_donvi' || data_type == 'info_lichsu' || data_type == 'download' || data_type == 'product') {
+            if (data_type == 'news' || data_type == 'service' || data_type == 'article' || data_type == 'info' || data_type == 'daily' || data_type == 'du_an' || data_type == 'product_manufacture' || data_type == 'video' || data_type == 'support' || data_type == 'album' || data_type == 'info_donvi' ||data_type == 'info_leader' || data_type == 'info_lichsu' || data_type == 'download' || data_type == 'product') {
                 var arr = ["menubar", "leftbar", "rightbar", "menufooter", "menuleft", "menutop", "inright", "boxmenufooter", "menuhome", "hothome", "menumobile", "cathome", "inhome"];
             }
 
             if (data_type == 'faq' || data_type == 'tuyendung') {
-                var arr = ["menubar", "leftbar", "rightbar", "menuleft", "menutop", "menuhome", "boxmenufooter"];
+                var arr = ["menubar", "leftbar", "rightbar", "menuleft", "menutop", "menuhome", "boxmenufooter","cathome"];
             }
 
             if (data_type == 'logo' || data_type == 'link' || data_type == 'partner') {
@@ -95,7 +95,7 @@
                 var arr = ["menutop", "menubar", "leftbar", "rightbar", "menuleft", "menutop", "menufooter", "popup", "menumobile", "boxmenufooter"];
             }
 
-
+            
             if (arr) {
                 jQuery.each(arr, function () {
                     $('#' + this + ' label').removeClass('classdisable');
@@ -245,7 +245,7 @@
                         </li>
                         
 
-                        <!--
+                      
                         
                         
                         <li id="faq">
@@ -254,7 +254,7 @@
                                 Câu hỏi thường gặp</label>
                         </li>
 
-                        -->
+                     
 
                         <li id="download">
                             <label class="radio">
