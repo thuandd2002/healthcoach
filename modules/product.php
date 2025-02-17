@@ -68,7 +68,7 @@ class clsProduct {
     public function _construct() {
         global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
 
-
+        // $tpl->assignGlobal("slideshow", slideshow());
         $tpl->assignGlobal("cat_title", $rs_cat['name']);
         $tpl->assignGlobal("cat_intro", '<div style="padding:10px 0px">' . $rs_cat['intro'] . '</div>');
         $tpl->assignGlobal("cat_content", '<div style="padding:10px 0px">' . $rs_cat['content'] . '</div>');
@@ -120,7 +120,7 @@ class clsProduct {
                 $tpl->assign("catimage", '<img src="' . $image . '" alt="' . $rs1['name'] . '" width="100%">');
             }
 
-            $db = $objProduct->itemList($rs1['id_category'], 4);
+            $db = $objProduct->itemList($rs1['id_category'], 8);
             $i = 0;
             foreach ($db as $rs) {
                 if ($rs['id_product'] > 0) {

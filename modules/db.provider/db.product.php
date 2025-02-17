@@ -345,7 +345,7 @@ class dbProduct {
             $km = $price - $pricekm;
             $discount = intval(floatval($km / $price) * 100);
             if ($discount > 0)
-                $tpl->assign("discount-tags", "<div class='discount-tags'>-$discount%</div>");
+                $tpl->assign("discount-tags", "<div class='discount'>-$discount%</div>");
         } else {
             if (intval($rs['price']) > 0) {
                 $tpl->assign("price", number_format($rs['price']) . ' đ');

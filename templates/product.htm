@@ -1,5 +1,3 @@
-
-
 {pathpage}
 
 <div class="c"></div>
@@ -29,19 +27,19 @@
     },
     "description": "{cat_description}"
     }
-</script>	
+</script>
 <div class="c30"></div>
 <!-- Giới thiệu đầu -->
 <div class="category-product-info">
     <div class="grid">
-        <div class="flex-container">
+        <div class="">
             <div style="width:10%;"></div>
             <div class="cell-4-5 tab-cell-1-1">
 
-                <h1 class="category-product-info--title">{cat_title}</h1>
+                <h1 class="homecat-title"><div class="hightlight" style="color: var(--maincolor);">{cat_title}</div></h1>
                 <div class="c"></div>
+                <div class="c20"></div>
                 {cat_content}
-
                 <div class="c10"></div>
             </div>
             <div style="width:10%;"></div>
@@ -56,13 +54,12 @@
 <!-- Danh mục sản phẩm 1 -->
 <div class="category-product-list">
 
-
     <!-- START BLOCK : catItem -->
     <div class="category-product-wrapper">
         <div class="grid">
             <div class="flex-container category-product">
                 <div class="cell-2-6 tab-cell-1-1">
-                    <a  href="{linkcat}" title="{name}">{catimage}</a>
+                    <a href="{linkcat}" title="{name}">{catimage}</a>
 
                 </div>
 
@@ -70,7 +67,7 @@
                     <div class="category-product-detail-odd">
                         <div class="c20"></div>
                         <div class="c30 hide-on-pad hide-on-tab"></div>
-                        <h2 class="category-product-title">
+                        <h2 class="homecat-title">
                             <a href="{linkcat}">{catname}</a>
 
                         </h2>
@@ -87,38 +84,45 @@
             <div class="flex-container">
 
                 <!-- START BLOCK : catProductItem  -->
-                <div class="cell-1-4 tab-cell-1-2">
+                <div class="cell-1-4 tab-cell-1-1">
                     <div class="product-item">
-                        <a href="{link_detail}">
-                            <div class="product-img">
+                        <div class="product-image">
+                            <a href="{link_detail}" class="">
                                 {image}
+                            </a>
+                        </div>
+                        <div class="c10"></div>
+                        <div class="productitem-box">
+                            <div class="product-name">
+                                <a href="{link_detail}" class="text-line-2">
+                                    {name}
+                                </a>
                             </div>
-                        </a>
-                        <div class="c5"></div>
-                        <a href="{link_detail}" class="product-name">
-                            <div class="text-line-2" style="height: 20px;">
-                                {name}
-                            </div>
-                        </a>
-                        <div class="c5"></div>
-                        <div>Hãng sx: {hangsx}</div>
+                            <div class="c5"></div>
 
-                        <div class="product-price">{price}</div>
+                            <div class="c5"></div>
+                            <div class="pricekm">
+                                {pricekm}
+                            </div>
+                            <div class="price">
+                                {price}
+                            </div>
+                            {discount-tags}
+                        </div>
                     </div>
-                </div>
 
+                </div>
                 <!-- END BLOCK : catProductItem  -->
 
-                <div class="cell-1-4 tab-cell-1-2"></div>
-                <div class="cell-1-4 tab-cell-1-2"></div>
-                <div class="cell-1-4 tab-cell-1-2"></div>
+
 
             </div>
 
             <div class="c20"></div>
 
             <div class="flex_center">
-                <a href="{linkcat}" class="view-more-btn" style="border-radius: 0;font-family: 'Muli';">Xem thêm sản phẩm</a>
+                <a href="{linkcat}" class="view-more-btn" style="border-radius: 0;font-family: 'Muli';">Xem thêm sản
+                    phẩm</a>
 
             </div>
 
@@ -133,7 +137,7 @@
 <div class="c30"></div>
 
 
-<!-- END BLOCK : productCatList --> 
+<!-- END BLOCK : productCatList -->
 
 
 <!-- START BLOCK : productList -->
@@ -157,7 +161,7 @@
     },
     "description": "{cat_description}"
     }
-</script>	
+</script>
 <div class="c20"></div>
 <div class="grid">
 
@@ -185,7 +189,7 @@
 
         </div>
     </div>
-    <!-- end Giới thiệu đầu -->    
+    <!-- end Giới thiệu đầu -->
     {menutab}
     <div class="c30"></div>
     <div class="c20 hide-on-tab"></div>
@@ -196,26 +200,34 @@
             <div class="flex-container">
 
                 <!-- START BLOCK : product_item -->
-                <div class="cell-1-4 tab-cell-1-2">
+                <div class="cell-1-4 tab-cell-1-1">
                     <div class="product-item">
-                        <a href="{link_detail}">
-                            <div class="product-img">
+                        <div class="product-image">
+                            <a href="{link_detail}" class="">
                                 {image}
+                            </a>
+                        </div>
+                        <div class="c10"></div>
+                        <div class="productitem-box">
+                            <div class="product-name">
+                                <a href="{link_detail}" class="text-line-2">
+                                    {name}
+                                </a>
                             </div>
-                        </a>
-                        <div class="c5"></div>
-                        <a href="{link_detail}" class="product-name">
-                            <div class="text-line-2" style="height: 20px;">
-                                {name}
+                            <div class="c5"></div>
+                            <div class="c5"></div>
+                            <div class="pricekm">
+                                {pricekm}
                             </div>
-                        </a>
-                        <div class="c5"></div>
-                        <div>Hãng sx: {hangsx}</div>
-
-                        <div class="product-price">{price}</div>
+                            <div class="price">
+                                {price}
+                            </div>
+                            {discount-tags}
+                        </div>
                     </div>
+
                 </div>
-                <!-- END BLOCK : product_item -->               
+                <!-- END BLOCK : product_item -->
 
                 <div class="cell-1-4 tab-cell-1-2"> </div>
                 <div class="cell-1-4 tab-cell-1-2"> </div>
@@ -231,13 +243,13 @@
     </div>
 
     <div class="c5"></div>
-    {cat_content}    
+    {cat_content}
 
-    <!-- End các sản phẩm trong danh mục -->    
+    <!-- End các sản phẩm trong danh mục -->
 
 
 </div>
-<!-- END BLOCK : productList --> 
+<!-- END BLOCK : productList -->
 
 
 
@@ -380,7 +392,7 @@
 
 
 <!-- Sản phẩm  -->
-<div class="product-detail-wrapper" >
+<div class="product-detail-wrapper">
 
     <div class="grid">
 
@@ -406,27 +418,27 @@
                         <div style="position:relative;">
 
                             <div class="swiper-container gallery-thumbs gallery-thumbs-height">
-                                <div class="swiper-wrapper" >
-                                    {thumbimage} 
+                                <div class="swiper-wrapper">
+                                    {thumbimage}
                                 </div>
                             </div>
 
                         </div>
                     </div>
                     <div class="cell-5-6 tab-cell-1-1">
-                        <div >
+                        <div>
 
 
-                            <div class="swiper-container gallery-top"  style="border: 1px solid #d7d7d7;">
+                            <div class="swiper-container gallery-top" style="border: 1px solid #d7d7d7;">
                                 <div class="swiper-wrapper">
 
                                     <!-- START BLOCK : slider_image -->
                                     <div class="swiper-slide">
-                                        <a href="{bigimage}"  onclick="return hs.expand(this)" >
+                                        <a href="{bigimage}" onclick="return hs.expand(this)">
                                             {image}
                                         </a>
                                     </div>
-                                    <!-- END BLOCK : slider_image -->                                    
+                                    <!-- END BLOCK : slider_image -->
 
                                 </div>
                                 <div class="swiper-button-next swiper-button-black"></div>
@@ -457,7 +469,7 @@
                             swiper: swiper_thumbs,
                         },
                     });
-                </script>		                
+                </script>
 
 
 
@@ -465,24 +477,25 @@
                 <div class="c10 hide-on-pc hide-on-tab"></div>
             </div>
             <div class="cell-pro-right tab-cell-1-1 pad-cell-1-1">
-                <div style="position: relative;" >
+                <div style="position: relative;">
                     <h1 class="product-name-detail">{name}</h1>
                     <div class="c5"></div>
-                    <div  class="pro-detail-intro">
+                    <div class="pro-detail-intro">
                         <span style="font-family: 'Muli-B';">Mã sp:</span> {ma}
                     </div>
 
-                    <div  class="pro-detail-intro">
+                    <div class="pro-detail-intro">
                         <span style="font-family: 'Muli-B';">Hãng sx:</span> {hangsx}
                     </div>
 
-                    <div  class="pro-detail-intro">
+                    <div class="pro-detail-intro">
                         <span style="font-family: 'Muli-B';">Xuất sứ:</span> {xuatxu}
                     </div>
 
                     <!-- START BLOCK : attr -->
-                    <div class="attr-item"> 
-                        <div class="attr-name">{attrname}:</div> <div class="attr-value">{attrvalue}</div>
+                    <div class="attr-item">
+                        <div class="attr-name">{attrname}:</div>
+                        <div class="attr-value">{attrvalue}</div>
                     </div>
                     <!-- END BLOCK : attr -->
 
@@ -504,17 +517,18 @@
                     <div class="c20"></div>
 
 
-                    <a class="muangay-btn" href="tel:{hotline}" ><i class="fas fa-phone-alt"></i> Hotline: {hotline}</a>
-                    <a class="addcart-btn" href="/lien-he/" > Liên hệ mua hàng </a>
+                    <a class="muangay-btn" href="tel:{hotline}"><i class="fas fa-phone-alt"></i> Hotline: {hotline}</a>
+                    <a class="addcart-btn" href="/lien-he/"> Liên hệ mua hàng </a>
 
 
                     <div class="c10"></div>
                     <!-- START BLOCK : phienban -->
-                    <div class="price-color" data-kolor= "{tenphienban}"  data-price="{gianumber}" data-price-format="{giaphienban} VNĐ"" >{tenphienban}</div>
+                    <div class="price-color" data-kolor="{tenphienban}" data-price="{gianumber}"
+                        data-price-format="{giaphienban} VNĐ"" >{tenphienban}</div>
                     <!-- END BLOCK : phienban --> 
                     
                     <!--
-                    <input type="hidden" id ="link_to_cart" value="{linkcart}"/>
+                    <input type=" hidden" id="link_to_cart" value="{linkcart}" />
 
                     <script>
                         $(".price-color").click(function () {
@@ -558,22 +572,22 @@
     <div class="grid">
         <div class="c10"></div>
         <div class="tab-bar">
-            <a href="#" class="tab-title tab-active" data-tab-id ="tab1" >  Tính năng </a>
-            <a href="#" class="tab-title" data-tab-id ="tab2" >  Thông số kĩ thuật </a>
+            <a href="#" class="tab-title tab-active" data-tab-id="tab1"> Tính năng </a>
+            <a href="#" class="tab-title" data-tab-id="tab2"> Thông số kĩ thuật </a>
             <div class="c"></div>
         </div>
 
     </div>
 </div>
 <div class="grid">
-    <div class="tab-content" style="display:block;" id="content-tab1"> 
+    <div class="tab-content" style="display:block;" id="content-tab1">
         <div class="c20"></div>
         <div class="c10"></div>
         <div class="content-detail">
             {content}
         </div>
     </div>
-    <div class="tab-content" style="display:none;" id="content-tab2"> 
+    <div class="tab-content" style="display:none;" id="content-tab2">
         <div class="c20"></div>
         <div class="c10"></div>
         <div class="content-detail">
@@ -587,7 +601,7 @@
         $(this).addClass("tab-active");
         $(".tab-content").hide();
         $("#content-" + $(this).attr("data-tab-id")).fadeIn();
-        return  false;
+        return false;
     });
 
 </script>
@@ -725,7 +739,7 @@
                                     {intro}
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
 
                     </div>
                     <!-- END BLOCK : relate_project_item -->
@@ -768,7 +782,7 @@
                 </script>
                 <div class="c"></div>
             </div>
-        </div>        
+        </div>
 
 
     </div>
@@ -778,7 +792,7 @@
 <!-- end dự án -->
 
 
-<!-- END BLOCK : proDetail --> 
+<!-- END BLOCK : proDetail -->
 
 <div class="c20"></div>
 <!--
