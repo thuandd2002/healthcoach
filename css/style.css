@@ -654,7 +654,7 @@ header.header-fixed {
 }
 .menuleft .fa {
   font-size: 10px;
-  float: right;
+  margin-left: 5px;  
 }
 
 .menuleft ul {
@@ -675,7 +675,7 @@ header.header-fixed {
 }
 
 .menuleft li a:hover {
-  color: var(--subcolor);
+  color: var(--maincolor);
 }
 
 .menuleft li a {

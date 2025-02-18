@@ -69,7 +69,7 @@ class clsNews {
 
         $i = 0;
         foreach ($db as $rs) {
-
+         
             $i++;
 
             $tpl->newBlock("catItem");
@@ -105,9 +105,9 @@ class clsNews {
         $sql = "SELECT * FROM news WHERE active=1 AND hot=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_news DESC LIMIT 8"; //.;
 
         $db = $DBi->query($sql);
-
+        
         while ($rs = $DBi->fetch_array($db)) {
-
+          
             $tpl->newBlock("newsHotItem");
             if ($rs['image'])
                 $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(380, 220, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
@@ -125,7 +125,7 @@ class clsNews {
         $i = 0;
         $db = $objNews->newsList($idc, 20);
         foreach ($db as $rs) {
-
+           
             if (intval($rs['id_news'])) {
                 $i++;
                 $tpl->newBlock("newsItem");
@@ -152,7 +152,7 @@ class clsNews {
         $tpl->newBlock("itemDetail");
         $tpl->assign("link", $dir_path . '/' . $rs_cat['url']);
         $rs = $objNews->newsDetail($id);
-
+        
         if ($rs) {
             $tpl->assign(array(
                 name => $rs['name'],

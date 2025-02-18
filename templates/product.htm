@@ -36,7 +36,9 @@
             <div style="width:10%;"></div>
             <div class="cell-4-5 tab-cell-1-1">
 
-                <h1 class="homecat-title"><div class="hightlight" style="color: var(--maincolor);">{cat_title}</div></h1>
+                <h1 class="homecat-title">
+                    <div class="hightlight" style="color: var(--maincolor);">{cat_title}</div>
+                </h1>
                 <div class="c"></div>
                 <div class="c20"></div>
                 {cat_content}
@@ -53,84 +55,94 @@
 
 <!-- Danh mục sản phẩm 1 -->
 <div class="category-product-list">
+    <div class="grid">
+        <div class="flex-container">
+            <div class="cell-1-5">
+                {leftcol}
+            </div>
+            <div class="cell-4-5">
+                <!-- START BLOCK : catItem -->
+                <div class="category-product-wrapper">
+                    <div class="grid">
+                        <div class="flex-container category-product">
+                            <div class="cell-2-6 tab-cell-1-1">
+                                <a href="{linkcat}" title="{name}">{catimage}</a>
 
-    <!-- START BLOCK : catItem -->
-    <div class="category-product-wrapper">
-        <div class="grid">
-            <div class="flex-container category-product">
-                <div class="cell-2-6 tab-cell-1-1">
-                    <a href="{linkcat}" title="{name}">{catimage}</a>
+                            </div>
 
-                </div>
+                            <div class="cell-4-6 tab-cell-1-1">
+                                <div class="category-product-detail-odd">
+                                    <div class="c20"></div>
+                                    <div class="c30 hide-on-pad hide-on-tab"></div>
+                                    <h2 class="homecat-title">
+                                        <a href="{linkcat}">{catname} </a>
 
-                <div class="cell-4-6 tab-cell-1-1">
-                    <div class="category-product-detail-odd">
-                        <div class="c20"></div>
-                        <div class="c30 hide-on-pad hide-on-tab"></div>
-                        <h2 class="homecat-title">
-                            <a href="{linkcat}">{catname}</a>
-
-                        </h2>
-                        <div class="c15"></div>
-                        <div class="text-line-4 category-product-detail_intro">
-                            {catContentItem}
+                                    </h2>
+                                    <div class="c15"></div>
+                                    <div class="text-line-4 category-product-detail_intro">
+                                        {catContentItem}
+                                    </div>
+                                    <div class="c10"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="c10"></div>
+
+                        <div class="c50"></div>
+
+                        <div class="flex-container">
+
+                            <div class="flex-container">
+                                <!-- START BLOCK : catProductItem  -->
+                                <div class="cell-1-3 tab-cell-1-1">
+                                    <div class="product-item">
+                                        <div class="product-image">
+                                            <a href="{link_detail}" class="">
+                                                {image}
+                                            </a>
+                                        </div>
+                                        <div class="c10"></div>
+                                        <div class="productitem-box">
+                                            <div class="product-name">
+                                                <a href="{link_detail}" class="text-line-2">
+                                                    {name}
+                                                </a>
+                                            </div>
+                                            <div class="c5"></div>
+
+                                            <div class="c5"></div>
+                                            <div class="pricekm">
+                                                {pricekm}
+                                            </div>
+                                            <div class="price">
+                                                {price}
+                                            </div>
+                                            {discount-tags}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END BLOCK : catProductItem  -->
+                            </div>
+                            <div class="flex_center">
+                                <a href="{linkcat}" class="view-more-btn"
+                                    style="border-radius: 0;font-family: 'Muli';">Xem thêm
+                                    sản
+                                    phẩm</a>
+                            </div>
+
+
+                        </div>
+
+
                     </div>
                 </div>
+                <!-- END BLOCK : catItem -->
             </div>
-
-            <div class="c50"></div>
-            <div class="flex-container">
-
-                <!-- START BLOCK : catProductItem  -->
-                <div class="cell-1-4 tab-cell-1-1">
-                    <div class="product-item">
-                        <div class="product-image">
-                            <a href="{link_detail}" class="">
-                                {image}
-                            </a>
-                        </div>
-                        <div class="c10"></div>
-                        <div class="productitem-box">
-                            <div class="product-name">
-                                <a href="{link_detail}" class="text-line-2">
-                                    {name}
-                                </a>
-                            </div>
-                            <div class="c5"></div>
-
-                            <div class="c5"></div>
-                            <div class="pricekm">
-                                {pricekm}
-                            </div>
-                            <div class="price">
-                                {price}
-                            </div>
-                            {discount-tags}
-                        </div>
-                    </div>
-
-                </div>
-                <!-- END BLOCK : catProductItem  -->
-
-
-
-            </div>
-
-            <div class="c20"></div>
-
-            <div class="flex_center">
-                <a href="{linkcat}" class="view-more-btn" style="border-radius: 0;font-family: 'Muli';">Xem thêm sản
-                    phẩm</a>
-
-            </div>
-
-            <div class="c50"></div>
-
         </div>
     </div>
-    <!-- END BLOCK : catItem -->
+    
+
+
     <!-- End Danh mục sản phẩm 1 -->
 </div>
 <div class="c20 hide-on-pad hide-on-tab"></div>
@@ -164,11 +176,6 @@
 </script>
 <div class="c20"></div>
 <div class="grid">
-
-
-
-
-
     <!-- Giới thiệu đầu -->
     <div class="category-product-info">
         <div class="grid">
