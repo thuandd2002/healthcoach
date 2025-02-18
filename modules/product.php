@@ -30,12 +30,11 @@ if ($_GET['idcgr']) {
 }
 
 
-/*
 
-  include_once("modules/left_right_col.php");
-  $leftcol = left_right_col();
-  $tpl->assignGlobal("leftcol", $leftcol);
- */
+include_once("modules/left_right_col.php");
+$leftcol = left_right_col();
+$tpl->assignGlobal("leftcol", $leftcol);
+
 
 if ($id == 0)
     $tpl->assignGlobal("slideshow", slidechild());
@@ -63,12 +62,14 @@ $product = new clsProduct();
 $tags_news = $product->_construct();
 $tpl->printToScreen();
 
-class clsProduct {
+class clsProduct
+{
 
-    public function _construct() {
+    public function _construct()
+    {
         global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
 
-
+        // $tpl->assignGlobal("slideshow", slideshow());
         $tpl->assignGlobal("cat_title", $rs_cat['name']);
         $tpl->assignGlobal("cat_intro", '<div style="padding:10px 0px">' . $rs_cat['intro'] . '</div>');
         $tpl->assignGlobal("cat_content", '<div style="padding:10px 0px">' . $rs_cat['content'] . '</div>');
@@ -89,7 +90,7 @@ class clsProduct {
             $this->proDetail($id);
         } else {
 
-            if (Category::checkChildCat($idc) && ($rs_cat['id_category'] == $root_idc )) {
+            if (Category::checkChildCat($idc) && ($rs_cat['id_category'] == $root_idc)) {
 
                 $tpl->newBlock("productCatList");
                 $this->productCatList();
@@ -105,7 +106,8 @@ class clsProduct {
         }
     }
 
-    function productCatList() {
+    function productCatList()
+    {
         global $DBi, $tpl, $objProduct, $idc, $dir_path, $cache_image_path, $SETTING, $langLabel;
 
         $db1 = dbMenu::listSubCat($idc);
@@ -120,7 +122,7 @@ class clsProduct {
                 $tpl->assign("catimage", '<img src="' . $image . '" alt="' . $rs1['name'] . '" width="100%">');
             }
 
-            $db = $objProduct->itemList($rs1['id_category'], 4);
+            $db = $objProduct->itemList($rs1['id_category'], 3);
             $i = 0;
             foreach ($db as $rs) {
                 if ($rs['id_product'] > 0) {
@@ -152,7 +154,8 @@ class clsProduct {
         }
     }
 
-    public function productList() {
+    public function productList()
+    {
         global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
 
         /*
@@ -201,7 +204,8 @@ class clsProduct {
         $tpl->assignGlobal("pages", $db['pages']);
     }
 
-    function proDetail($id) {
+    function proDetail($id)
+    {
         global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path, $SETTING, $site_address;
         $rs = $objProduct->itemDetail($id);
 
@@ -256,8 +260,8 @@ class clsProduct {
                 $tpl->assign("gianumber", $value->gianumber);
             }
             */
-            
-            
+
+
             $this->sp_cungdanhmuc($rs['id_category']);
             $this->sp_lienquan($rs['spcungloai']);
 
@@ -271,10 +275,10 @@ class clsProduct {
               include_once("modules/comment.php");
               $tpl->assignGlobal("comments", getComments($id, 'product', 'id_product'));
              */
-			 
-			 
-			//unset($_COOKIE['viewed_product']);			
-			/*
+
+
+            //unset($_COOKIE['viewed_product']);			
+            /*
 			$product_viewed = array(0);
 			if(!isset($_COOKIE["viewed_product"])) {
 				$product_viewed[] = $id;
@@ -288,13 +292,13 @@ class clsProduct {
 				$list_id_viewed = $_COOKIE['viewed_product'];
 				$this->viewed_product($list_id_viewed);
 			}			 
-			*/ 
-			 
+			*/
         }
     }
-	
-	
-    private function viewed_product($listid) {
+
+
+    private function viewed_product($listid)
+    {
         global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
 
         if (strlen($listid) != "")
@@ -318,12 +322,12 @@ class clsProduct {
                     $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(360, 360, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" width="100%">');
 
                 $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
-				
             }
         }
-    }	
+    }
 
-    private function showManufactory($id_tacgia) {
+    private function showManufactory($id_tacgia)
+    {
         global $DBi, $tpl, $objProduct, $dir_path, $cache_image_path, $langLabel;
         $id_tacgia = intval($id_tacgia);
         $rs = $objProduct->getManufactureDetail($id_tacgia);
@@ -339,7 +343,8 @@ class clsProduct {
         }
     }
 
-    private function productManufactory($id_manufacture) {
+    private function productManufactory($id_manufacture)
+    {
         global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
         $id_manufacture = intval($id_manufacture);
 
@@ -369,7 +374,8 @@ class clsProduct {
         }
     }
 
-    private function relate_project($lstID) {
+    private function relate_project($lstID)
+    {
         global $DBi, $id, $tpl, $dir_path, $cache_image_path, $langLabel;
 
         if ($lstID != "")
@@ -390,7 +396,8 @@ class clsProduct {
         }
     }
 
-    private function sp_cungdanhmuc($id_category) {
+    private function sp_cungdanhmuc($id_category)
+    {
         global $DBi, $id, $tpl, $objProduct, $dir_path, $cache_image_path, $langLabel;
 
         $db = $objProduct->other_product($id, $id_category);
@@ -419,7 +426,8 @@ class clsProduct {
         }
     }
 
-    private function sp_lienquan($listid) {
+    private function sp_lienquan($listid)
+    {
         global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path;
 
         if (strlen($listid) != "")
@@ -451,16 +459,17 @@ class clsProduct {
         }
     }
 
-	private function sliderImage($image_list) {
+    private function sliderImage($image_list)
+    {
         global $DBi, $tpl, $dir_path, $cache_image_path;
 
         $images = json_decode($image_list);
-		
-		usort($images, function($a, $b) { 
-			return $a->image_thu_tu < $b->image_thu_tu ? -1 : 1; 
-		});
-		
-		
+
+        usort($images, function ($a, $b) {
+            return $a->image_thu_tu < $b->image_thu_tu ? -1 : 1;
+        });
+
+
         $thumbimage = '';
 
         foreach ($images as $rs) {
@@ -470,20 +479,17 @@ class clsProduct {
                 thu_tu => $rs->image_thu_tu,
                 image_desc => $rs->image_desc
             ));
-            
+
             $image_path = $dir_path . '/' . $rs->image_path;
             $image_path = str_replace("//", "/", $image_path);
             $image_path = str_replace("//", "/", $image_path);
-            
+
             $tpl->assign("image", '<img  src="' . $cache_image_path . resizeimage1(600, 600, $image_path) . '" alt="' . $rs->image_name . '" title="' . $rs->image_name . '" width="100%" />');
             $tpl->assign("bigimage", '<img  src="' . $image_path . '" alt="' . $rs->image_name . '" title="' . $rs->image_name . '" width="100%" />');
-            $tpl->assign("bigimage_url", $image_path );
+            $tpl->assign("bigimage_url", $image_path);
 
             $thumbimage .= '<div class="swiper-slide"><img src="' . $cache_image_path . cropimage(50 * 2, 50 * 2, $image_path) . '" width="100%"/> </div>';
         }
         return $thumbimage;
     }
-
 }
-
-?>

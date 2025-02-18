@@ -1,4 +1,3 @@
-
 {pathpage}
 <div class="c"></div>
 {slideshow}
@@ -10,16 +9,15 @@
     <div class="grid">
         <div class="flex-container">
 
-            <div class="cell-3-4 tab-cell-1-1">
-
-                <h2 class="catchild-title">
-                    {catname}
+            <div class="">
+                <h2 class="homecat-title">
+                    <div class="hightlight" style="color: var(--maincolor);"> {catname}</div>
                 </h2>
                 <div class="c3"></div>
                 {catintro}
                 <div class="c5"></div>
 
-                <div class="tocWrap">
+                <!-- <div class="tocWrap">
                     <div class="longPageTOC TOCShowHide">
                         Xem nhanh
                     </div>
@@ -27,21 +25,21 @@
                 </div>
                 <script>
                     $(function () {
-                        $(".tocContent").LongPageNavigation({longPageNavigationPosition: "longPageNavigation"});
+                        $(".tocContent").LongPageNavigation({ longPageNavigationPosition: "longPageNavigation" });
                         $(".TOCShowHide").click(function () {
                             $(this).toggleClass('collapsed');
                             $(".longPageNavigation").slideToggle();
                         });
                     });
 
-                </script>				
+                </script>
 
                 <div class="tocContent">
                     {catcontent}
-                </div>
+                </div> -->
 
 
-                <div class="newshot-wrapper {d-none}">
+                <div class="newshot-wrapper ">
                     <div class="flex-container">
                         <div class="cell-2-3 tab-cell-1-1">
                             <!-- START BLOCK : newsHotBig -->
@@ -66,6 +64,7 @@
                             <!-- END BLOCK : newsHotBig -->
 
                         </div>
+
                         <div class="cell-1-3 tab-cell-1-1">
                             <h3 class="newswrap-title hide-on-pad hide-on-tab">Bài viết nổi bật</h3>
                             <ul class="newshot-list">
@@ -73,30 +72,32 @@
                                 <li>
                                     <a href="{link_detail}">
                                         <label for="">{j}</label>
-                                        <span class="text-line-2">{name}</span>
+                                        <h2 class="text-line-2">{name}</h2>
                                     </a>
                                 </li>
                                 <!-- END BLOCK : newsHotItem -->
 
                             </ul>
                         </div>
+
                     </div>
                 </div>
 
+                <!-- list new item -->
 
                 <div class="newslist-wrapper">
                     <div class="c20"></div>
-                    <ul class="newslist">
-                        <!-- START BLOCK : newsItem -->
-                        <li>
-                            <div class="flex-container">
-                                <div class="cell-4-12 tab-cell-1-1">
+                    <div class="newslist">
+                        <div class="flex-container">
+                            <!-- START BLOCK : newsItem -->
+                            <div class="cell-1-3 tab-cell-1-1">
+                                <div class="newsItems">
                                     <a href="{link_detail}" class="newsimg">
                                         {image}
                                     </a>
-                                </div>
-                                <div class="cell-8-12 tab-cell-1-1">
-                                    <h3  class="newsname text-line-3 m-text-line-2">
+
+
+                                    <h3 class="newsname text-line-3 m-text-line-2">
                                         <a href="{link_detail}">
                                             {name}
                                         </a>
@@ -109,16 +110,19 @@
                                         <span>{createdate}</span>
                                     </div>
 
-                                    <div class="newscat-intro text-line-4 m-text-line-3">
+                                    <div class="newscat-intro text-line-2 m-text-line-3">
                                         {intro}
                                     </div>
+
                                 </div>
                             </div>
 
-                        </li>
-                        <!-- END BLOCK : newsItem -->
+                            <!-- END BLOCK : newsItem -->
 
-                    </ul>
+                        </div>
+
+
+                    </div>
 
                     <div class="flex_center">
                         {pages}
@@ -129,9 +133,9 @@
 
             </div>
 
-            <div class="cell-1-4 tab-cell-1-1">
+            <!-- <div class="cell-1-4 tab-cell-1-1">
                 {leftcol}
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -175,7 +179,7 @@
                     </div>
                     <script>
                         $(function () {
-                            $(".tocContent").LongPageNavigation({longPageNavigationPosition: "longPageNavigation"});
+                            $(".tocContent").LongPageNavigation({ longPageNavigationPosition: "longPageNavigation" });
                             $(".TOCShowHide").click(function () {
                                 $(this).toggleClass('collapsed');
                                 $(".longPageNavigation").slideToggle();
@@ -192,18 +196,20 @@
 
                     <div class="sharethis-inline-share-buttons"></div>
 
-					<!--
+                    <!--
 					<meta property="fb:admins" content="100000441129325"/>
 					-->
-					<div class="c20"></div>
-					<div id="fb-root"></div>
-					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="PpCC7XAT"></script>
-					<div class="fb-like" data-href="{link_detail}" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
+                    <div class="c20"></div>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous"
+                        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="PpCC7XAT"></script>
+                    <div class="fb-like" data-href="{link_detail}" data-width="" data-layout="button" data-action="like"
+                        data-size="small" data-share="true"></div>
 
-					<div class="c30"> </div>
-					<div class="fb-comments" data-href="{link_detail}" data-width="800" data-numposts="8"></div>										
-					<div class="c30"> </div>
-					
+                    <div class="c30"> </div>
+                    <div class="fb-comments" data-href="{link_detail}" data-width="800" data-numposts="8"></div>
+                    <div class="c30"> </div>
+
 
                 </div>
 

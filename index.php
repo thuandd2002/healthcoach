@@ -135,6 +135,7 @@ if ($CONFIG['active_site'] == 1) {
         }
         */
     $mobile_temp = "";
+    /* 
     if ($_GET['mobile'] == "Y")
         $_SESSION['mobile'] = 1;
 
@@ -152,6 +153,14 @@ if ($CONFIG['active_site'] == 1) {
             $_SESSION['mobile'] = 1;
         }
     }
+    */
+
+    require_once 'Mobile_Detect.php';
+    $detect = new Mobile_Detect;
+    if ($detect->isMobile()) {
+        $mobile_temp = "_mobile";
+        $_SESSION['mobile'] = 1;
+    }    
 
     if ($page1 == '' || $page1 == null)
         $page1 = 'home';

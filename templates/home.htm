@@ -304,6 +304,25 @@
                         nextEl: ".homeslide-next-solution", // Thêm dấu chấm
                         prevEl: ".homeslide-prev-solution",
                     },
+                    breakpoints: {
+                        // when window width is >= 320px
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        // when window width is >= 480px
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                        },
+                        // when window width is >= 640px
+                        1040: {
+                            slidesPerView: 5,
+                            spaceBetween: 20,
+                        },
+
+                    }
+
                 });
 
                 $('.slider-homesolution').hover(
@@ -325,7 +344,7 @@
     <div class="grid">
         <!-- START BLOCK : info_leaderHome -->
         <div class="homecat-title">
-            {catname} <div class="hightligt" style="color: var(--maincolor);">{subname}</div>
+            {catname} <div class="hightlight" style="color: var(--maincolor);">{subname}</div>
         </div>
         <div class="swiper slider-homespecialist" style="position: relative;">
             <div class="swiper-wrapper">
@@ -362,6 +381,23 @@
                     nextEl: ".homespecialist-next", // Thêm dấu chấm
                     prevEl: ".homespecialist-prev",
                 },
+                breakpoints: {
+                        // when window width is >= 320px
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        // when window width is >= 480px
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                        },
+                     
+                       
+
+                    }
+
+
             });
             $('.slider-homespecialist').hover(
                 function () { homespecialist.autoplay.stop(); },
@@ -386,7 +422,32 @@
                         <div class="c20"></div>
                         <b>Office Hours: 07:30 - 19:00 Mon to Sat, Sun - Holiday</b>
                         <div class="c30"></div>
-                        <form action="#">
+                        <form action="/index4.php?page=contact&amp;lang=" method="post" class="frmSubmit" id="regform"
+                            data-alert="Bạn cần nhập đủ thông tin vào những trường màu đỏ"
+                            data-captcha="Mã captcha không đúng"
+                            data-success="Thông tin liên hệ đã được gửi thành công !" data-redirect="/contact-success/">
+                            <input type="hidden" name="code" value="save">
+
+                            <div class="form_booking">
+                                <div class="c10"></div>
+                                <input name="yourname" type="text" class="txt-contact notNull" placeholder="Họ tên*">
+                                <input name="phone" type="text" class="txt-contact notNull" placeholder="Điện thoại*">
+                                <input name="email" type="text" class="txt-contact" placeholder="Email">
+                                <select>
+                                    <option>Service Required</option>
+                                    <option>Consultation</option>
+                                    <option>Check-up</option>
+                                    <option>Nutrition Advice</option>
+                                </select>
+                                <input name="address" type="text" class="txt-contact" placeholder="Address">
+                                <input name="other_request" type="text" class="txt-contact" placeholder="Content">
+                                <div class="c30"></div>
+                                <a href="" class="btn" onclick="$('#regform').submit()">Book now</a>
+
+                            </div>
+
+                        </form>
+                        <!-- <form action="">
                             <input type="text" placeholder="Enter Your Name">
                             <input type="text" placeholder="Phone Number">
                             <select>
@@ -398,7 +459,7 @@
                             <input placeholder="Your Message"></input>
                             <div class="c30"></div>
                             <a href="" class="btn">Book now</a>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>

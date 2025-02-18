@@ -42,8 +42,6 @@
     <script src="/js/script.js"></script>
 
 
-
-
     {toppage}
 
     {header_tag}
@@ -97,29 +95,39 @@
                     <div class="cell-4-5 tab-cell-1-1">
                         <div class="menubar">
                             {menubar}
-                            <div class="icon-search">
-                                <i class="fa fa-search search-icon" aria-hidden="true"></i>
-
-                                <div class="search-pc" style="display: none;">
-                                    <form action="/search/" method="get" id="searchformtab">
-                                        <input name="qr" class="kw" placeholder="Tìm kiếm " type="text">
-                                        <a href="#" class="submit-search-pc" onClick="$('#searchformtab').submit();
-                                                return false;"> <i class="fa fa-search" aria-hidden="true"></i> </a>
-
-                                        <a href="#" class="closeX" onClick="$('.search-pc').hide();
-                                                return false;">x</a>
-                                    </form>
+                            <div class="search">
+                                <div class="frm-search">
+                                  <i class="fa fa-search" aria-hidden="true"></i> 
                                 </div>
-
-                                <script type="text/javascript">
-                                    $(document).ready(function () {
-                                        $(".search-icon").click(function () {
-                                            $(".search-pc").stop().slideToggle("fast");
-                                            return false;
-                                        });
+                                <div class="searchpc">        
+                                  <form action="/search/" method="get" id="searchformtab">
+                                    <input name="qr" id="qr_search" class="kw-mobile" placeholder="Search" type="text">
+                                         
+                                    <a href="#" class="submit-search-pc" onclick="$('#searchformtab').submit();return false;"> 
+                                      <i class="fa fa-search search-icon" aria-hidden="true"></i> 
+                                      </a>
+                                      <a href="#" class="closeX" onclick="$('.searchpc').hide(); return false;">✕</a> 
+                                  </form>
+                                  
+                                  <script type="text/javascript">
+                    
+                                    $(".submit-search-pc").click(function () {
+                                      if ($("#qr_search").val() != "")
+                                        $('#searchformtab').submit();
+                                      return false;
+                    
                                     });
-                                </script>
-                            </div>
+                    
+                                    $(document).ready(function () {
+                                      $(".frm-search").click(function () {
+                                        $(".searchpc").stop().slideToggle("fast");
+                                        return false;
+                                      });
+                                      
+                                    });
+                                  </script>  	
+                                </div>
+                              </div>
                             <div class="hotline hide-on-tab">
                                 <i style="color: yellow;" class="fa-solid fa-phone"></i>
                                {hotline}
