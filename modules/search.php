@@ -58,8 +58,6 @@ else
 if (count($db) <= 0)
     $tpl->newBlock("no_result");
 
-
-
 foreach ($db as $rs) {
     if (intval($rs['id_search'])>0){
         

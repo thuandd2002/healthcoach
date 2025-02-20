@@ -122,7 +122,7 @@ class clsProduct
                 $tpl->assign("catimage", '<img src="' . $image . '" alt="' . $rs1['name'] . '" width="100%">');
             }
 
-            $db = $objProduct->itemList($rs1['id_category'], 3);
+            $db = $objProduct->itemList($rs1['id_category'], 4);
             $i = 0;
             foreach ($db as $rs) {
                 if ($rs['id_product'] > 0) {

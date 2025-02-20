@@ -34,9 +34,9 @@
     <div class="grid">
         <div class="">
             <div style="width:10%;"></div>
-            <div class="cell-4-5 tab-cell-1-1">
+            <div class="cell-1-1 tab-cell-1-1">
 
-                <h1 class="homecat-title">
+                <h1 class="homecat-title text-center">
                     <div class="hightlight" style="color: var(--maincolor);">{cat_title}</div>
                 </h1>
                 <div class="c"></div>
@@ -57,31 +57,31 @@
 <div class="category-product-list">
     <div class="grid">
         <div class="flex-container">
-            <div class="cell-1-5">
+            <!-- <div class="cell-1-5">
                 {leftcol}
-            </div>
-            <div class="cell-4-5">
+            </div> -->
+            <div class="cell-1-1">
                 <!-- START BLOCK : catItem -->
                 <div class="category-product-wrapper">
                     <div class="grid">
                         <div class="flex-container category-product">
-                            <div class="cell-2-6 tab-cell-1-1">
+                            <!-- <div class="cell-2-6 tab-cell-1-1">
                                 <a href="{linkcat}" title="{name}">{catimage}</a>
 
-                            </div>
+                            </div> -->
 
                             <div class="cell-4-6 tab-cell-1-1">
                                 <div class="category-product-detail-odd">
                                     <div class="c20"></div>
                                     <div class="c30 hide-on-pad hide-on-tab"></div>
                                     <h2 class="homecat-title">
-                                        <a href="{linkcat}">{catname} </a>
+                                        <a href="{linkcat}">{catname}  </a>
 
                                     </h2>
-                                    <div class="c15"></div>
+                                    <!-- <div class="c15"></div>
                                     <div class="text-line-4 category-product-detail_intro">
                                         {catContentItem}
-                                    </div>
+                                    </div> -->
                                     <div class="c10"></div>
                                 </div>
                             </div>
@@ -89,11 +89,11 @@
 
                         <div class="c50"></div>
 
-                        <div class="flex-container">
+                        <div class="flex-container text-center">
 
                             <div class="flex-container">
                                 <!-- START BLOCK : catProductItem  -->
-                                <div class="cell-1-3 tab-cell-1-1">
+                                <div class="cell-1-4 tab-cell-1-1">
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="{link_detail}" class="">
@@ -123,14 +123,11 @@
                                 </div>
                                 <!-- END BLOCK : catProductItem  -->
                             </div>
-                            <div class="flex_center">
-                                <a href="{linkcat}" class="view-more-btn"
-                                    style="border-radius: 0;font-family: 'Muli';">Xem thêm
-                                    sản
-                                    phẩm</a>
-                            </div>
 
-
+                            <a href="{linkcat}" class="view-more-btn" style="border-radius: 0; float: right;">Xem thêm
+                                sản
+                                phẩm
+                            </a>
                         </div>
 
 
@@ -140,7 +137,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
     <!-- End Danh mục sản phẩm 1 -->
@@ -402,15 +399,10 @@
 <div class="product-detail-wrapper">
 
     <div class="grid">
-
-
         <div class="c20"></div>
         <div class="c20 hide-on-tab"></div>
-
-
-        <div class="flex-container flex-space-between">
+        <div class="flex-container flex-space-between ">
             <div class="cell-pro-left tab-cell-1-1 pad-cell-1-1">
-
                 <div class="flex-container flex-space-between">
                     <div class="cell-1-6 hide-on-tab">
                         <!--
@@ -424,7 +416,7 @@
                         -->
                         <div style="position:relative;">
 
-                            <div class="swiper-container gallery-thumbs gallery-thumbs-height">
+                            <div class="swiper gallery-thumbs gallery-thumbs-height">
                                 <div class="swiper-wrapper">
                                     {thumbimage}
                                 </div>
@@ -432,18 +424,19 @@
 
                         </div>
                     </div>
+
                     <div class="cell-5-6 tab-cell-1-1">
                         <div>
 
 
-                            <div class="swiper-container gallery-top" style="border: 1px solid #d7d7d7;">
+                            <div class="swiper gallery-top" style="border: 1px solid #d7d7d7;">
                                 <div class="swiper-wrapper">
 
                                     <!-- START BLOCK : slider_image -->
                                     <div class="swiper-slide">
-                                        <a href="{bigimage}" onclick="return hs.expand(this)">
-                                            {image}
-                                        </a>
+
+                                        {image}
+
                                     </div>
                                     <!-- END BLOCK : slider_image -->
 
@@ -455,7 +448,6 @@
                     </div>
                 </div>
                 <div class="c10"></div>
-
                 <script>
                     var swiper_thumbs = new Swiper(".gallery-thumbs", {
                         loop: false,
@@ -477,9 +469,6 @@
                         },
                     });
                 </script>
-
-
-
                 <div class="c10"></div>
                 <div class="c10 hide-on-pc hide-on-tab"></div>
             </div>
@@ -514,27 +503,36 @@
                     <div class="c20"></div>
                     <div class="flex-container">
 
-                        <div class="price-detail" id="pricekm"> {pricekm}</div> <span>{price}</span>
+                        <div class="price-detail" id="pricekm">
+
+                            <b style="color: green;"> Giá NY: {price}
+                            </b>
+
+                        </div>
+
+                        <b style="color: red;">Giá KM {pricekm}
+                        </b>
 
                         <a href="{fileurl}" class="download-btn-product" download="">
                             <i class="fas fa-download" style="color: #818181;"></i>
                             Download file
                         </a>
+
                     </div>
-                    <div class="c20"></div>
 
+                </div>
+                <div class="c20"></div>
+                <a class="btn-buy-green" href="/lien-he/">Thêm vào giỏ hàng <i class="fa-solid fa-cart-plus"></i></a>
+                <br>
+                <div class="c30"></div>
+                <a class="btn-buy" href="tel:{hotline}">Mua ngay <i class="fas fa-phone-alt"></i> : {hotline}</a>
+                <div class="c10"></div>
+                <!-- START BLOCK : phienban -->
+                <div class="price-color" data-kolor="{tenphienban}" data-price="{gianumber}"
+                    data-price-format="{giaphienban} VNĐ">{tenphienban}</div>
+                <!-- END BLOCK : phienban -->
 
-                    <a class="muangay-btn" href="tel:{hotline}"><i class="fas fa-phone-alt"></i> Hotline: {hotline}</a>
-                    <a class="addcart-btn" href="/lien-he/"> Liên hệ mua hàng </a>
-
-
-                    <div class="c10"></div>
-                    <!-- START BLOCK : phienban -->
-                    <div class="price-color" data-kolor="{tenphienban}" data-price="{gianumber}"
-                        data-price-format="{giaphienban} VNĐ"" >{tenphienban}</div>
-                    <!-- END BLOCK : phienban --> 
-                    
-                    <!--
+                <!--
                     <input type=" hidden" id="link_to_cart" value="{linkcart}" />
 
                     <script>
@@ -559,18 +557,17 @@
                     </script>
                     -->
 
-                    <div class="c20 hide-on-tab"></div>
+                <div class="c20 hide-on-tab"></div>
 
-                    <div class="sharethis-inline-share-buttons"></div>
-                    <div class="c20  hide-on-tab"></div>
+                <div class="sharethis-inline-share-buttons"></div>
+                <div class="c20  hide-on-tab"></div>
 
 
-                </div>
             </div>
         </div>
-        <div class="c20"></div>
     </div>
-
+    <div class="c20"></div>
+</div>
 </div>
 <!-- End Sản phẩm -->
 <div class="c20 hide-on-pad hide-on-tab"></div>
@@ -626,80 +623,82 @@
         <h2 class="product-other-title">{_product_categories}</h2>
         <div class="c20 hide-on-pad hide-on-tab"></div>
         <div class="c10"></div>
-        <!-- slide sản phẩm -->
-        <div class="flex-container" style="position: relative;">
-            <div class="btn-next productother-next flex_center hide-on-tab hide-on-pad" style="top: 40%;">
-                <img src="/images/icon-next.png" alt="">
+        <!-- Slide sản phẩm -->
+        <div class="product-slider-container" style="position: relative;">
+            <div class="btn-prev productother-prev flex_center hide-on-tab hide-on-pad"
+                style="top: 50%; transform: translateY(-50%);">
+                <img src="/images/icon-prev.png" alt="Prev">
             </div>
-            <div class="btn-prev productother-prev flex_center hide-on-tab hide-on-pad" style="top: 40%;">
-                <img src="/images/icon-prev.png" alt="">
-            </div>
-            <div class="swiper-container" id="productother" style="position: relative;">
-
+            <div class="swiper" id="productother">
                 <div class="swiper-wrapper">
                     <!-- START BLOCK : other_products -->
                     <div class="swiper-slide">
-                        <div class="productother-slide">
-                            <a href="{link_detail}">
-                                <div class="product-img">
-                                    {image}
-                                </div>
+                        <div class="product-item">
+                            <a href="#" class="img-shine">
+                                {image}
                             </a>
-                            <div class="c5"></div>
-                            <a href="{link_detail}" class="product-name">
-                                <div class="text-line-2" style="height: 40px;">
+                            <div class="product-name">
+                                <a href="#" class="text-line-2">
                                     {name}
-                                </div>
-                            </a>
-                            <div class="c5"></div>
-                            <div>Hãng sx: {hangsx}</div>
+                                </a>
+                            </div>
 
-                            <div class="product-price">{price}</div>
+                            <div class="pricekm">
+                                {pricekm}
+                            </div>
+                            <div class="price">
+                                {price}
+                            </div>
+                            <div class="discount">28%</div>
+                            <div class="btn-buy">Mua ngay</div>
                         </div>
                     </div>
                     <!-- END BLOCK : other_products -->
-
                 </div>
-                <div class="c"></div>
-                <script>
-                    $(function () {
-                        var swiper_productother = new Swiper('#productother', {
-                            slidesPerView: 4,
-                            autoplay: {
-                                delay: 2000,
-                                disableOnInteraction: false,
-                            },
-                            spaceBetween: 26,
-                            navigation: {
-                                nextEl: '.productother-next',
-                                prevEl: '.productother-prev',
-                            },
-                            speed: 400,
-                            loop: true,
-                            breakpoints: {
-                                739: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 30
-                                },
-                                1023: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 10
-                                }
-                            }
-                        });
-                        $('#productother').on('mouseover', function () {
-                            swiper_productother.autoplay.stop();
-                        });
-                        $('#productother').on('mouseout', function () {
-                            swiper_productother.autoplay.start();
-                        });
-                    });
-                </script>
-                <div class="c"></div>
+            </div>
+            <div class="btn-next productother-next flex_center hide-on-tab hide-on-pad"
+                style="top: 50%; transform: translateY(-50%);">
+                <img src="/images/icon-next.png" alt="Next">
             </div>
         </div>
 
-        <!-- end slide sản phẩm -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var swiper = new Swiper('#productother', {
+                    slidesPerView: 4,
+                    spaceBetween: 26,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.productother-next',
+                        prevEl: '.productother-prev',
+                    },
+                    speed: 400,
+                    loop: true,
+                    breakpoints: {
+                        739: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        1023: {
+                            slidesPerView: 3,
+                            spaceBetween: 10
+                        }
+                    }
+                });
+
+                var sliderContainer = document.getElementById("productother");
+                sliderContainer.addEventListener("mouseover", function () {
+                    swiper.autoplay.stop();
+                });
+                sliderContainer.addEventListener("mouseout", function () {
+                    swiper.autoplay.start();
+                });
+            });
+        </script>
+        <!-- End slide sản phẩm -->
     </div>
     <div class="c30 hide-on-tab"></div>
     <div class="c30"></div>
@@ -725,7 +724,7 @@
             <div class="btn-prev relate_project-prev flex_center hide-on-tab hide-on-pad" style="top: 40%;">
                 <img src="/images/icon-prev.png" alt="">
             </div>
-            <div class="swiper-container" id="relate_project" style="position: relative;">
+            <div class="swiper" id="relate_project" style="position: relative;">
 
                 <div class="swiper-wrapper">
                     <!-- START BLOCK : relate_project_item -->

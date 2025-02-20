@@ -1373,6 +1373,20 @@ a.close:hover {
   border: none;
 }
 
+.btn-buy-green, .view-more-btn {
+  display: inline-block;
+  padding: 6px 12px; /* Giảm padding cho nhỏ hơn */
+  background: var(--maincolor);
+  color: white;
+  font-size: 14px; /* Nhỏ hơn */
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  border: none;
+}
+
 .btn-buy:hover {
   background: #e64a00; /* Tối màu khi hover */
 }
@@ -2169,4 +2183,9 @@ footer {
 }
 .newslist{
   list-style: none;
+}
+h3.newswrap-title {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 25px 0px;
 }
