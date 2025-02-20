@@ -45,9 +45,11 @@ $objNews = new dbNews();
 
 $news = new clsNews();
 
-class clsNews {
+class clsNews
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         global $DBi, $tpl, $dir_path, $idc, $id, $cache_image_path, $rs_cat, $root_idc;
 
         if (!$id) {
@@ -60,7 +62,8 @@ class clsNews {
         }
     }
 
-    public function catList() {
+    public function catList()
+    {
 
         global $DBi, $tpl, $cache_image_path, $objNews, $dir_path, $idc, $SETTING, $rs_cat;
 
@@ -69,7 +72,7 @@ class clsNews {
 
         $i = 0;
         foreach ($db as $rs) {
-         
+
             $i++;
 
             $tpl->newBlock("catItem");
@@ -97,7 +100,8 @@ class clsNews {
         }
     }
 
-    public function itemSlide() {
+    public function itemSlide()
+    {
         global $DBi, $tpl, $cache_image_path, $objNews, $dir_path, $idc, $SETTING, $rs_cat, $template_name;
 
         $tpl->newBlock("newsHot");
@@ -105,27 +109,33 @@ class clsNews {
         $sql = "SELECT * FROM news WHERE active=1 AND hot=1 AND (id_category IN(" . Category::getParentId($idc) . ") OR groupcat LIKE '%:" . $idc . ":%') ORDER BY thu_tu DESC, id_news DESC LIMIT 8"; //.;
 
         $db = $DBi->query($sql);
-        
+        $i = 0;
         while ($rs = $DBi->fetch_array($db)) {
-          
-            $tpl->newBlock("newsHotItem");
-            if ($rs['image'])
-                $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(380, 220, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
-
+            $i++;
+            if ($i == 1) {
+                $tpl->newBlock("newsHotBig");
+                if ($rs['image'])
+                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 180, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
+            } else {
+                $tpl->newBlock("newsHotItem");
+                if ($rs['image'])
+                    $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(300, 180, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
+            }
             $tpl->assign("createdate", date('d/m/Y', $rs['ngay_dang']));
+            $tpl->assign("intro", strstrim(strip_tags($rs['intro']), 20));
             $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", strip_tags($rs['intro']));
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
         }
     }
 
-    public function itemList() {
+    public function itemList()
+    {
         global $DBi, $tpl, $cache_image_path, $objNews, $dir_path, $idc, $SETTING, $rs_cat, $template_name;
         $tpl->newBlock("itemList");
         $i = 0;
         $db = $objNews->newsList($idc, 20);
         foreach ($db as $rs) {
-           
+
             if (intval($rs['id_news'])) {
                 $i++;
                 $tpl->newBlock("newsItem");
@@ -146,13 +156,14 @@ class clsNews {
         $tpl->assignGlobal("pages", $db['pages']);
     }
 
-    public function itemDetail() {
+    public function itemDetail()
+    {
         global $DBi, $objNews, $id, $idc, $tpl, $dir_path, $cache_image_path, $site_address, $rs_cat;
 
         $tpl->newBlock("itemDetail");
         $tpl->assign("link", $dir_path . '/' . $rs_cat['url']);
         $rs = $objNews->newsDetail($id);
-        
+
         if ($rs) {
             $tpl->assign(array(
                 name => $rs['name'],
@@ -165,7 +176,7 @@ class clsNews {
 
             $tpl->assign("link_detail", $site_address . "/" . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
             if ($rs['image'])
-                $tpl->assign("image", $cache_image_path . cropimage(600, 400, $dir_path . '/' . $rs['image']));
+                $tpl->assign("image", '<img  src="' . $cache_image_path . cropimage(380, 240, $dir_path . '/' . $rs['image']) . '" alt="' . $rs['name'] . '" class="image-news" width="100%"/>');
             if ($rs['description'])
                 $tpl->assign("description", strip_tags($rs['description']));
             else
@@ -208,11 +219,7 @@ class clsNews {
                 }
             }
         }
-		
-		
     }
-
 }
 
 $tpl->printToScreen();
-?>

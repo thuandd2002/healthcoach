@@ -2,22 +2,22 @@
 <div class="c"></div>
 {slideshow}
 
-<!-- START BLOCK : itemList -->
+
 
 
 <div class="news-container">
     <div class="grid">
-        <div class="flex-container">
 
-            <div class="">
-                <h2 class="homecat-title">
-                    <div class="hightlight" style="color: var(--maincolor);"> {catname}</div>
-                </h2>
-                <div class="c3"></div>
-                {catintro}
-                <div class="c5"></div>
 
-                <!-- <div class="tocWrap">
+        <div class="cell-1-1">
+            <h2 class="homecat-title">
+                <div class="hightlight" style="color: var(--maincolor);"> {catname}</div>
+            </h2>
+            <div class="c3"></div>
+            {catintro}
+            <div class="c5"></div>
+
+            <!-- <div class="tocWrap">
                     <div class="longPageTOC TOCShowHide">
                         Xem nhanh
                     </div>
@@ -36,55 +36,56 @@
 
                 <div class="tocContent">
                     {catcontent}
-                </div> -->
+          s      </div> -->
 
+            <div class="newshot-wrapper ">
 
-                <div class="newshot-wrapper ">
-                    <div class="flex-container">
-                        <div class="cell-2-3 tab-cell-1-1">
-                            <!-- START BLOCK : newsHotBig -->
-                            <div class="newshot-big">
-                                <a href="{link_detail}">
-                                    {image}
+                <div class="flex-container">
+                    <div class="cell-2-3 tab-cell-1-1">
+                        <!-- START BLOCK : newsHotBig -->
+                         <div class="c30"></div>
+                        <div class="newshot-big">
+                            <a href="{link_detail}">
+                                {image}
+                            </a>
+                            <a href="{link_detail}" class="newshot-big--name text-line-2">
+                              <h2>  {name}</h2>
+                            </a>
+
+                            <div class="newscat-info">
+                                <a href="{catItemLink}" class="newshot-cat">
+                                    {catItemName}
+
                                 </a>
-                                <a href="{link_detail}" class="newshot-big--name text-line-2">
-                                    {name}
-                                </a>
 
-                                <div class="newscat-info">
-                                    <a href="{catItemLink}" class="newshot-cat">
-                                        {catItemName}
-
-                                    </a>
-
-                                    <span>{createdate}</span>
-                                </div>
+                                <span>{createdate}</span>
                             </div>
-
-                            <!-- END BLOCK : newsHotBig -->
-
                         </div>
 
-                        <div class="cell-1-3 tab-cell-1-1">
-                            <h3 class="newswrap-title hide-on-pad hide-on-tab">Bài viết nổi bật</h3>
-                            <ul class="newshot-list">
-                                <!-- START BLOCK : newsHotItem -->
-                                <li>
-                                    <a href="{link_detail}">
-                                        <label for="">{j}</label>
-                                        <h2 class="text-line-2">{name}</h2>
-                                    </a>
-                                </li>
-                                <!-- END BLOCK : newsHotItem -->
-
-                            </ul>
-                        </div>
+                        <!-- END BLOCK : newsHotBig -->
 
                     </div>
+
+                    <div class="cell-1-3 tab-cell-1-1">
+                        <h3 class="newswrap-title hide-on-pad hide-on-tab">Bài viết nổi bật</h3>
+                        <ul class="newshot-list">
+                            <!-- START BLOCK : newsHotItem -->
+                            <li>
+                                <a href="{link_detail}">
+                                    {image}
+                                    <div class="c10"></div>
+                                  <a class="text-line-2">{name}</a>                        
+                                </a>
+                            </li>
+                            <!-- END BLOCK : newsHotItem -->
+
+                        </ul>
+                    </div>
+
                 </div>
-
+                <div class="c30"></div>
                 <!-- list new item -->
-
+                <!-- START BLOCK : itemList -->
                 <div class="newslist-wrapper">
                     <div class="c20"></div>
                     <div class="newslist">
@@ -96,7 +97,6 @@
                                         {image}
                                     </a>
 
-
                                     <h3 class="newsname text-line-3 m-text-line-2">
                                         <a href="{link_detail}">
                                             {name}
@@ -106,7 +106,6 @@
                                         <a href="{catItemLink}" class="newshot-cat">
                                             {catItemName}
                                         </a>
-
                                         <span>{createdate}</span>
                                     </div>
 
@@ -137,41 +136,33 @@
                 {leftcol}
             </div> -->
         </div>
+
     </div>
-</div>
 
 
-<!-- END BLOCK : itemList -->
+    <!-- END BLOCK : itemList -->
 
+    <!-- Tin tức  detail-->
 
+    <!-- START BLOCK : itemDetail  -->
 
+    <div class="news-container">
+        <div class="grid">
+            <div class="flex-container flex-reverse--mb">
+                <div class="cell-1-4-sp tab-cell-1-1">
+                    {leftcol}
+                </div>
+                <div class="cell-3-4 tab-cell-1-1">
+                    <div class="newsdetail">
 
+                        <h1 class="newsdetail-name">
+                            {name}
+                        </h1>
+                        <div class="newsdetail-intro">
+                            {intro}
+                        </div>
 
-
-
-<!-- START BLOCK : itemDetail  -->
-
-
-
-<!-- Tin tức -->
-
-
-<div class="news-container">
-    <div class="grid">
-        <div class="flex-container flex-reverse--mb">
-            <div class="cell-1-4-sp tab-cell-1-1">
-                {leftcol}
-            </div>
-            <div class="cell-3-4 tab-cell-1-1">
-                <div class="newsdetail">
-                    <h1 class="newsdetail-name">
-                        {name}
-                    </h1>
-                    <div class="newsdetail-intro">
-                        {intro}
-                    </div>
-
-                    <div class="tocWrap">
+                        <!-- <div class="tocWrap">
                         <div class="longPageTOC TOCShowHide">
                             Xem nhanh
                         </div>
@@ -186,72 +177,66 @@
                             });
                         });
 
-                    </script>
+                    </script> -->
 
-                    <div class="tocContent">
-                        {content}
-                    </div>
+                        <div class="tocContent">
+                            {content}
+                        </div>
+                        {image}
+                        <div class="c10"></div>
 
-                    <div class="c10"></div>
+                        <div class="sharethis-inline-share-buttons"></div>
 
-                    <div class="sharethis-inline-share-buttons"></div>
-
-                    <!--
+                        <!--
 					<meta property="fb:admins" content="100000441129325"/>
 					-->
-                    <div class="c20"></div>
-                    <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous"
-                        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0" nonce="PpCC7XAT"></script>
-                    <div class="fb-like" data-href="{link_detail}" data-width="" data-layout="button" data-action="like"
-                        data-size="small" data-share="true"></div>
+                        <div class="c20"></div>
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous"
+                            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0"
+                            nonce="PpCC7XAT"></script>
+                        <div class="fb-like" data-href="{link_detail}" data-width="" data-layout="button"
+                            data-action="like" data-size="small" data-share="true"></div>
 
-                    <div class="c30"> </div>
-                    <div class="fb-comments" data-href="{link_detail}" data-width="800" data-numposts="8"></div>
-                    <div class="c30"> </div>
+                        <div class="c30"> </div>
+                        <div class="fb-comments" data-href="{link_detail}" data-width="800" data-numposts="8"></div>
+                        <div class="c30"> </div>
 
-
-                </div>
-
-
-                <div class="newsothers">
-                    <h4 class="titlehnc-left">Bài viết liên quan</h4>
-                    <div class="flex-container">
-                        <!-- START BLOCK : lstOther -->
-                        <div class="cell-1-4 tab-cell-1-1">
-                            <div class="newsother-item">
-                                <a href="{link_detail}" class="newsother-img">
-                                    {image}
-                                </a>
-                                <a href="{link_detail}" class="newsother-name text-line-2">
-                                    {name}
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END BLOCK : lstOther -->
-
-                        <div class="cell-1-4"></div>
-                        <div class="cell-1-4"></div>
-                        <div class="cell-1-4"></div>
 
                     </div>
+
+
+                    <div class="newsothers">
+                        <h3 class="titlehnc-left">Bài viết liên quan</h3>
+                        <div class="flex-container">
+                            <!-- START BLOCK : lstOther -->
+                            <div class="cell-1-4 tab-cell-1-1">
+                                <div class="newsother-item">
+                                    <a href="{link_detail}" class="newsother-img">
+                                        {image}
+                                    </a>
+                                    <a href="{link_detail}" class="newsother-name text-line-2">
+                                        {name}
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- END BLOCK : lstOther -->
+
+                            <div class="cell-1-4"></div>
+                            <div class="cell-1-4"></div>
+                            <div class="cell-1-4"></div>
+
+                        </div>
+                    </div>
+
+
                 </div>
-
-
             </div>
         </div>
     </div>
-</div>
+    <!-- end tin tức -->
 
-
-
-<!-- end tin tức -->
-
-
-
-
-
-<script type="application/ld+json">
+    <script type="application/ld+json">
     {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -281,8 +266,4 @@
     }
 </script>
 
-
-
-
-
-<!-- END BLOCK : itemDetail  -->
+    <!-- END BLOCK : itemDetail  -->
