@@ -17,20 +17,20 @@
                         <div class="homeservice-item">
                             <div class="c30"></div>
                             <div class="c20"></div>
-                            <a href="/">
+                            <a href="{link_detail}">
                                 {image}
                             </a>
                             <div class="c20"></div>
                             <div class="homeservice-box">
                                 <div class="homeservice-name">
-                                    <a href="/"> {name} </a>
+                                    <a href="{link_detail}"> {name} </a>
                                 </div>
                                 <div class="c30"></div>
                                 <div class="texline-3">
                                     {intro}
                                 </div>
                                 <div class="c30"></div>
-                                <a href="/" class="more-details">More Details</a>
+                                <a href="{link_detail}" class="more-details">More Details</a>
                             </div>
                         </div>
                     </div>
@@ -109,12 +109,12 @@
                 </div>
                 <div class="c30"></div>
                 <div class="c20"></div>
-                <a href="/" class="btn">Xem Thêm</a>
+                <a href="{link}" class="btn">Xem Thêm</a>
             </div>
 
             <!-- START BLOCK : newsHotBig -->
             <div class="cell-1-2 tab-cell-1-1" style="position: relative; overflow: hidden;">
-                <a href="#">
+                <a href="{link_detail}">
                     {image}
                     <div class="homenews overlay"></div>
                     <div class="homenews text-overlay">
@@ -137,7 +137,7 @@
                     <div class="homenews-items">
                         {image}
                         <div class="c20"></div>
-                        <div class="items-name">{name}</div>
+                        <a href="{link_detail}"><div class="items-name">{name}</div></a>
                     </div>
                 </div>
                 <!-- END BLOCK : newsHotItem -->
@@ -181,11 +181,11 @@
                     <div class="swiper-slide">
 
                         <div class="product-item">
-                            <a href="#" class="img-shine">
+                            <a href="{link_detail}" class="img-shine">
                                 {image}
                             </a>
                             <div class="product-name">
-                                <a href="#" class="text-line-2">
+                                <a href="{link_detail}" class="text-line-2">
                                     {name}
                                 </a>
                             </div>
@@ -422,27 +422,27 @@
                         <div class="c20"></div>
                         <b>Office Hours: 07:30 - 19:00 Mon to Sat, Sun - Holiday</b>
                         <div class="c30"></div>
-                        <form action="/index4.php?page=contact&amp;lang=" method="post" class="frmSubmit" id="regform"
-                            data-alert="Bạn cần nhập đủ thông tin vào những trường màu đỏ"
-                            data-captcha="Mã captcha không đúng"
-                            data-success="Thông tin liên hệ đã được gửi thành công !" data-redirect="/contact-success/">
+                        <form action="{dir_path}/index4.php?page=21&lang={lang}" method="post" id="contactform"
+                        data-alert="{_ban_can_nhap_thong_tin}" data-captcha="{_captcha_invalid}"
+                        data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/">
                             <input type="hidden" name="code" value="save">
 
                             <div class="form_booking">
                                 <div class="c10"></div>
-                                <input name="yourname" type="text" class="txt-contact notNull" placeholder="Họ tên*">
-                                <input name="phone" type="text" class="txt-contact notNull" placeholder="Điện thoại*">
-                                <input name="email" type="text" class="txt-contact" placeholder="Email">
-                                <select>
-                                    <option>Service Required</option>
-                                    <option>Consultation</option>
-                                    <option>Check-up</option>
-                                    <option>Nutrition Advice</option>
+                                <input name="yourname" type="text" class="txt-contact notNull" id="yourname" placeholder="Name"/>
+                                <input name="phone" type="text" class="txt-contact notNull" placeholder="Phone" />
+                                <input name="address" type="text" class="txt-contact notNull" placeholder="Address" />
+                                <select name="service">
+                                    <option value="service_required">Service Required</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="check_up">Check-up</option>
+                                    <option value="nutrition_advice">Nutrition Advice</option>
                                 </select>
-                                <input name="address" type="text" class="txt-contact" placeholder="Address">
-                                <input name="other_request" type="text" class="txt-contact" placeholder="Content">
+                                <input name="email" type="text" class="txt-contact notNull" placeholder="Email" />
+                                <input name="other_request" type="text" class="txt-contact notNull" placeholder=" Content" />
                                 <div class="c30"></div>
-                                <a href="" class="btn" onclick="$('#regform').submit()">Book now</a>
+                                <a name="input" type="button" onClick="$('#contactform').submit()"
+                                class="btn" style="cursor: pointer;">{_send}</a>
 
                             </div>
 

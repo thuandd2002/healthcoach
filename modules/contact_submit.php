@@ -30,7 +30,7 @@ if ($_POST['code'] == 'save') {
         $a['email'] = compile_post('email');
         $a['phone'] = compile_post('phone');
         $a['address'] = compile_post('address');
-
+        $a['service'] = compile_post('service');
         $a['other_request'] = compile_post('other_request');
         $a['createdate'] = time() + $CONFIG['time_offset'];
 
@@ -89,7 +89,6 @@ if ($_POST['code'] == 'save') {
             try {
                 sendmail($CONFIG['site_email'], $subject, $message, $site_address);
             } catch (exception $e) {
-                
             }
         }
     } else {

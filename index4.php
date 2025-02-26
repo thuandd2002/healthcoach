@@ -11,8 +11,6 @@ include_once("lang/lang.php");
 session_start();
 
 
-session_start();
-
 
 $lang = $_SESSION['lang'];
 if ($lang == 'en') {
@@ -28,6 +26,7 @@ $page_arr = array(
     22 => "cart_submit",
     23 => "tuyendung_submit",
 );
+
 $page_idx = intval($_GET['page']);
 
 if ($page_idx > 0) {
