@@ -1916,9 +1916,8 @@ select:focus-visible {
   border: 1px solid #ddd; /* Viền xung quanh */
   text-align: center;
   background: white;
+  padding: 20px;
   /* margin-bottom: 20px; */
-
-  padding: 20px 0px;
 }
 .homesolution-item img {
   width: 100%;
@@ -1926,10 +1925,7 @@ select:focus-visible {
   object-fit: cover;
 }
 
-.homesolution-item h3,
-.homesolution-item p {
-  padding: 10px 0;
-}
+
 
 .btn-black {
   position: absolute;

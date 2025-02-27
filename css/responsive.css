@@ -13,18 +13,16 @@
 /* Mobile */
 
 @media (max-width: 739px) {
-  .topheader-mb {
-  display: none;
-  }
-  .slide-btn-prev.homeservice-button-prev,
-  .slide-btn-next.homeservice-button-next,
+  .slide-btn-prev,
+  .slide-btn-next,
   .homeslide-next,
-  .homeslide-prev, .homespecialist-prev, .homespecialist-next {
+  .homeslide-prev,
+  .homespecialist-prev,
+  .homespecialist-next, .swiper-button-prev, .swiper-button-next {
     display: none;
   }
- 
-  .cat-mobile .cell-1-3{
-   padding: 20px 0px;
+  .cat-mobile .cell-1-3 {
+    padding: 20px 0px;
   }
   .homeinfo-item {
     display: block;
@@ -51,6 +49,9 @@
     float: left;
     height: 60px;
   }
+  .homenews .cell-1-4:nth-child(n + 2) {
+    display: none;
+  }
   .item-top,
   .item-service {
     padding: 10px;
@@ -60,8 +61,24 @@
     background-position: right center;
     background-repeat: no-repeat;
   }
+  .homeservice-item {
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+  .homeservice-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đẩy nút xuống dưới */
+  }
+
+  .more-details {
+    align-self: center; /* Căn nút ra giữa */
+  }
   .homeservice-name {
-    font-size: 20px;
+    font-weight: bold;
   }
   .home-service-item img {
     min-height: 200px;

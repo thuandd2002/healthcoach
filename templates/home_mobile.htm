@@ -88,21 +88,66 @@
     </script>
 
 </div>
+<!-- START BLOCK : newsHot  -->
+<div class="homenews-wrapper" style="position: relative;">
+    <div class="c20 hide-on-mobile"></div>
+    <div class="c30"></div>
+    <div class="grid">
+        <div class="flex-container center">
+            <div class="cell-1-2 tab-cell-1-1">
+                <div class="homecat-title">
+                    {catname}
+                </div>
+                <div class="c30"></div>
+                <div class="intro-homenews">
+                    <div class="text-line3">
+                        {catintro}
+                    </div>
+                </div>
+                <div class="c30 hide-on-mobile"></div>
+                <div class="c20"></div>
+                <a href="{link}" class="btn">Xem Thêm</a>
+          
+            </div>
+
+        </div>
+        <div class="c30"></div>
+        <div class="homenews">
+            <div class="flex-container center">
+                <!-- START BLOCK : newsHotItem -->
+                <div class="cell-1-4 tab-cell-1-1">
+                    <div class="homenews-items">
+                        {image}
+                        <div class="c20 hide-on-mobile"></div>
+                        <a href="{link_detail}"><div class="items-name">{name}</div></a>
+                        <div class="c30"></div>
+                    </div>
+                </div>
+                <!-- END BLOCK : newsHotItem -->
+            </div>
+        </div>
+    </div>
+    <div class="c30"></div>
+    <div class="c20 hide-on-mobile"></div>
+
+</div>
+<!-- END BLOCK : newsHot  -->
+
 <!-- START BLOCK : product  -->
 <div class="homeproduct-wrapper">
     <div class="c30"></div>
     <div class="c20 hide-on-mobile"></div>
     <div class="grid">
 
-        <div class="flex-container algin-center">
-            <div class="cell-1-2 tab-cell-1-1">
+        <div class="flex-container algin-center" style="align-items: center;">
+            <div class="cell-1-2 tab-cell-1-2">
                 <div class="homecat-title">
                     <a href="#">
                         <div class="hightligt" style="color: var(--maincolor);">{catname}</div>
                     </a>
                 </div>
             </div>
-            <div class="cell-4-2 tab-cell-1-1">
+            <div class="cell-4-2 tab-cell-1-2">
                 <div class="btn-all">
                     <a href="#"> Xem tất cả <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
                 </div>
@@ -167,7 +212,7 @@
                                 },
                                 // when window width is >= 480px
                                 768: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 2,
                                     spaceBetween: 15,
                                 },
                                 // when window width is >= 640px
@@ -213,9 +258,11 @@
                 <div class="swiper-slide">
                     <div class="homesolution-item">
                         <img src="/uploaded/san-pham/12_grande.jpg" alt="Healthy Food">
-                        <h3 class="text-line-2">{name}</h3>
-                        <p class="hide-on-mobile">{intro}</p>
-                        <a href="{link_detail}" class="btn">Xem thêm</a>
+                        <div class="c20 hide-on-pc"></div>
+                        <a class="homeservice-name text-line-2">{name}</a>
+                        <p class="hide-on-mobile text-line-2">{intro}</p>
+                        <div class="c20 hide-on-pc"></div>
+                        <a href="{link_detail}" class="btn-buy-green">Xem thêm</a>
                     </div>
                 </div>
                 <!-- START BLOCK : serviceItem -->
@@ -247,7 +294,7 @@
                         },
                         // when window width is >= 480px
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 2,
                             spaceBetween: 15,
                         },
                         // when window width is >= 640px
@@ -270,6 +317,8 @@
 
 </div>
 <!-- END BLOCK : serviceHome -->
+
+<!-- tu van -->
 <div class="c10"></div>
 <div class="homespecialist-wrapper">
     <div class="c20 hide-on-mobile"></div>
@@ -317,16 +366,14 @@
                 breakpoints: {
                     // when window width is >= 320px
                     320: {
-                        slidesPerView: 2,
+                        slidesPerView: 1,
                         spaceBetween: 10,
                     },
                     // when window width is >= 480px
                     768: {
-                        slidesPerView: 3,
+                        slidesPerView: 1,
                         spaceBetween: 15,
                     },
-
-
 
                 }
 
