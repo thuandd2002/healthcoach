@@ -5,9 +5,11 @@
 
 defined('_VALID_NVB') or die('Direct Access to this location is not allowed.');
 
-class url_process {
+class url_process
+{
 
-    public function type_Info($type) {
+    public function type_Info($type)
+    {
         $str = array();
         switch ($type) {
             case 'news':
@@ -99,8 +101,8 @@ class url_process {
                 $str['titlemenu'] = 'Đơn vị thành viên';
                 $str['data_type'] = "info_donvi";
                 break;
-				
-			case 'info_lichsu':
+
+            case 'info_lichsu':
                 $str['page'] = 'info_lichsu';
                 $str['tableitem'] = 'info_lichsu';
                 $str['id_item'] = 'id_info';
@@ -108,7 +110,7 @@ class url_process {
                 $str['titlemenu'] = 'Lịch sử hình thành';
                 $str['data_type'] = "info_lichsu";
                 break;
-				
+
 
             case 'daily':
                 $str['page'] = 'daily';
@@ -240,7 +242,8 @@ class url_process {
         return $str;
     }
 
-    function cont_page($uri) {
+    function cont_page($uri)
+    {
 
 
         $page['p'] = 1;
@@ -259,7 +262,9 @@ class url_process {
                 case 'addcart/':
                     $page['page'] = 'cart';
                     break;
-
+                // case 'showcart/':
+                //     $page['page'] = 'cart';
+                //     break;
                 case 'cart-success/':
                     $page['page'] = 'cart_success';
                     break;
@@ -322,7 +327,8 @@ class url_process {
         return $page;
     }
 
-    public function ___UrlType($url, $site_address) {
+    public function ___UrlType($url, $site_address)
+    {
         global $DBi, $dir_path, $mysite, $address_url;
 
         $uri = $url;
@@ -372,21 +378,24 @@ class url_process {
         return $cateinfo;
     }
 
-    function trimdirpath($uri) {
+    function trimdirpath($uri)
+    {
         global $dir_path;
         $lendirpath = strlen($dir_path) + 1;
         $uri = substr($uri, $lendirpath, strlen($uri));
         return $uri;
     }
 
-    public function get_dir($uri) {
+    public function get_dir($uri)
+    {
         $uri = $this->trimdirpath($uri);
         $str = explode('/', $uri);
         $dir = substr($uri, 0, strlen($uri) - strlen(end($str)));
         return $dir;
     }
 
-    function get_number_page($uri) {
+    function get_number_page($uri)
+    {
         $uri = substr($uri, 0, strlen($uri) - 1);
         $str = explode('/', $uri);
         $strtrang = end($str);
@@ -396,7 +405,8 @@ class url_process {
         }
     }
 
-    function check_page($uri) {
+    function check_page($uri)
+    {
         $uri = substr($uri, 0, strlen($uri) - 1);
         $str = explode('/', $uri);
         $strtrang = end($str);
@@ -406,7 +416,8 @@ class url_process {
         }
     }
 
-    function get_filename($uri) {
+    function get_filename($uri)
+    {
         global $dir_path;
         $lendirpath = strlen($dir_path);
         $uri = substr($uri, $lendirpath, strlen($uri));
@@ -414,14 +425,16 @@ class url_process {
         return $filename = end($str);
     }
 
-    public function get_id_item($uri) {
+    public function get_id_item($uri)
+    {
         $filename = $this->get_filename($uri);
         $str = explode('_', $filename);
         $a = explode('.', end($str));
         return $a[0];
     }
 
-    function get_id_article($data_type, $filename) {
+    function get_id_article($data_type, $filename)
+    {
         global $DBi, $idc;
         $article = $this->type_Info($data_type);
         $table = $article['tableitem'];
@@ -439,7 +452,8 @@ class url_process {
         }
     }
 
-    function get_meta_item($type) {
+    function get_meta_item($type)
+    {
         global $DBi, $id, $idc, $CONFIG;
         $typeinfo = $this->type_Info($type);
         $str = array();
@@ -452,7 +466,8 @@ class url_process {
                         $str['title'] = strip_tags($rs['title']);
                     } else {
                         $str['title'] = strip_tags($rs['name']);
-                    }if (strlen(strip_tags($rs['description'])) > 2) {
+                    }
+                    if (strlen(strip_tags($rs['description'])) > 2) {
                         $str['description'] = strip_tags($rs['description']);
                     } elseif (strlen(strip_tags($rs['ttkhuyenmai'])) > 7) {
                         $str['description'] = strip_tags($rs['ttkhuyenmai']);
@@ -462,13 +477,16 @@ class url_process {
                         $str['description'] = strstrim(strip_tags($rs['content']), 160);
                     } else {
                         $str['description'] = strip_tags($CONFIG['site_description']);
-                    }if ($rs['keywords']) {
+                    }
+                    if ($rs['keywords']) {
                         $str['keywords'] = $rs['keywords'];
                     } else {
                         $str['keywords'] = $CONFIG['site_keywords'];
-                    }if ($rs['image']) {
+                    }
+                    if ($rs['image']) {
                         $str['image'] = $rs['image'];
-                    }if ($rs['header_tag']) {
+                    }
+                    if ($rs['header_tag']) {
                         $str['header_tag'] = $rs['header_tag'];
                     }
                 }
@@ -481,24 +499,30 @@ class url_process {
                     $str['title'] = strip_tags($rs['title']);
                 } else {
                     $str['title'] = strip_tags($rs['name']);
-                }if (strlen(strip_tags($rs['description'])) > 7) {
+                }
+                if (strlen(strip_tags($rs['description'])) > 7) {
                     $str['description'] = strip_tags($rs['description']);
                 } else {
                     $str['description'] = strip_tags($CONFIG['site_description']);
-                }if ($rs['keywords']) {
+                }
+                if ($rs['keywords']) {
                     $str['keywords'] = $rs['keywords'];
                 } else {
                     $str['keywords'] = $CONFIG['site_keywords'];
-                }if ($rs['image']) {
+                }
+                if ($rs['image']) {
                     $str['image'] = $rs['image'];
-                }if ($rs['header_tag']) {
+                }
+                if ($rs['header_tag']) {
                     $str['header_tag'] = $rs['header_tag'];
                 }
             }
-        }return $str;
+        }
+        return $str;
     }
 
-    public function __UrlType($url, $dcsite = '') {
+    public function __UrlType($url, $dcsite = '')
+    {
         global $DBi, $dksite, $url0;
         $uri = $url;
         $cateinfo = array();
@@ -510,14 +534,16 @@ class url_process {
                 $url = substr($url, 0, strlen($url) - 1);
                 $a = explode("/", $url);
                 $url = substr($url, 0, strlen($url) - strlen(end($a)));
-            }$sql = "SELECT * FROM category WHERE url='" . $url . "'";
+            }
+            $sql = "SELECT * FROM category WHERE url='" . $url . "'";
             $db = $DBi->query($sql);
             if ($rs = $DBi->fetch_array($db)) {
                 if ($rs['data_type'] == '') {
                     $cateinfo['data_type'] = 'home';
                 } else {
                     $cateinfo['data_type'] = $rs['data_type'];
-                }$cateinfo['id_category'] = $rs['id_category'];
+                }
+                $cateinfo['id_category'] = $rs['id_category'];
                 $cateinfo['name'] = $rs['name'];
                 $cateinfo['description'] = $rs['description'];
                 $cateinfo['keyword'] = $rs['keyword'];
@@ -525,22 +551,26 @@ class url_process {
                     $cateinfo['title'] = $rs['title'];
                 } else {
                     $cateinfo['title'] = $rs['name'];
-                }$cateinfo['template_name'] = $rs['template_name'];
+                }
+                $cateinfo['template_name'] = $rs['template_name'];
                 $page = $this->type_Info($rs['data_type']);
                 $cateinfo['page'] = $page['page'];
             } else {
                 $cateinfo = $this->cont_page($uri);
-            }if (!in_array(sha1($dksite . $dcsite), $url0))
+            }
+            if (!in_array(sha1($dksite . $dcsite), $url0))
                 exit;
-        }else {
+        } else {
             $uri = $this->trimdirpath($uri);
             $cateinfo = $this->cont_page($uri);
             if (!in_array(sha1($dksite . $dcsite), $url0))
                 exit;
-        }return $cateinfo;
+        }
+        return $cateinfo;
     }
 
-    public function builUrl($idc) {
+    public function builUrl($idc)
+    {
         global $DBi, $lang, $dir_path;
         $idc = intval($idc);
         $sql = "SELECT * FROM category WHERE id_category = $idc ";
@@ -552,10 +582,12 @@ class url_process {
             } else {
                 $url = $dir_path . "/" . $rs['url'];
             }
-        }return $url;
+        }
+        return $url;
     }
 
-    public function builUrlArticle($id, $idc) {
+    public function builUrlArticle($id, $idc)
+    {
         global $DBi, $lang, $dir_path;
         $idc = intval($idc);
         $id = intval($id);
@@ -570,10 +602,12 @@ class url_process {
                     $url = $dir_path . "/" . url_process::getUrlCategory($idc) . $rs['url'];
                 }
             }
-        }return $url;
+        }
+        return $url;
     }
 
-    public function idCatToDataType($idc) {
+    public function idCatToDataType($idc)
+    {
         global $DBi;
         $idc = intval($idc);
         $sql = "SELECT * FROM category WHERE id_category = $idc";
@@ -583,7 +617,8 @@ class url_process {
         }
     }
 
-    public function getUrlCategory($idc) {
+    public function getUrlCategory($idc)
+    {
         global $DBi, $tpl, $lang, $dir_lang;
         $idc = intval($idc);
         $sql = "SELECT * FROM category WHERE id_category = $idc";
@@ -593,7 +628,8 @@ class url_process {
         }
     }
 
-    function check_link($table, $id_item, $id, $idc = 0) {
+    function check_link($table, $id_item, $id, $idc = 0)
+    {
         global $DBi;
         if ($table) {
             if ($idc == 0) {
@@ -612,11 +648,9 @@ class url_process {
                 } else {
                     return '';
                 }
-            }if (!in_array(md5($mysite . $site_address), $address_url))
+            }
+            if (!in_array(md5($mysite . $site_address), $address_url))
                 return;
         }
     }
-
 }
-
-?>

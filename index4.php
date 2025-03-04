@@ -25,21 +25,26 @@ $page_arr = array(
     21 => "contact_submit",
     22 => "cart_submit",
     23 => "tuyendung_submit",
+    24 =>  "cart",
 );
 
 $page_idx = intval($_GET['page']);
 
 if ($page_idx > 0) {
-    
+
     $page_name = $page_arr[$page_idx];
     $pagePath = "modules/$page_name.php";
     if (file_exists($pagePath)) {
         include($pagePath);
     }
-    
+} else {
+    $page_name = $_GET['page'];
+    $pagePath = "modules/$page_name.php";
+    if (file_exists($pagePath)) {
+        include($pagePath);
+    }
 }
 
 
 
 include("endcms.php");
-?>

@@ -8,9 +8,6 @@ $objCart = new clsCart();
 $cart_arr = array();
 if ($_SESSION['cart_arr'])
     $cart_arr = $_SESSION['cart_arr'];
-
-
-
 if ($_REQUEST['code'] == 'save') {
 
     saveCart();
@@ -41,7 +38,16 @@ if ($_REQUEST['code'] == 'save') {
     $_SESSION['cart_arr'] = $cart_arr;
     $objCart->cart_item_list($cart_arr);
     $tpl->printToScreen();
-}elseif (clean_value($_REQUEST['code']) == "add") { //Add ajax
+    // if ($_SESSION['cart_arr'] == null) {
+    //     $tpl->newBlock('cart_empty');
+    //     $tpl->assign("msg", "cart_empty");
+    //     unset($_SESSION['cart_arr']);
+    //     $tpl->printToScreen();
+    // } else {
+    //     $objCart->cart_item_list($cart_arr);
+    //     $tpl->printToScreen();
+    // }
+} elseif (clean_value($_REQUEST['code']) == "add") { //Add ajax
     $idp = intval($_GET['idp']);
     $uri = intval($_GET['uri']);
     $quantity = intval($_GET['qty']);
@@ -103,16 +109,19 @@ if ($_REQUEST['code'] == 'save') {
     $tpl->printToScreen();
 }
 
-class clsCart {
+class clsCart
+{
 
     private $numberpage = 8;
     private $numberitempage = 15;
 
-    public function __construct() {
+    public function __construct()
+    {
         global $DB, $tpl, $dir_path, $SETTING;
     }
 
-    public function add_item($rs_product, $quantity) {
+    public function add_item($rs_product, $quantity)
+    {
         global $DB, $idc, $tpl, $dir_path, $cache_image_path, $cart_arr, $_GET;
         $color = clean_value($_GET['k']);
         $size = clean_value($_GET['s']);
@@ -134,7 +143,7 @@ class clsCart {
                     $price = $value->giaphienban;
             }
             */
-            
+
 
             $product_item = array(
                 id_product => $id_product,
@@ -152,7 +161,8 @@ class clsCart {
         }
     }
 
-    public function update_quantity($id_product, $new_quantity) {
+    public function update_quantity($id_product, $new_quantity)
+    {
         global $cart_arr;
 
         foreach ($cart_arr as $key => $value) {
@@ -162,13 +172,15 @@ class clsCart {
         }
     }
 
-    public function remove_item($id_product) {
+    public function remove_item($id_product)
+    {
         global $cart_arr;
 
         unset($cart_arr["$id_product"]);
     }
 
-    public function cart_item_list($cart_arr) {
+    public function cart_item_list($cart_arr)
+    {
         global $cache_image_path, $tpl;
 
 
@@ -196,7 +208,8 @@ class clsCart {
         $tpl->assignGlobal("giohang_tongtien", number_format($giohang_tongtien));
     }
 
-    public function getProductInfo($url_product) {
+    public function getProductInfo($url_product)
+    {
         global $DBi;
 
         $url_product_arr = explode('/', $url_product);
@@ -217,7 +230,8 @@ class clsCart {
         }
     }
 
-    public function getProductById($id_product) {
+    public function getProductById($id_product)
+    {
         global $DBi;
 
         if ($id_product > 0) {
@@ -229,12 +243,12 @@ class clsCart {
             return $rs;
         }
     }
-
 }
 
 /* End class cart */
 
-function saveCart() {
+function saveCart()
+{
     global $DB, $DBi, $CONFIG;
 
 
@@ -392,7 +406,7 @@ function saveCart() {
         $subject = "Thông tin đặt hàng từ " . $a['name'] . " - " . date('d/m/Y H:i', $a['createdate']);
 
         try {
-            sendmail($CONFIG['site_email'], $subject, $message . $product_msg , $site_address);
+            sendmail($CONFIG['site_email'], $subject, $message . $product_msg, $site_address);
         } catch (exception $e) {
             echo "1";
         }
@@ -400,5 +414,3 @@ function saveCart() {
         echo "-1";
     }
 }
-
-?>

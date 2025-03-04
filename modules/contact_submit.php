@@ -30,7 +30,20 @@ if ($_POST['code'] == 'save') {
         $a['email'] = compile_post('email');
         $a['phone'] = compile_post('phone');
         $a['address'] = compile_post('address');
-        $a['service'] = compile_post('service');
+
+        $service = compile_post('service');
+
+        $services_mapping = [
+            "service_required" => "Service Required",
+            "consultation" => "Consultation",
+            "check_up" => "Check-up",
+            "nutrition_advice" => "Nutrition Advice"
+        ];
+        if (array_key_exists($service, $services_mapping)) {
+            $a['service'] = $services_mapping[$service];
+        }else{
+            $a['service'] ="";
+        }
         $a['other_request'] = compile_post('other_request');
         $a['createdate'] = time() + $CONFIG['time_offset'];
 
@@ -68,6 +81,10 @@ if ($_POST['code'] == 'save') {
           <td height="30" align="left" valign="middle"><strong>' . $a['address'] . '</strong></td>
       </tr>
       <tr>
+          <td height="30" align="left" valign="middle"> Dịch vụ:</td>
+          <td height="30" align="left" valign="middle"><strong>' . $a['service'] . '</strong></td>
+      </tr>
+      <tr>
                <td height="30" align="left" valign="middle"><strong>Nội dung liên hệ</strong>: </td>
                <td height="30" align="left" valign="middle"><i>' . $a['other_request'] . " - " . $a['subject'] . '</i></td>
       </tr>
@@ -95,4 +112,3 @@ if ($_POST['code'] == 'save') {
         echo "-1";
     }
 }
-?>

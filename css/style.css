@@ -1389,7 +1389,30 @@ a.close:hover {
   transition: background 0.3s ease-in-out;
   border: none;
 }
+.btn-quantity ,.remove-cart {
+  border: none;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Màu hồng cam đẹp */
+  color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
 
+.btn-quantity:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-decrease {
+  background: linear-gradient(135deg, #7ed6df, #22a6b3); /* Màu xanh dương */
+}
 .btn-buy:hover {
   background: #e64a00; /* Tối màu khi hover */
 }

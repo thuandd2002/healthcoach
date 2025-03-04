@@ -1,3 +1,6 @@
+<!-- START BLOCK : cart_empty -->
+ {msg}
+ <!-- END BLOCK : cart_empty -->
 <div id="giohang_row">
         <!-- START BLOCK : giohang_row -->
 		<div class="c5"></div>
@@ -20,15 +23,19 @@
 							<div style="float: left;">
 								Số lượng: <input type='text' class="txt-quantity" name='quantity[]' ref="{id_product}" value='{giohang_soluong}'>
 							</div>
-							<div style="float: left; margin-left: 10px;">
-								<i class="fa fa-plus" onClick="increaseQty($(this));"></i>
-								<i class="fa fa-minus" onClick="decreaseQty($(this));"></i>
+							<div style="display: flex; align-items: center; gap: 5px; padding-left:20px ;">
+								<button class="btn-quantity btn-increase" onClick="increaseQty($(this));">
+									<i class="fa-solid fa-plus"></i>
+								</button>
+								<button class="btn-quantity btn-decrease" onClick="decreaseQty($(this));">
+									<i class="fa-solid fa-minus"></i>
+								</button>
 							</div>
 							
 							<div class="c10"></div>
-							<div>
+							<!-- <div>
 								<div class="cart-color" style="background:#{color}"></div> <div style="font-style:italic; line-height:30px;" >{phukien}</div> 
-							</div>
+							</div> -->
 							
 							
 						</div>
@@ -47,7 +54,7 @@
             
             <div class="cell-1-12 mobile-cell-1-1" style="text-align:left;">
                 <a class="remove-cart" href="#" ref="{id_product}" onClick="delItemCart($(this)); return false;">
-                <i class="fa fa-times" aria-hidden="true"></i>
+					<i class="fa-solid fa-x" aria-hidden="true"></i>
                 </a>
 
             </div>
