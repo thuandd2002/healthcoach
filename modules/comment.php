@@ -5,14 +5,17 @@ defined('_VALID_NVB') or die('Direct Access to this location is not allowed.');
 $table_name = 'product';
 $id_item_name = 'id_product';
 */
-function getComments($id, $table_name = 'product', $id_item_name = 'id_product') {
+
+session_start();
+function getComments($id, $table_name = 'product', $id_item_name = 'id_product')
+{
     global $DBi, $dir_path, $cache_image_path, $CONFIG;
     //$tpl1 = new TemplatePower("plugins/comment/comment.htm");
     $tpl1 = new TemplatePower("templates/comment.htm");
     $tpl1->prepare();
     langsite($tpl1);
-	
-	print_r($langLabel);
+
+    print_r($langLabel);
     $id = intval($id);
     $idc = intval($_GET['idc']);
     $tpl1->assignGlobal("dir_path", $dir_path);
@@ -24,15 +27,15 @@ function getComments($id, $table_name = 'product', $id_item_name = 'id_product')
     //$tpl1->newBlock("show_comment");
 
     $sql = "SELECT * FROM comments WHERE active=1 AND table_name = '$table_name' AND id_item='$id_item_name' AND id_value=$id AND (parentid is null OR parentid = '' OR parentid = 0) ORDER BY createdate DESC ";
-    
-    
+
+
     $db_count = $DBi->query($sql);
-    
-    $db = paging::pagingFonten($_GET['p'],$dir_path."/".url_process::getUrlCategory($idc),$sql,8,150);
-    
+
+    $db = paging::pagingFonten($_GET['p'], $dir_path . "/" . url_process::getUrlCategory($idc), $sql, 8, 150);
+
     //$tpl1->assignGlobal("number_comment", mysql_num_rows($db_count));
-    
-    
+
+
     while ($rs = $DBi->fetch_array($db['db'])) {
         $tpl1->newBlock("lstComment");
         $tpl1->assign("name", $rs['name']);
@@ -42,7 +45,7 @@ function getComments($id, $table_name = 'product', $id_item_name = 'id_product')
         $tpl1->assign("like", intval($rs['user_like']));
         $tpl1->assign("createdate", date('d/m/Y - H:i', $rs['createdate']));
         //$tpl1->assign("createdate", showDays($rs['createdate']));
-        
+
         $sql = "SELECT * FROM comments WHERE active=1 AND parentid= $rs[id_comment] ORDER BY createdate ASC ";
         $db_sub = $DBi->query($sql);
         while ($rs_sub = $DBi->fetch_array($db_sub)) {
@@ -53,50 +56,49 @@ function getComments($id, $table_name = 'product', $id_item_name = 'id_product')
             $tpl1->assign("sub_like", intval($rs_sub['user_like']));
             //$tpl1->assign("sub_createdate", date('d/m/Y - H:i', $rs_sub['createdate']));
             $tpl1->assign("sub_createdate", showDays($rs_sub['createdate']));
-            if (intval($rs_sub['id_admin']) > 0){
+            if (intval($rs_sub['id_admin']) > 0) {
                 $tpl1->assign("isadmin", "isadmin");
                 $db_user = $DB->query("SELECT * FROM users WHERE id_users = $rs_sub[id_admin]");
-                if ($rs_user = mysql_fetch_array($db_user)){
-                    if ($rs_user['image']) 
+                if ($rs_user = mysql_fetch_array($db_user)) {
+                    if ($rs_user['image'])
                         $tpl1->assign("avatar", '<img  src="' . $cache_image_path . cropimage(40, 40, $dir_path . '/' . $rs_user['image']) . '" alt="' . $rs_user['name'] . '" width="100%"/>');
-                
                 }
-                
             }
         }
     }
-    
-    $tpl1->assignGlobal("pages",$db['pages']);
-    
+
+    $tpl1->assignGlobal("pages", $db['pages']);
+
     return $tpl1->getOutputContent();
 }
 
-function showDays($createdate) {
+function showDays($createdate)
+{
     global $CONFIG;
     $strReturn = "";
     $now = time() + $CONFIG['time_offset'];
     $datediff = $now - $createdate;
-    
-    if ($datediff > (60 * 60 * 24 * 30 * 12)){
+
+    if ($datediff > (60 * 60 * 24 * 30 * 12)) {
         $days = floor($datediff / (60 * 60 * 24 * 30 * 12));
         $strReturn = "$days năm trước";
-    }elseif ($datediff > (60 * 60 * 24 * 30)) {
+    } elseif ($datediff > (60 * 60 * 24 * 30)) {
         $days = floor($datediff / (60 * 60 * 24 * 30));
         $strReturn = "$days tháng trước";
-    }elseif ($datediff > (60 * 60 * 24)) {
+    } elseif ($datediff > (60 * 60 * 24)) {
         $days = floor($datediff / (60 * 60 * 24));
         $strReturn = "$days ngày trước";
-    }elseif ($datediff > (60 * 60)) {
+    } elseif ($datediff > (60 * 60)) {
         $days = floor($datediff / (60 * 60));
         $strReturn = "$days giờ trước";
-    }else{
+    } else {
         $days = ceil($datediff / (60));
         $strReturn = "$days phút trước";
     }
     return $strReturn;
     //return $now . '---' . $createdate;
-    
-    
+
+
 }
 
 if ($_GET['v'] == 1) {
@@ -111,14 +113,12 @@ if ($_GET['v'] == 1) {
 
 
 if (compile_post('commentpost') == 1) {
-	langlabel();
-    if (strtolower(compile_post('captcha')) == $_SESSION['imagesercurity']) {
-		
-
+    langlabel();
+    if (strtolower(compile_post('captcha')) == strtolower($_SESSION['imagesercurity'])) {
         $a = array();
         $a['comment'] = compile_post('inputcomment');
         $a['email'] = compile_post('inputemail');
-
+        $a['star_rate'] = compile_post('rating');
         $a['table_name'] = compile_post('table_name');
         $a['id_item'] = compile_post('id_item_name');
         $a['id_value'] = intval(compile_post("id_value"));
@@ -130,26 +130,47 @@ if (compile_post('commentpost') == 1) {
         $a['id_admin'] = 0;
         $a['active'] = 0;
 
-		/*
+        /*
         $b = $DBi->compile_db_insert_string($a);
         $sql = "INSERT INTO comments(" . $b['FIELD_NAMES'] . ") VALUES (" . $b['FIELD_VALUES'] . ")";
         */
 
-		$lastID = $DBi->insertTableRow("comments", $a);
-		
+        $lastID = $DBi->insertTableRow("comments", $a);
+
 
         if ($lastID > 0)
-            echo '<div class="message-success"><i class="fa fa-check fa-2x"></i> '.$langLabel['_comment_send_msg'].' </div>';
+            echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công!',
+                text: '{$langLabel['_comment_send_msg']}',
+                confirmButtonText: 'OK'
+            }).then(() => {
+             window.location.href = document.referrer;
+            });
+        </script>";
         else
-            echo '<div class="alert-error" id="message_error" ><i class="fa fa-warning"></i> '.$langLabel['_comment_failed_msg'].' </div>';
-		
-    }else {
-        echo '<div class="alert-error" ><i class="fa fa-warning fa-2x"></i> '.$langLabel['_captcha_invalid'].' </div>';
+            echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi!',
+                text: '{$langLabel['_comment_failed_msg']}',
+                confirmButtonText: 'Thử lại'
+            });
+        </script>";
+    } else {
+        echo "<script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Sai CAPTCHA!',
+            text: '{$langLabel['_captcha_invalid']}',
+            confirmButtonText: 'OK'
+        });
+    </script>";
     }
-	
 } else {
 
-    getComments(intval(compile_post("id_value")),compile_post('table_name'),compile_post('id_item_name'));
+    getComments(intval(compile_post("id_value")), compile_post('table_name'), compile_post('id_item_name'));
 
     /*
       $id_item = intval($_REQUEST['id_product']);
@@ -161,4 +182,3 @@ if (compile_post('commentpost') == 1) {
 
      */
 }
-?>

@@ -36,6 +36,7 @@ $leftcol = left_right_col();
 $tpl->assignGlobal("leftcol", $leftcol);
 
 
+
 if ($id == 0)
     $tpl->assignGlobal("slideshow", slidechild());
 
@@ -208,7 +209,9 @@ class clsProduct
     {
         global $DBi, $idc, $tpl, $objProduct, $dir_path, $cache_image_path, $SETTING, $site_address;
         $rs = $objProduct->itemDetail($id);
-
+        include_once("modules/comment.php");
+        $tpl->assignGlobal("comment",getComments($id));
+        
         $tpl->assignGlobal("hotline", $SETTING->hotline);
         if (intval($rs['id_product']) > 0) {
             $tpl->assignGlobal("name", $rs['name']);

@@ -70,7 +70,7 @@ $tpl->assignGlobal(array(
 ));
 
 
-$meta = $getUrl->get_meta_item($cateinfo['data_type']);
+// $meta = $getUrl->get_meta_item($cateinfo['data_type']);
 
 
 if ($meta['image']){

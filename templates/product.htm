@@ -9,23 +9,23 @@
 <!-- START BLOCK : productCatList -->
 <script type="application/ld+json">
     {
-    "@context": "http://schema.org",
-    "@type": "NewsArticle",
-    "mainEntityOfPage":{
-    "@type":"WebPage",
-    "@id":"{site_address}{cat_link}"
-    },
-    "headline": "{cat_title}",
-    "image": [
-    "{site_address}{cat_image}"
-    ],			
-    "datePublished": "{create_date}",
-    "dateModified": "{create_date}",
-    "author": {
-    "@type": "Person",
-    "name": "Admin"
-    },
-    "description": "{cat_description}"
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{site_address}{cat_link}"
+        },
+        "headline": "{cat_title}",
+        "image": [
+            "{site_address}{cat_image}"
+        ],
+        "datePublished": "{create_date}",
+        "dateModified": "{create_date}",
+        "author": {
+            "@type": "Person",
+            "name": "Admin"
+        },
+        "description": "{cat_description}"
     }
 </script>
 <div class="c30"></div>
@@ -152,23 +152,23 @@
 <!-- START BLOCK : productList -->
 <script type="application/ld+json">
     {
-    "@context": "http://schema.org",
-    "@type": "NewsArticle",
-    "mainEntityOfPage":{
-    "@type":"WebPage",
-    "@id":"{site_address}{cat_link}"
-    },
-    "headline": "{cat_title}",
-    "image": [
-    "{site_address}{cat_image}"
-    ],			
-    "datePublished": "{create_date}",
-    "dateModified": "{create_date}",
-    "author": {
-    "@type": "Person",
-    "name": "Admin"
-    },
-    "description": "{cat_description}"
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{site_address}{cat_link}"
+        },
+        "headline": "{cat_title}",
+        "image": [
+            "{site_address}{cat_image}"
+        ],
+        "datePublished": "{create_date}",
+        "dateModified": "{create_date}",
+        "author": {
+            "@type": "Person",
+            "name": "Admin"
+        },
+        "description": "{cat_description}"
     }
 </script>
 <div class="c20"></div>
@@ -283,112 +283,110 @@
 
 <script type="application/ld+json">
     {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "{name}",
-    "image": "{image}",
-    "description": "{description}",
-    "sku": "{ma}001",
-    "mpn": "{ma}",
-	
-    "brand": {
-		  "@type" : "Organization",
-		  "url" : "{site_address}",
-		  "contactPoint" : [
-			{ "@type" : "ContactPoint",
-			  "telephone" : "+84-335-898-898",
-			  "contactType" : "customer service"
-			} ]
-    },
-	
-    "review": {
-		"@type": "Review",
-		"reviewRating": {
-			"@type": "Rating",
-			"ratingValue": "4",
-			"bestRating": "5"
-		},
-		"author": {
-			"@type": "Person",
-			"name": "Administrator"
-		}
-    },
-    "aggregateRating": {
-		"@type": "AggregateRating",
-		"ratingValue": "4.8",
-		"reviewCount": "510"
-    },
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "{name}",
+        "image": "{image}",
+        "description": "{description}",
+        "sku": "{ma}001",
+        "mpn": "{ma}",
 
-    "offers": [{
-    "@type": "Offer",
-    "price": "{price_number}",
-    "priceCurrency": "VND",
-	"priceValidUntil": "2026-12-12T16:19:00+00:00",
-	"shippingDetails": {
-	  "@type": "OfferShippingDetails",
-	  "shippingRate": {
-		"@type": "MonetaryAmount",
-		"value": "0",
-		"currency": "VND"
-	  },
-	  "deliveryTime": {
-		"@type": "ShippingDeliveryTime",
-		"businessDays": {
-			"@type": "OpeningHoursSpecification",
-			 "dayOfWeek": [
-				"https://schema.org/Monday",
-				"https://schema.org/Tuesday",
-				"https://schema.org/Wednesday",
-				"https://schema.org/Thursday",
-				"https://schema.org/Friday"
-			]
-		},
-		"handlingTime": {
-		  "@type": "QuantitativeValue",
-		  "minValue": "0",
-		  "maxValue": "0",
-		  "samedaydelivery" : "Yes",
-		  "unitCode": "DAY"
-		  
-		},
-		"transitTime": {
-		  "@type": "QuantitativeValue",
-		  "minValue": "0",
-		  "maxValue": "0",
-		  "samedaydelivery" : "Yes",
-		  "unitCode": "DAY"
-		}					
-	  },
-	  "shippingDestination": [
-		{
-		  "@type": "DefinedRegion",
-		  "addressCountry": "Vi",
-		  "addressRegion": ["VN"]
-		}
-	  ]
-	},
-	"hasMerchantReturnPolicy": {
-		"@type": "MerchantReturnPolicy",
-		"applicableCountry": "VN",
-		"returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-		"merchantReturnDays" : "7",
-		"returnMethod" : "https://schema.org/ReturnByMail",
-		"returnFees" : "https://schema.org/FreeReturn"
-	},
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock",
-    "lowPrice": "{price_number}",
-    "highPrice": "{price_number}",
-    "seller": {
-    "@type": "Organization",
-    "name": "MrM"
-    }
-    }],
-    "additionalProperty": [{
-    "@type": "PropertyValue",
-    "propertyID": "LB",
-    "value": "Furniture"
-    }]	
+        "brand": {
+            "@type": "Organization",
+            "url": "{site_address}",
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "telephone": "+84-335-898-898",
+                "contactType": "customer service"
+            }]
+        },
+
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "4",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Administrator"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "510"
+        },
+
+        "offers": [{
+            "@type": "Offer",
+            "price": "{price_number}",
+            "priceCurrency": "VND",
+            "priceValidUntil": "2026-12-12T16:19:00+00:00",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "VND"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "https://schema.org/Monday",
+                            "https://schema.org/Tuesday",
+                            "https://schema.org/Wednesday",
+                            "https://schema.org/Thursday",
+                            "https://schema.org/Friday"
+                        ]
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "0",
+                        "maxValue": "0",
+                        "samedaydelivery": "Yes",
+                        "unitCode": "DAY"
+
+                    },
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "0",
+                        "maxValue": "0",
+                        "samedaydelivery": "Yes",
+                        "unitCode": "DAY"
+                    }
+                },
+                "shippingDestination": [{
+                    "@type": "DefinedRegion",
+                    "addressCountry": "Vi",
+                    "addressRegion": ["VN"]
+                }]
+            },
+            "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "VN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": "7",
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+            },
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "lowPrice": "{price_number}",
+            "highPrice": "{price_number}",
+            "seller": {
+                "@type": "Organization",
+                "name": "MrM"
+            }
+        }],
+        "additionalProperty": [{
+            "@type": "PropertyValue",
+            "propertyID": "LB",
+            "value": "Furniture"
+        }]
 
     }
 </script>
@@ -514,8 +512,7 @@
                         </b>
 
                         <a href="{fileurl}" class="download-btn-product" download="">
-                            <i class="fas fa-download" style="color: #818181;"></i>
-                            Download file
+                            <i class="fas fa-download" style="color: #818181;"></i> Download file
                         </a>
 
                     </div>
@@ -528,8 +525,7 @@
                 <a class="btn-buy" href="tel:{hotline}">Mua ngay <i class="fas fa-phone-alt"></i> : {hotline}</a>
                 <div class="c10"></div>
                 <!-- START BLOCK : phienban -->
-                <div class="price-color" data-kolor="{tenphienban}" data-price="{gianumber}"
-                    data-price-format="{giaphienban} VNĐ">{tenphienban}</div>
+                <div class="price-color" data-kolor="{tenphienban}" data-price="{gianumber}" data-price-format="{giaphienban} VNĐ">{tenphienban}</div>
                 <!-- END BLOCK : phienban -->
 
                 <!--
@@ -600,14 +596,13 @@
     </div>
 </div>
 <script>
-    $(".tab-title").click(function () {
+    $(".tab-title").click(function() {
         $(".tab-title").removeClass("tab-active");
         $(this).addClass("tab-active");
         $(".tab-content").hide();
         $("#content-" + $(this).attr("data-tab-id")).fadeIn();
         return false;
     });
-
 </script>
 <!-- end Thông tin sản phẩm -->
 <div class="c10 hide-on-pad hide-on-tab"></div>
@@ -625,8 +620,7 @@
         <div class="c10"></div>
         <!-- Slide sản phẩm -->
         <div class="product-slider-container" style="position: relative;">
-            <div class="btn-prev productother-prev flex_center hide-on-tab hide-on-pad"
-                style="top: 50%; transform: translateY(-50%);">
+            <div class="btn-prev productother-prev flex_center hide-on-tab hide-on-pad" style="top: 50%; transform: translateY(-50%);">
                 <img src="/images/icon-prev.png" alt="Prev">
             </div>
             <div class="swiper" id="productother">
@@ -656,14 +650,13 @@
                     <!-- END BLOCK : other_products -->
                 </div>
             </div>
-            <div class="btn-next productother-next flex_center hide-on-tab hide-on-pad"
-                style="top: 50%; transform: translateY(-50%);">
+            <div class="btn-next productother-next flex_center hide-on-tab hide-on-pad" style="top: 50%; transform: translateY(-50%);">
                 <img src="/images/icon-next.png" alt="Next">
             </div>
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function() {
                 var swiper = new Swiper('#productother', {
                     slidesPerView: 4,
                     spaceBetween: 26,
@@ -690,10 +683,10 @@
                 });
 
                 var sliderContainer = document.getElementById("productother");
-                sliderContainer.addEventListener("mouseover", function () {
+                sliderContainer.addEventListener("mouseover", function() {
                     swiper.autoplay.stop();
                 });
-                sliderContainer.addEventListener("mouseout", function () {
+                sliderContainer.addEventListener("mouseout", function() {
                     swiper.autoplay.start();
                 });
             });
@@ -726,7 +719,7 @@
             </div>
             <div class="swiper" id="relate_project" style="position: relative;">
 
-                
+
                 <div class="swiper-wrapper">
                     <!-- START BLOCK : relate_project_item -->
                     <div class="swiper-slide">
@@ -754,7 +747,7 @@
                 </div>
                 <div class="c"></div>
                 <script>
-                    $(function () {
+                    $(function() {
                         var relate_project = new Swiper('#relate_project', {
                             slidesPerView: 3,
                             autoplay: {
@@ -779,10 +772,10 @@
                                 }
                             }
                         });
-                        $('#relate_project').on('mouseover', function () {
+                        $('#relate_project').on('mouseover', function() {
                             relate_project.autoplay.stop();
                         });
-                        $('#productother').on('mouseout', function () {
+                        $('#productother').on('mouseout', function() {
                             relate_project.autoplay.start();
                         });
                     });
@@ -798,7 +791,9 @@
 
 <!-- end dự án -->
 
-
+<div class="" style="display: flex;justify-content: space-around;">
+    {comment}
+</div>
 <!-- END BLOCK : proDetail -->
 
 <div class="c20"></div>

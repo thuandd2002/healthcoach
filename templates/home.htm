@@ -1,6 +1,4 @@
-{slideshow}
-
-{inhome}
+{slideshow} {inhome}
 
 
 <div class="homeservice-wrapper">
@@ -46,7 +44,7 @@
     <div class="c20 hide-on-mobile"></div>
 
     <script>
-        $(function () {
+        $(function() {
             var slidehomeservice = new Swiper(".slider-homeservice", {
                 loop: true,
                 spaceBetween: 20,
@@ -81,8 +79,12 @@
                 }
             });
             $('.slider-homeservice').hover(
-                function () { slidehomeservice.autoplay.stop(); }, // Hover vào: dừng
-                function () { slidehomeservice.autoplay.start(); } // Rời chuột: chạy tiếp
+                function() {
+                    slidehomeservice.autoplay.stop();
+                }, // Hover vào: dừng
+                function() {
+                    slidehomeservice.autoplay.start();
+                } // Rời chuột: chạy tiếp
             );
         });
     </script>
@@ -137,7 +139,9 @@
                     <div class="homenews-items">
                         {image}
                         <div class="c20"></div>
-                        <a href="{link_detail}"><div class="items-name">{name}</div></a>
+                        <a href="{link_detail}">
+                            <div class="items-name">{name}</div>
+                        </a>
                     </div>
                 </div>
                 <!-- END BLOCK : newsHotItem -->
@@ -208,7 +212,7 @@
                 <div class="slide-btn-prev product01-button-prev"><i class="fas fa-chevron-left"></i> </div>
 
                 <script>
-                    $(function () {
+                    $(function() {
                         var product01 = new Swiper(".slider-product01", {
 
                             loop: true,
@@ -248,8 +252,12 @@
                         });
 
                         $('.slider-product01').hover(
-                            function () { product01.autoplay.stop(); }, // Hover vào: dừng
-                            function () { product01.autoplay.start(); } // Rời chuột: chạy tiếp
+                            function() {
+                                product01.autoplay.stop();
+                            }, // Hover vào: dừng
+                            function() {
+                                product01.autoplay.start();
+                            } // Rời chuột: chạy tiếp
                         );
 
                     });
@@ -292,7 +300,7 @@
         <!-- END BLOCK : service_sub -->
         <div class="c20"></div>
         <script>
-            $(function () {
+            $(function() {
                 var homesolution = new Swiper(".slider-homesolution", {
                     slidesPerView: 3, // Hiển thị 3 slide
                     loop: true,
@@ -327,8 +335,12 @@
                 });
 
                 $('.slider-homesolution').hover(
-                    function () { homesolution.autoplay.stop(); },
-                    function () { homesolution.autoplay.start(); }
+                    function() {
+                        homesolution.autoplay.stop();
+                    },
+                    function() {
+                        homesolution.autoplay.start();
+                    }
                 )
             });
         </script>
@@ -345,7 +357,8 @@
     <div class="grid">
         <!-- START BLOCK : info_leaderHome -->
         <div class="homecat-title">
-            {catname} <div class="hightlight" style="color: var(--maincolor);">{subname}</div>
+            {catname}
+            <div class="hightlight" style="color: var(--maincolor);">{subname}</div>
         </div>
         <div class="swiper slider-homespecialist" style="position: relative;">
             <div class="swiper-wrapper">
@@ -369,7 +382,7 @@
         <!-- END BLOCK : info_leaderHome -->
     </div>
     <script>
-        $(function () {
+        $(function() {
             var homespecialist = new Swiper(".slider-homespecialist", {
                 slidesPerView: 3, // Hiển thị 3 slide
                 loop: true,
@@ -401,8 +414,12 @@
 
             });
             $('.slider-homespecialist').hover(
-                function () { homespecialist.autoplay.stop(); },
-                function () { homespecialist.autoplay.start(); }
+                function() {
+                    homespecialist.autoplay.stop();
+                },
+                function() {
+                    homespecialist.autoplay.start();
+                }
             )
         });
     </script>
@@ -423,14 +440,12 @@
                         <div class="c20"></div>
                         <b>Office Hours: 07:30 - 19:00 Mon to Sat, Sun - Holiday</b>
                         <div class="c30"></div>
-                        <form action="{dir_path}/index4.php?page=21&lang={lang}" method="post" id="contactform"
-                        data-alert="{_ban_can_nhap_thong_tin}" data-captcha="{_captcha_invalid}"
-                        data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/">
+                        <form action="{dir_path}/index4.php?page=21&lang={lang}" method="post" id="contactform" data-alert="{_ban_can_nhap_thong_tin}" data-captcha="{_captcha_invalid}" data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/">
                             <input type="hidden" name="code" value="save">
 
                             <div class="form_booking">
                                 <div class="c10"></div>
-                                <input name="yourname" type="text" class="txt-contact notNull" id="yourname" placeholder="Name"/>
+                                <input name="yourname" type="text" class="txt-contact notNull" id="yourname" placeholder="Name" />
                                 <input name="phone" type="text" class="txt-contact notNull" placeholder="Phone" />
                                 <input name="address" type="text" class="txt-contact notNull" placeholder="Address" />
                                 <select name="service">
@@ -442,8 +457,7 @@
                                 <input name="email" type="text" class="txt-contact notNull" placeholder="Email" />
                                 <input name="other_request" type="text" class="txt-contact notNull" placeholder=" Content" />
                                 <div class="c30"></div>
-                                <a name="input" type="button" onClick="$('#contactform').submit()"
-                                class="btn" style="cursor: pointer;">{_send}</a>
+                                <a name="input" type="button" onClick="$('#contactform').submit()" class="btn" style="cursor: pointer;">{_send}</a>
 
                             </div>
 
