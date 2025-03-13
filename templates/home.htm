@@ -1,0 +1,511 @@
+{slideshow} {inhome}
+
+
+<div class="homeservice-wrapper">
+    <div class="c30"></div>
+    <div class="c20 hide-on-mobile"></div>
+    <div class="grid">
+        <div class="homeservice" style="position: relative;">
+            <div class="c30"></div>
+            <div class="swiper slider-homeservice">
+                <div class="swiper-wrapper">
+
+                    <!-- START BLOCK : infoHotItem -->
+                    <div class="swiper-slide">
+                        <div class="homeservice-item">
+                            <div class="c30"></div>
+                            <div class="c20"></div>
+                            <a href="{link_detail}">
+                                {image}
+                            </a>
+                            <div class="c20"></div>
+                            <div class="homeservice-box">
+                                <div class="homeservice-name">
+                                    <a href="{link_detail}"> {name} </a>
+                                </div>
+                                <div class="c30"></div>
+                                <div class="texline-3">
+                                    {intro}
+                                </div>
+                                <div class="c30"></div>
+                                <a href="{link_detail}" class="more-details">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END BLOCK : infoHotItem -->
+                </div>
+            </div>
+            <div class="slide-btn-prev homeservice-button-prev"><i class="fas fa-chevron-left"></i></div>
+            <div class="slide-btn-next homeservice-button-next"><i class="fas fa-chevron-right"></i></div>
+
+        </div>
+    </div>
+    <div class="c30"></div>
+    <div class="c20 hide-on-mobile"></div>
+
+    <script>
+        $(function() {
+            var slidehomeservice = new Swiper(".slider-homeservice", {
+                loop: true,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 2220, // Chạy tự động sau 2.5 giây
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".homeservice-button-next",
+                    prevEl: ".homeservice-button-prev",
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    768: {
+                        slidesPerView: 2.5,
+                        spaceBetween: 20
+                    },
+                    1040: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    },
+                    1600: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    }
+                }
+            });
+            $('.slider-homeservice').hover(
+                function() {
+                    slidehomeservice.autoplay.stop();
+                }, // Hover vào: dừng
+                function() {
+                    slidehomeservice.autoplay.start();
+                } // Rời chuột: chạy tiếp
+            );
+        });
+    </script>
+
+</div>
+
+<!-- tin tức sự kiện -->
+
+<!-- START BLOCK : newsHot  -->
+<div class="homenews-wrapper" style="position: relative;">
+    <div class="c20 hide-on-mobile"></div>
+    <div class="c30"></div>
+    <div class="grid">
+        <div class="flex-container center">
+            <div class="cell-1-2 tab-cell-1-1">
+                <div class="homecat-title">
+                    {catname}
+                </div>
+                <div class="c30"></div>
+                <div class="intro-homenews">
+                    <div class="text-line3">
+                        {catintro}
+                    </div>
+                </div>
+                <div class="c30"></div>
+                <div class="c20"></div>
+                <a href="{link}" class="btn">Xem Thêm</a>
+            </div>
+
+            <!-- START BLOCK : newsHotBig -->
+            <div class="cell-1-2 tab-cell-1-1" style="position: relative; overflow: hidden;">
+                <a href="{link_detail}">
+                    {image}
+                    <div class="homenews overlay"></div>
+                    <div class="homenews text-overlay">
+                        <img class="text-center" src="/uploaded/gioi-thieu/ico1.png" alt="">
+                        <div class="c20"></div>
+                        <div class="text-line2 text-center">{name}</div>
+                    </div>
+                </a>
+            </div>
+            <!-- END BLOCK : newsHotBig -->
+
+
+        </div>
+        <div class="c30"></div>
+        <div class="homenews">
+            <div class="flex-container center">
+                <!-- START BLOCK : newsHotItem -->
+                {hot}
+                <div class="cell-1-4 tab-cell-1-1">
+                    <div class="homenews-items">
+                        {image}
+                        <div class="c20"></div>
+                        <a href="{link_detail}">
+                            <div class="items-name">{name}</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- END BLOCK : newsHotItem -->
+            </div>
+        </div>
+    </div>
+    <div class="c30"></div>
+    <div class="c20 hide-on-mobile"></div>
+
+</div>
+<!-- END BLOCK : newsHot  -->
+
+<!-- end tin tức sự kiện -->
+
+
+<!-- START BLOCK : product  -->
+<div class="homeproduct-wrapper">
+    <div class="c30"></div>
+    <div class="c20 hide-on-mobile"></div>
+    <div class="grid">
+
+        <div class="flex-container algin-center">
+            <div class="cell-1-2 tab-cell-1-1">
+                <div class="homecat-title">
+                    <a href="#">
+                        <div class="hightligt" style="color: var(--maincolor);">{catname}</div>
+                    </a>
+                </div>
+            </div>
+            <div class="cell-4-2 tab-cell-1-1">
+                <div class="btn-all">
+                    <a href="#"> Xem tất cả <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                </div>
+            </div>
+        </div>
+        <div class="c30"></div>
+        <div class="homeproduct">
+            <div class="swiper slider-product01">
+                <div class="swiper-wrapper">
+                    <!-- START BLOCK : product_item -->
+                    <div class="swiper-slide">
+
+                        <div class="product-item">
+                            <a href="{link_detail}" class="img-shine">
+                                {image}
+                            </a>
+                            <div class="product-name">
+                                <a href="{link_detail}" class="text-line-2">
+                                    {name}
+                                </a>
+                            </div>
+
+                            <div class="pricekm">
+                                {pricekm}
+                            </div>
+                            <div class="price">
+                                {price}
+                            </div>
+                            <div class="discount">28%</div>
+                            <a href="{link_cart}" class="btn-buy">Mua ngay</a>
+                        </div>
+
+
+                    </div>
+                    <!-- END BLOCK : product_item -->
+                </div>
+                <div class="slide-btn-next product01-button-next"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="slide-btn-prev product01-button-prev"><i class="fas fa-chevron-left"></i> </div>
+
+                <script>
+                    $(function() {
+                        var product01 = new Swiper(".slider-product01", {
+
+                            loop: true,
+
+                            spaceBetween: 20,
+                            autoplay: true,
+                            pagination: {
+                                el: ".swiper-pagination",
+                            },
+                            slidesPerView: 4,
+                            navigation: {
+                                nextEl: '.product01-button-next',
+                                prevEl: '.product01-button-prev'
+                            },
+
+                            breakpoints: {
+                                // when window width is >= 320px
+                                320: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 10,
+                                },
+                                // when window width is >= 480px
+                                768: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 15,
+                                },
+                                // when window width is >= 640px
+                                1040: {
+                                    slidesPerView: 5,
+                                    spaceBetween: 20,
+                                },
+                                1600: {
+                                    slidesPerView: 5,
+                                    spaceBetween: 20
+                                }
+                            }
+                        });
+
+                        $('.slider-product01').hover(
+                            function() {
+                                product01.autoplay.stop();
+                            }, // Hover vào: dừng
+                            function() {
+                                product01.autoplay.start();
+                            } // Rời chuột: chạy tiếp
+                        );
+
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="c30"></div>
+        <div class="c20 hide-on-mobile"></div>
+    </div>
+</div>
+<!-- END BLOCK : product -->
+
+<!-- START BLOCK : serviceHome -->
+<div class="homesolution-wrapper">
+    <div class="c20 hide-on-mobile"></div>
+    <div class="c30"></div>
+    <div class="grid">
+        <!-- START BLOCK : service_sub -->
+        <div class="homecat-title">
+            {sub_catname}
+        </div>
+        <div class="c20"></div>
+        <div class="swiper slider-homesolution">
+            <div class="swiper-wrapper">
+                <!-- START BLOCK : serviceItem -->
+                <div class="swiper-slide">
+                    <div class="homesolution-item">
+                        <img src="/uploaded/san-pham/12_grande.jpg" alt="Healthy Food">
+                        <span class="product-name text-line-1">{name}</span>
+                        <span class="text-line-1 hide-on-tab">{intro}</span>
+                        <div class="c10"></div>
+                        <a href="{link_detail}" class="btn">Xem thêm</a>
+                    </div>
+                </div>
+                <!-- START BLOCK : serviceItem -->
+            </div>
+            <div class="homeslide-next-solution"><i class="fas fa-chevron-right"></i></div>
+            <div class="homeslide-prev-solution"><i class="fas fa-chevron-left"></i></div>
+        </div>
+        <!-- END BLOCK : service_sub -->
+        <div class="c20"></div>
+        <script>
+            $(function() {
+                var homesolution = new Swiper(".slider-homesolution", {
+                    slidesPerView: 3, // Hiển thị 3 slide
+                    loop: true,
+                    spaceBetween: 40,
+                    autoplay: {
+                        delay: 1500, // Chạy tự động sau 2.5 giây
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: ".homeslide-next-solution", // Thêm dấu chấm
+                        prevEl: ".homeslide-prev-solution",
+                    },
+                    breakpoints: {
+                        // when window width is >= 320px
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        // when window width is >= 480px
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                        },
+                        // when window width is >= 640px
+                        1040: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+
+                    }
+
+                });
+
+                $('.slider-homesolution').hover(
+                    function() {
+                        homesolution.autoplay.stop();
+                    },
+                    function() {
+                        homesolution.autoplay.start();
+                    }
+                )
+            });
+        </script>
+    </div>
+
+</div>
+<!-- END BLOCK : serviceHome -->
+<div class="c20"></div>
+<div class="c30"></div>
+<!-- doi ngu chhuyen gia -->
+<div class="homespecialist-wrapper">
+    <div class="c20 hide-on-mobile"></div>
+    <div class="c30"></div>
+    <div class="grid">
+        <!-- START BLOCK : info_leaderHome -->
+        <div class="homecat-title">
+            {catname}
+            <div class="hightlight" style="color: var(--maincolor);">{subname}</div>
+        </div>
+        <div class="swiper slider-homespecialist" style="position: relative;">
+            <div class="swiper-wrapper">
+                <!-- START BLOCK : items_lead -->
+                <div class="swiper-slide">
+
+                    <div class="homespecialist-item">
+                        {image}
+                        <div class="c30"></div>
+                        <h3>{name}</h3>
+                        <div class="c20"></div>
+                        <p>{intro}</p>
+                        <!-- <a href="#" class="btn-black">Let's Go</a> -->
+                    </div>
+                </div>
+                <!-- END BLOCK : items_lead -->
+            </div>
+            <div class="homespecialist-next"><i class="fas fa-chevron-right"></i></div>
+            <div class="homespecialist-prev"><i class="fas fa-chevron-left"></i></div>
+        </div>
+        <!-- END BLOCK : info_leaderHome -->
+    </div>
+    <script>
+        $(function() {
+            var homespecialist = new Swiper(".slider-homespecialist", {
+                slidesPerView: 3, // Hiển thị 3 slide
+                loop: true,
+                spaceBetween: 50,
+                autoplay: {
+                    delay: 2220, // Chạy tự động sau 2.5 giây
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".homespecialist-next", // Thêm dấu chấm
+                    prevEl: ".homespecialist-prev",
+                },
+                breakpoints: {
+                    // when window width is >= 320px
+                    320: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    // when window width is >= 480px
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 15,
+                    },
+
+
+
+                }
+
+
+            });
+            $('.slider-homespecialist').hover(
+                function() {
+                    homespecialist.autoplay.stop();
+                },
+                function() {
+                    homespecialist.autoplay.start();
+                }
+            )
+        });
+    </script>
+</div>
+<!-- het doi ngu  chuyen gia -->
+<div class="homefaq-wrapper">
+    <div class="c30"></div>
+    <div class="c20"></div>
+    <div class="grid">
+        <div class="flex-container center">
+            <div class="cell-1-2 tab-cell-1-1 a">
+                <div class="appointment">
+                    <div class="appoitment-content">
+                        <div class="homecat-title">
+                            <div class="hightlight" style="color: var(--maincolor);">Make an Appointment</div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="c20"></div>
+                        <b>Office Hours: 07:30 - 19:00 Mon to Sat, Sun - Holiday</b>
+                        <div class="c30"></div>
+                        <form action="{dir_path}/index4.php?page=21&lang={lang}" method="post" id="contactform" data-alert="{_ban_can_nhap_thong_tin}" data-captcha="{_captcha_invalid}" data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/">
+                            <input type="hidden" name="code" value="save">
+
+                            <div class="form_booking">
+                                <div class="c10"></div>
+                                <input name="yourname" type="text" class="txt-contact notNull" id="yourname" placeholder="Name" />
+                                <input name="phone" type="text" class="txt-contact notNull" placeholder="Phone" />
+                                <input name="address" type="text" class="txt-contact notNull" placeholder="Address" />
+                                <select name="service">
+                                    <option value="service_required">Service Required</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="check_up">Check-up</option>
+                                    <option value="nutrition_advice">Nutrition Advice</option>
+                                </select>
+                                <input name="email" type="text" class="txt-contact notNull" placeholder="Email" />
+                                <input name="other_request" type="text" class="txt-contact notNull" placeholder=" Content" />
+                                <div class="c30"></div>
+                                <a name="input" type="button" onClick="$('#contactform').submit()" class="btn" style="cursor: pointer;">{_send}</a>
+
+                            </div>
+
+                        </form>
+                        <!-- <form action="">
+                            <input type="text" placeholder="Enter Your Name">
+                            <input type="text" placeholder="Phone Number">
+                            <select>
+                                <option>Service Required</option>
+                                <option>Consultation</option>
+                                <option>Check-up</option>
+                                <option>Nutrition Advice</option>
+                            </select>
+                            <input placeholder="Your Message"></input>
+                            <div class="c30"></div>
+                            <a href="" class="btn">Book now</a>
+                        </form> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-1-2 tab-cell-1-1">
+                <!-- START BLOCK : faq -->
+                <div class="faq">
+                    <h2>{catname}</h2>
+                    <div class="c10"></div>
+                    <div class="line-white"></div>
+                    <div class="c10"></div>
+                    <!-- START BLOCK : item_faq -->
+                    <details class="faq-item">
+                        <summary>{name}</summary>
+                        <p>{content}</p>
+                    </details>
+                    <!-- END BLOCK : item_faq -->
+                    <!-- <details class="faq-item">
+                        <summary>Healthy and Delicious Foods.</summary>
+                        <div class="flex-container faq-item-open">
+                            <p class="cell-4-5 tab-cell-1-1">Discover the benefits of nutritious meals.</p>
+                            <div class="cell-1-5 tab-cell-1-1">
+                                <img src="/uploaded/san-pham/img-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </details> -->
+                </div>
+                <!-- END BLOCK : faq -->
+            </div>
+        </div>
+    </div>
+    <div class="c30"></div>
+    <div class="c20"></div>
+</div>

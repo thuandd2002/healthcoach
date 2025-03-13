@@ -1,0 +1,173 @@
+
+<div class="poster">
+    <div class="img-poster" style="position:relative">
+
+        <img src="/uploaded/pic-cat/bg-checksp.jpg" alt="Giới thiệu" width="100%">
+
+    </div>
+
+</div>
+
+<div class="grid gridless">
+    <div class="c30"></div>
+    <div class="c20 hide-on-mobile"></div>
+    <div class="homecat-title text-center" id="KetQua">
+        check sản phẩm chính hãng
+    </div>
+    <div class="c20"></div>
+    <div class="homecat-intro text-center hide-on-mobile">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        <div class="c20"></div>
+        <div class="lineless text-center"></div>
+    </div>
+
+    <div class="c30 hide-on-mobile"></div>
+    <div class="c20 hide-on-mobile"></div>
+    <div class="flex-container flex-centered">
+        <div class="cell-1-4 tab-cell-1-1">
+            <div class="tabchecksp">
+                <div class="">
+                    <a href="/check-by-qrcode/" class="tabchecksp-title tabchecksp-active" > <img src="/uploaded/ico/qrcode.png" alt=""> Check by QR code </a>
+                </div>
+                <div class="">
+                    <a href="/tra-cuu-san-pham/" class="tabchecksp-title" > <img src="/uploaded/ico/mavach.png" alt=""> Check by Serial </a>
+                </div>
+            </div>
+        </div>
+        <div class="cell-2-5 tab-cell-1-1">
+
+            <div class="tabchecksp-content text-center" style="{khongthay}" id="content-tab4">
+                <p style="text-align:center; color:#F00;  ">  <strong> Không tìm thấy thông tin sản phẩm ! </strong> </p>
+            </div>
+
+
+            <div class="tabchecksp-content text-center" id="content-tab3" style="{thongtinsanpham}"  >
+                <div class="tabchecksp-name " style="text-transform:uppercase; color:#c2d500; font-size:20px; ">
+                    Thông tin sản phẩm 
+                </div>
+
+                <div class="c20"></div>
+
+                <table border="1" cellpadding="2" cellspacing="0" class="table-list" style="border-collapse: collapse; width: 100%; text-align:left;">
+                    <tbody>
+                        <tr>
+                            <td width="160" align="left"> SerialNo </td>
+                            <td> <strong> {SerialNo} </strong> </td>
+                        </tr>
+                        <tr>
+                            <td align="left"> LotNo </td>
+                            <td> <strong> {LotNo} </strong> </td>
+                        </tr>
+                        <tr>
+                            <td align="left"> Tên sản phẩm </td>
+                            <td> <strong> {ItemName} </strong> </td>
+                        </tr>
+                        <tr>
+                            <td align="left"> Mã sản phẩm </td>
+                            <td> <strong> {ItemNo} </strong> </td>
+                        </tr>
+                        <tr>
+                            <td align="left">Quy cách </td>
+                            <td>  <strong> {Spec}</strong> </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left">Đơn vị </td>
+                            <td>  <strong> {UnitName}</strong> </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left">Ngày sản xuất </td>
+                            <td> <strong> {CreateDate} </strong> </td>
+                        </tr>
+
+
+                        <tr>
+                            <td align="left">Ngày có hiệu lực </td>
+                            <td> <strong> {RegDate} </strong> </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left">Thời gian hữu dụng  </td>
+                            <td> <strong> {ValiDate} </strong> </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="c20"></div>
+
+            </div>				
+
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js" ></script>
+
+            <div class="tabchecksp-content text-center" style="display:block;"  >
+
+                <div class="tabchecksp-name ">
+                    Check by QR Code
+                </div>
+                <div class="c20"></div>
+                Vui lòng quét mã QR của sản phẩm
+
+                <div class="c20"></div>
+
+                <form action="#KetQua" method="post" id="checkQR" data-alert="Bạn cần nhập đủ thông tin vào những trường màu đỏ" data-captcha="Mã captcha không đúng" >
+					
+					
+					<input type="hidden" name="code" value="checkQR" />
+					
+                    <input type="hidden" name="qrcode"  id="qrcode"  value="" />
+                    <div class="c20"></div>
+
+                    <div id="qr-reader" style="width:100%"></div>
+                    <div id="qr-reader-results"></div>			
+
+
+                </form>
+
+                <script>
+                    function docReady(fn) {
+                        // see if DOM is already available
+                        if (document.readyState === "complete" || document.readyState === "interactive") {
+                            // call on next available tick
+                            setTimeout(fn, 1);
+                        } else {
+                            document.addEventListener("DOMContentLoaded", fn);
+                        }
+                    }
+
+                    docReady(function () {
+                        var resultContainer = document.getElementById('qr-reader-results');
+                        var lastResult, countResults = 0;
+                        function onScanSuccess(decodedText, decodedResult) {
+                            if (decodedText !== lastResult) {
+                                ++countResults;
+                                lastResult = decodedText;
+                                // Handle on success condition with the decoded message.
+                                console.log(`Scan result ${decodedText}`, decodedResult);
+
+                                $("#qrcode").val(decodedText);
+                            }
+
+                            $("#checkQR").submit();
+                        }
+
+                        var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {fps: 10, qrbox: 250});
+                        html5QrcodeScanner.render(onScanSuccess);
+                    });
+                </script>					
+
+                <div class="c20"></div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="c50"></div>	
+

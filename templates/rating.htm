@@ -1,0 +1,147 @@
+<style>
+
+
+
+    /*stars--rate*/
+    .stars {
+
+        width: 170px;
+        height: 40px;
+
+        position: relative;
+        float: left;    
+
+    }
+
+    .stars .star {
+        width: 40px;
+        position: absolute;
+        top: 0;
+        font-size: 22px;
+        color: #FFFD5A;
+        text-shadow: 1px 2px 4px #c3c11c;
+        padding: 0;
+    }
+
+    .stars-ghost {
+        width: 0px;
+        position: relative;
+        float: left;
+        overflow: hidden;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .stars .star:nth-child(1) {
+        left: 0;
+    }
+
+    .stars .star:nth-child(2) {
+        left: 32px;
+    }
+
+    .stars .star:nth-child(3) {
+        left: 64px;
+    }
+
+    .stars .star:nth-child(4) {
+        left: 96px;
+    }
+
+    .stars .star:nth-child(5) {
+        left: 128px;
+    }
+
+    .rating-value, .rating-count{
+        float: left;
+        line-height: 40px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    /*end stars rate*/
+
+</style>
+
+<div class="rating" style="float: right; width: 330px;">
+    <form method="post" id="rateform">
+
+
+        <div class="stars">
+            <div class="stars-ghost">
+                <div class="star" ><i class="fas fa-star"></i></div>
+                <div class="star" ><i class="fas fa-star"></i></div>
+                <div class="star" ><i class="fas fa-star"></i></div>
+                <div class="star" ><i class="fas fa-star"></i></div>
+                <div class="star" ><i class="fas fa-star"></i></div>
+            </div>
+
+
+            <div class="star star-rate" data-rel="2" > <i class="far fa-star"></i> </div>
+            <div class="star star-rate" data-rel="3" > <i class="far fa-star"></i> </div>
+            <div class="star star-rate" data-rel="4" > <i class="far fa-star"></i> </div>
+            <div class="star star-rate" data-rel="5" > <i class="far fa-star"></i> </div>
+            <div class="star star-rate" data-rel="1" > <i class="far fa-star"></i> </div>
+
+        </div>
+    </form> 
+    <div class="rating-value"> <span id="avg_rate">5</span>  /5 </div>
+    <div class="rating-count"> (<span id="rate_count">0</span> đánh giá) </div>
+</div>
+
+<script>
+    $(function () {
+        updateRate();
+    });
+
+    function updateRate() {
+        $.ajax({
+            type: "POST",
+            url: "/index4.php?page=ajaxprovider&code=get_avg_rate&tb={tb}&id_tb={id_tb}&id={id}",
+            success: function (data) {
+                $("#avg_rate").html(data);
+                var rate_percent = data / 5;
+                var width = 170 * rate_percent;
+                $(".stars-ghost").css('width', width + 'px');
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/index4.php?page=ajaxprovider&code=get_rate_count&tb={tb}&id_tb={id_tb}&id={id}",
+            success: function (data) {
+                $("#rate_count").html(data)
+            }
+        });
+    }
+
+    $(".stars").mousemove(function (e) {
+        var gLeft = $(".stars .stars-ghost").offset().left, pX = e.pageX;
+        $(".stars .stars-ghost").width(pX - gLeft);
+    });
+
+    $(".stars").on("mouseleave", function () {
+        updateRate();
+    });
+
+
+    $(".star-rate").click(function () {
+        console.log($(this).attr('data-rel'));
+        $.ajax({
+            type: "POST",
+            url: "/index4.php?page=ajaxprovider&code=star_rate&tb={tb}&id_tb={id_tb}&id={id}&my_rate=" + $(this).attr('data-rel'),
+            success: function (data) {
+                //alert("Form submitted successfully!");
+                console.log(data);
+				if (data > 0){
+					updateRate();
+				}
+					
+            },
+            error: function () {
+                // code to be executed on error
+                console.log("An error occurred while submitting the form.");
+            }
+        });
+    });
+</script>

@@ -1,0 +1,173 @@
+
+
+{slideshow}
+<div class="c"></div>
+{pathpage}
+
+
+<!-- START BLOCK : itemList -->
+
+<div class="news-container">
+    <div class="c20 hide-on-mobile"></div>
+    <div class="c30"></div>
+    <div class="grid">
+        <div class="flex-container">
+
+            <div class="cell-3-4 tab-cell-1-1" >
+                <div class="flex-container">
+
+                    <!-- START BLOCK : tacgiaITem -->
+                    <div class="cell-1-2 tab-cell-1-1">
+                        
+						<div class="founder">
+							<div class="flex-container">
+								<div class="cell-1-3 tab-cell-1-1">
+									{image}
+								</div>
+								<div class="cell-2-3 tab-cell-1-1">
+									<div class="founder-name">{name} </div>
+									<div class="c"> </div>
+									<strong>{chucdanh} </strong>
+									<div class="c5"> </div>
+									{intro}
+								</div>
+							</div>
+
+						</div>
+						
+                    </div>
+                    <!-- END BLOCK : tacgiaITem -->
+
+
+
+                </div>
+                <div id="simplePagerNav">
+
+                    {pages}
+
+                </div>
+
+            </div>
+
+            <div class="cell-1-4 tab-cell-1-1" style="position: relative;" >
+
+                {leftcol}
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="c30"></div>
+	
+	
+</div>
+
+<!-- END BLOCK : itemList -->
+
+
+
+<!-- START BLOCK : itemDetail  -->
+
+
+<div class="news-container">
+    <div class="grid">
+        <div class="flex-container flex-reverse--mb">
+
+
+            <div class="cell-3-4 tab-cell-1-1 bor-r">
+
+				<div class="founder">
+					<div class="flex-container">
+						<div class="cell-1-3 tab-cell-1-1">
+							{image}
+						</div>
+						<div class="cell-2-3 tab-cell-1-1">
+							<div class="founder-name">{name} </div>
+							<div class="c"> </div>
+							<strong>{chucdanh} </strong>
+							<div class="c5"> </div>
+							
+							
+							{intro}
+						</div>
+					</div>
+					
+					<div class="c20"> </div>
+					{content}
+					<div class="c10"> </div>
+					{thongtinkhac}
+
+				</div>
+
+				<div class="c30"> </div>
+				
+            </div>
+
+            <div class="cell-1-4 tab-cell-1-1" style="position: relative;" >
+                {leftcol}
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- end tin tức -->
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+	
+    "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{link_detail}"
+    },
+    "headline": "{name}",
+    "image": [
+    "{site_address}{image}"
+    ],
+    "datePublished": "{createdate}",
+    "dateModified": "{createdate}",
+    "author": {
+		"url" : "{site_address}",
+		"@type": "Person",
+		"name": "Admin"
+    },
+    "publisher": {
+    "@type": "Organization",
+    "name": "BestDesign",
+    "logo": {
+		"@type": "ImageObject",
+		"url": "{site_address}/uploaded/logo/logo.png"
+		}
+    },
+	
+	"aggregateRating": {
+		"itemReviewed": {
+			"@type": "Book",
+			"name" : "{name}"
+		} ,
+		"@type": "AggregateRating",
+		"ratingValue": "4.8",
+		"reviewCount": "65"
+	},
+	
+	{aggregateRating111}
+	"description": "{description}"
+
+}
+</script>
+
+
+
+
+
+<!-- END BLOCK : itemDetail  -->

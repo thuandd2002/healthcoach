@@ -1,0 +1,52 @@
+<script type="text/javascript" charset="utf-8">
+			
+			$(document).ready(function() {
+				$('#elfinder').elfinder(
+					// 1st Arg - options
+					{
+						cssAutoLoad : true,              
+						baseUrl : '',                   
+						url : 'elfinder/php/connector.php' ,
+						lang: 'vi',
+						width : '100%',
+						height:500
+					},
+					// 2nd Arg - before boot up function
+					function(fm, extraObj) {
+						
+						fm.bind('init', function() {
+							
+							delete fm.options.rawStringDecoder;
+							if (fm.lang === 'jp') {
+								fm.loadScript(
+									[ fm.baseUrl + 'js/extras/encoding-japanese.min.js' ],
+									function() {
+										if (window.Encoding && Encoding.convert) {
+											fm.options.rawStringDecoder = function(s) {
+												return Encoding.convert(s,{to:'UNICODE',type:'string'});
+											};
+										}
+									},
+									{ loadType: 'tag' }
+								);
+							}
+						});
+						
+						var title = document.title;
+						fm.bind('open', function() {
+							var path = '',
+								cwd  = fm.cwd();
+							if (cwd) {
+								path = fm.path(cwd.hash) || null;
+							}
+							document.title = path? path + ':' + title : title;
+						}).bind('destroy', function() {
+							document.title = title;
+						});
+					}
+				);
+			});
+		</script>
+        <div style="padding:20px;">
+        	<div id="elfinder"></div>
+        </div>

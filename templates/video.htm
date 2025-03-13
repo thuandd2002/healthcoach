@@ -1,0 +1,103 @@
+
+
+{slideshow}
+<div class="c"></div>
+{pathpage}
+
+<div class="c20"></div>
+<div class="hide-on-mobile">
+{menutab}
+</div>
+<div class="c20 hide-on-tab"></div>
+<div class="c20 hide-on-tab"></div>
+
+<div class="grid">
+    <!-- START BLOCK : itemDetail  -->
+
+    <div class="c10"></div>
+    <div style="max-width:800px; margin:0 auto">
+        <h1 class="title-news-detail" style="text-align:left">{name} </h1>
+        <div class="c10"></div>
+    </div>
+    <div id="playvideo" style="max-width:800px; margin:0 auto">
+        <div id="mediaplayer1" ></div>
+        <!-- START BLOCK : youtube -->
+        <div style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;"><iframe allowfullscreen="" frameborder="0" height="360" src="//www.youtube.com/embed/{videocode}?modestbranding=1&amp;fs=1&amp;rel=0&autoplay=1&mute=1" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" width="640"></iframe></div>
+        <!-- END BLOCK : youtube --> 
+		
+		
+        <!-- START BLOCK : localvideo --> 
+		
+		<video width="100%" style="background:#000; "  controls muted autoplay >
+		  <source src="{video}" type="video/mp4">
+
+			Your browser does not support the video tag.
+		</video>
+        
+        <!-- END BLOCK : localvideo --> 
+    </div>
+
+    <div class="c10"></div>
+    <div style="">{content}</div>
+    <div class="c10"></div>
+    
+    <div class="c10"></div>
+    <div class="c30 hide-on-tab"></div>
+
+    <h3 class="title-other-news1" ><a>{_othervideo}</a></h3>
+    <div class="c10" style="border-top:solid 1px #CCC"></div>
+    <div class="c10"></div>
+    <div class="flex-container flex-space-between"> 
+        <!-- START BLOCK : list1 -->
+        <div class="cell-1-3 tab-cell-1-2 " style="margin-bottom: 30px;">
+            <a href="{link_detail}">{image}</a>
+            <div class="c5"></div>
+            <h3 class="news-name"><a href="{link_detail}">{name}</a></h3>
+        </div>
+        <!-- END BLOCK : list1 -->
+        <div class="cell-1-3"></div>
+    </div>
+    <div class="c20"></div>
+    <div class="paging">{pages}</div>
+
+    <!-- END BLOCK : itemDetail  -->
+    <!-- START BLOCK : catList  -->
+
+    <h1 class="title-page">{catname}</h1>
+
+    <div class="c5"></div>
+    {catintro}
+    <div class="c5"></div>
+    {catcontent}		
+    <div class="c5"></div>
+
+    <div class="c20"></div>
+    <div class="flex-container flex-space-between">
+        <!-- START BLOCK : cellvideo -->
+        <div class="cell-1-3 tab-cell-1-2" style="margin-bottom: 15px;">
+
+            <a href="{link_detail}">{image}</a>
+
+            <div class="c10"></div>
+            <h2 class="news-name">
+                <a href="{link_detail}">{name}</a>
+            </h2>
+            <div class="c10"></div>
+            <div class="news-intro" align="justify">
+                {intro}
+            </div>
+        </div>
+        <!-- END BLOCK : cellvideo --> 
+        <div class="cell-1-3 "></div>
+    </div>
+
+
+    <div class="c20"></div>
+    <!-- END BLOCK : catList  -->
+
+
+
+</div>
+<div class="c20"></div>
+
+

@@ -1,0 +1,25 @@
+CKEDITOR.editorConfig = function( config ) {
+	// Define changes to default configuration here. For example:
+	// config.language = 'fr';
+	// config.uiColor = '#AADC6E';
+	///config.extraPlugins = 'mediaembed,insertvideo,layoutmanager';
+	
+	
+	config.entities_latin = false;
+	
+	
+	
+	
+	config.toolbarCanCollapse = true;
+	config.allowedContent = true;
+	config.contentsCss = ['/css/grid.css'];
+	config.enterMode = CKEDITOR.ENTER_BR;
+	config.extraPlugins = 'videodetector,youtube,table,tabletools,mediaembed,lineheight,quicktable,pastefromexcel,pdfviewer,wordcount,browsefile';
+
+
+	config.filebrowserBrowseUrl = './editor/ckfinder/ckfinder.html';
+    	config.filebrowserImageBrowseUrl = './editor/ckfinder/ckfinder.html?type=Images';
+    	config.filebrowserUploadUrl = './editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+    	config.filebrowserImageUploadUrl = './editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';		
+
+};

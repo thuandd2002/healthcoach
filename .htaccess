@@ -1,0 +1,31 @@
+<IfModule mod_headers.c> 
+  Header set X-XSS-Protection "1; mode=block" 
+</IfModule>
+
+<FilesMatch "\.(ico|css|js|png|jpg|woff|jpeg|ttf|PNG|JPG)$">
+	Header set Cache-Control "max-age=720000, public"
+</FilesMatch>
+	
+<IfModule mod_deflate.c>
+	<FilesMatch "\.(html|txt|css|js|php|pl)$">
+	SetOutputFilter DEFLATE
+	</FilesMatch>
+</IfModule>
+	
+	
+	#<IfModule mod_rewrite.c>
+		RewriteEngine On
+		RewriteBase /
+		
+		RewriteRule ^uploaded/dong-dau/(.*)$ /image.php?w=1000&h=1000&image=$1 [L]
+		RewriteRule ^index\.php$ - [L]
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		
+		#RewriteCond %{REQUEST_URI} ^manager/(.*) [NC]
+		
+		
+		
+		RewriteRule . index.php [L]
+	#</IfModule>
+	

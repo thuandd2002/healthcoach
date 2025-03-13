@@ -1,0 +1,100 @@
+
+{slideshow}
+<div class="c"></div>
+{pathpage}
+<div class="c20"></div>
+<div class="c10"></div>
+<div class="hide-on-mobile">
+    {menutab}
+</div>
+
+<div class="c20"></div>
+<div class="grid">
+
+    <h1 class="title-page"><span>{catname}</span></h1>
+    <div class="c5"></div>
+    <div class="c10"></div>
+    <div class="cat-content">{catintro} </div>
+    <div class="c20"></div>
+
+    <div class="flex-container flex-space-between">
+
+        <div class="cell-3-4 tab-cell-1-1"> 
+
+            <!-- START BLOCK : listanswer -->
+            <div class="faq-item"  id="{id}">
+                <div class="faq-icon"></div>
+                <h2 class="toggle name-faq ">{name}</h2>
+                <div class="c5"></div>
+            </div>
+            <div class="content faqcontent " id="faq_{id}">
+                <div class="c5"></div>
+                <div id="div{id}">{content}</div>
+                <div class="c10"></div>
+            </div>
+            <div class="c10"></div>
+            <!-- END BLOCK : listanswer -->
+            <div class="c5"></div>
+            <script>
+                $(function () {
+                    $('.faq-item').click(function () {
+                        $('.faq-item').removeClass("faq-active");
+                        $(this).addClass("faq-active");
+                        $('.faqcontent').hide();
+                        $('#faq_' + $(this).attr('id')).stop().slideToggle();
+                    });
+                });
+            </script>             
+
+            <div class="c10"></div>
+            <div>{pages}</div>
+            <div class="c20"></div>
+
+
+        </div>
+
+        <div class="cell-1-4 hide-on-tab hide-on-mobile" >
+
+            <form action="{dir_path}/index4.php?page=contact&lang={lang}" method="post" id="contactform" data-alert="{_ban_can_nhap_thong_tin}" data-captcha ="{_captcha_invalid}" data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/" >
+                <input type="hidden"  name="code" value="save" />     
+
+                <div class="faq-form" >
+                    <div class="faq-form-title">Đăng ký tư vấn</div>
+
+                    <div style="padding: 10px 15px;">
+
+                        <div style="font-size: 14px;">Vui lòng cung cấp thông tin của bạn, đội ngũ tư vấn sẽ liên hệ với bạn trong thời gian sớm nhất</div>
+                        <div class="c10"></div>
+
+                        <input name="yourname" type="text" class="txt-contact notNull" id="yourname" placeholder="{_fullname} *" />
+                        <input name="phone" type="text" class="txt-contact notNull" placeholder="{_phone}*" />
+
+                        <input name="email" type="text" class="txt-contact" placeholder="Email" />
+
+                        <textarea class="txt-contact notNull" style="height: 80px;" name="other_request" rows="5" placeholder="{_content}"  ></textarea>
+
+                        <div class="c5"></div>
+
+                        <div style="position:relative;">
+                            <input class="txt-contact notNull" placeholder="Enter Captcha" name="sercurity"/>
+                            <img src="{dir_path}/lib/imagesercurity.php?recaptcha=n" name="imgCaptcha" align="absmiddle" class="imgCaptcha newsletter-capt-img" style="height: 35px; position: absolute; top: 0px; right: 0px; " />
+
+                        </div>
+
+                        <div class="c5"></div>
+                        <em style="font-size: 12px;"><i class="fa fa-shield" aria-hidden="true"></i> Cam kết bảo mật thông tin của khách hàng</em>
+                        <div class="c5"></div>
+
+                        <input name="input" type="button" onClick="$('#contactform').submit()" class="btn-contact" value="{_send}" />
+                        <div class="c5"></div>
+                        <div class="msgbox" style="font-size: 16px;"> </div>
+                        <div class="c5"></div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="c20"></div>

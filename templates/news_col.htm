@@ -1,0 +1,197 @@
+
+
+{pathpage}
+<div class="c20"></div>
+
+
+<div class="grid">
+
+    <!-- START BLOCK : itemList  -->
+
+	<h2 class="catchild-title">
+		{catname}
+	</h2>
+	<div class="c3"></div>
+	{catintro}
+
+    <div class="c10"></div>
+	
+	<div class="tocWrap">
+		<div class="longPageTOC TOCShowHide">
+			Xem nhanh
+		</div>
+		<div class="longPageNavigation"></div>
+	</div>
+	<script>
+		$(function () {
+			$(".tocContent").LongPageNavigation({ longPageNavigationPosition: "longPageNavigation" });
+			$(".TOCShowHide").click(function () {
+				$(this).toggleClass('collapsed');
+				$(".longPageNavigation").slideToggle();
+			});
+		});
+
+	</script>				
+	
+	<div class="tocContent">
+		{catcontent}
+	</div>	
+	<div class="c10"></div>
+
+    <!-- danh sach tin -->
+    <div class="news-wrapper">
+        <div class="grid">
+            <div class="flex-container">
+                <!-- START BLOCK : newsItem  -->
+                <div class="cell-1-3 pad-cell-1-2 tab-cell-1-1">
+                    <div class="news-item" style="padding: 0;">
+                        <a href="{link_detail}"> {image} </a>
+                        <div class="c10 hide-on-pad hide-on-tab"></div>
+                        <div class="c10"></div>
+                        <h3  class="newsname text-line-3 m-text-line-2">
+							<a href="{link_detail}">
+								{name}
+							</a>
+						</h3>
+                        <div class="c5"></div>
+                        <div class="text-line-4 news-intro">
+                            {intro}
+                        </div>
+                        <div class="c20"></div>
+                        <div class="c10 hide-on-pad hide-on-tab"></div>
+                    </div>
+
+                </div>
+                <!-- END BLOCK : newsItem  -->
+
+                <div class="cell-1-3"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- end  -->
+
+    <div class="c20 hide-on-pad hide-on-tab"></div>
+    <div class="c10 hide-on-pad hide-on-tab"></div>
+    <div class="c10"></div>
+
+    <!-- Phân trang -->
+    <div class="grid flex_center">
+        {pages}
+    </div>    
+
+    <!-- END BLOCK : itemList  -->
+
+
+    <!-- START BLOCK : itemDetail  -->
+    <div class="c20"></div>
+    <div class="flex-container flex-space-between">
+        <div class="cell-3-4 tab-cell-1-1"> 
+            <h1 class="title-news-detail" style="text-align:left"> {name}</h1>
+            <div class="c5"></div>
+            <div class="intro-detail" >{intro}</div>
+
+            <div class="c5"></div>
+
+			<div class="tocWrap">
+				<div class="longPageTOC TOCShowHide">
+					Xem nhanh
+				</div>
+				<div class="longPageNavigation"></div>
+			</div>
+			<script>
+				$(function () {
+					$(".tocContent").LongPageNavigation({ longPageNavigationPosition: "longPageNavigation" });
+					$(".TOCShowHide").click(function () {
+						$(this).toggleClass('collapsed');
+						$(".longPageNavigation").slideToggle();
+					});
+				});
+
+			</script>		
+
+            <div class="content-detail tocContent">
+                {content}
+            </div>
+
+
+
+            <div class="c10"></div>
+
+            <script type="application/ld+json">
+                {
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{site_address}{link_detail}"
+                },
+                "headline": "{name}",
+                "image": [
+                "{site_address}{image}"
+                ],
+                "datePublished": "{createdate}",
+                "dateModified": "{createdate}",
+                "author": {
+                "@type": "Person",
+                "name": "Admin"
+                },
+                "publisher": {
+                "@type": "Organization",
+                "name": "MRM",
+                "logo": {
+                "@type": "ImageObject",
+                "url": "{site_address}/uploaded/logo/logo.png"
+                }
+                },
+                "description": "{description}"
+                }
+            </script>
+
+            <div class="c20"></div>
+
+            <div class="c20"></div>
+
+            <div class="sharethis-inline-share-buttons"></div>
+            <div class="c30"></div>
+
+
+            <h3 class="title-other-news" > {_othernews} </h3>
+            <div class="c20"></div>
+
+            <div class=" flex-space-between flex-container">
+                <!-- START BLOCK : lstOther  -->
+                <div class="cell-1-2  tab-cell-1-2 mobile-cell-1-1" style="margin-bottom:20px;">
+
+                    <div class=" flex-space-between flex-container">
+                        <div class="cell-1-3" >
+                            <a href="{link_detail}"> {image} </a>
+                        </div>
+                        <div class="cell-2-3" >
+                            <h4 class="news-name"> <a href="{link_detail}">{name}</a> </h4>
+                            <div class="c5"></div>
+                            <div class="text-line-3" >{intro}</div>
+                        </div>
+
+                    </div>
+                </div>	
+                <!-- END BLOCK : lstOther  -->
+
+            </div>
+
+
+        </div>
+        <div class="cell-1-4 hide-on-tab"> 
+            {leftcol}
+        </div>
+    </div>
+
+    <div class="c20"></div>
+
+
+    <!-- END BLOCK : itemDetail  -->
+
+</div>
+
+<div class="c20"></div>

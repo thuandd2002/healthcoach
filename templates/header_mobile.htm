@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi" xmlns="http://www.w3.org/1999/xhtml"  xml:lang="vi">
+    <head>
+
+        <meta charset="utf-8">
+            <title>{site_name}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes"/>
+            {no_index}
+            <meta name="theme-color" content="#0099ff"/>
+            <meta http-equiv="Content-Language" content="{langcode}" />
+            <meta name="description" content="{site_description}" />
+            <meta name="keywords" content="{site_keywords}" />
+            <meta property="og:url" name="og:url" content="{site_url}" data-app/>
+            <meta property="og:type" name="og:type" content="website" data-app/>
+            <meta property="og:description" name="og:description" content="{site_description}" data-app/>
+            <meta property="og:title" name="og:title" content="{site_name}" data-app/>
+            {site_image}
+            {site_image_alt}
+            {canonical_url}
+
+            <link href="/favicon.ico" rel="shortcut icon" />
+
+            <link rel="stylesheet" type="text/css" href="{dir_path}/css/style.css"/>
+            <link rel="stylesheet" type="text/css" href="{dir_path}/css/grid.css"/>
+            <link rel="stylesheet" type="text/css" href="/css/responsive.css" />        
+            <link rel="stylesheet" type="text/css" href="{dir_path}/css/font.css">
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>           
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css"/>
+
+
+            <script src="{dir_path}/js/script.js"></script>
+
+
+
+            {toppage}
+
+            {header_tag}
+
+
+    </head>
+    <body>
+
+        {bodypage}
+
+        <img src="{dir_path}/lib/imagesercurity.php" style="display:none; " />
+        <div id="page">
+
+            <!-- header mobile -->            
+            <div class="mobile-bar hide-on-pc">                
+                <div class="grid">
+                    <div class="flex-container">
+                        <div class="cell-2-4">
+                            <div class="c5"></div>
+                            <div class="logo">
+                                <a href="/"><img src="/uploaded/logo/logo.png" alt="Logo web"
+                                                 style="max-width: 100%; margin: 0 auto" /></a>
+                            </div>
+                            <div class="c5"></div>
+                        </div>
+                        <div class="cell-1-4 flex_center">
+                            <a class="menu-mobile" href="#menu">
+                                <div class="burger">
+                                    <div class="line1"></div>
+                                    <div class="line2"></div>
+                                    <div class="line3"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="c"></div>
+            </div>
+
+
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".show-search-mobile").click(function () {
+                        $(".search-mobile").stop().slideToggle("slow");
+                    });
+                });
+            </script>
+
+
+            <div class="c"></div>
+            <div class="content" style="background:#FFF">

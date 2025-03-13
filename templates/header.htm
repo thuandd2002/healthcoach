@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi" xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>{site_name}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" /> {no_index}
+    <meta name="theme-color" content="#0099ff" />
+    <meta http-equiv="Content-Language" content="{langcode}" />
+    <meta name="description" content="{site_description}" />
+    <meta name="keywords" content="{site_keywords}" />
+    <meta property="og:url" name="og:url" content="{site_url}" data-app />
+    <meta property="og:type" name="og:type" content="website" data-app />
+    <meta property="og:description" name="og:description" content="{site_description}" data-app />
+    <meta property="og:title" name="og:title" content="{site_name}" data-app /> {site_image} {site_image_alt} {canonical_url}
+
+    <link href="/favicon.ico" rel="shortcut icon" />
+
+
+    <link rel="stylesheet" type="text/css" href="/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {toppage} {header_tag}
+
+
+</head>
+
+<body>
+
+    {bodypage}
+
+    <img src="{dir_path}/lib/imagesercurity.php" style="display:none; " />
+    <div id="page">
+
+        <div class="top-bar topheader-mb">
+            <div class="grid">
+
+                <div class="flex-container nav-top">
+                    <div class="cell-1-5 tab-cell-1-1">
+                        <div class="logo">
+                            {logo}
+                        </div>
+                    </div>
+                    <div class="cell-3-5 tab-cell-1-1">
+
+                        <ul class="menu-top">
+                            <li>
+                                <strong>Giờ mở cửa: 8h00-16h00</strong>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Tim kiem" />
+                                <li>
+                                    <a class="hotline">0123732123</a>
+                                </li>
+                                <li>
+                                    <a class="quote">Báo Giá</a>
+                                </li>
+                                <li>
+                                    <a class="booking">Đặt lịch</a>
+                                </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header hide-on-tab hide-on-mobile">
+            <div class="grid">
+
+                <div class="flex-container align-center">
+
+                    <div class="cell-4-5 tab-cell-1-1">
+                        <div class="menubar">
+                            {menubar}
+                            <!-- <div class="search">
+                                <div class="frm-search">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+                                <div class="searchpc">
+                                    <form action="/search/" method="get" id="searchformtab">
+                                        <input name="qr" id="qr_search" class="kw-mobile" placeholder="Search" type="text">
+
+                                        <a href="#" class="submit-search-pc" onclick="$('#searchformtab').submit();return false;">
+                                            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="#" class="closeX" onclick="$('.searchpc').hide(); return false;">✕</a>
+                                    </form>
+
+                                    <script type="text/javascript">
+                                        $(".submit-search-pc").click(function() {
+                                            if ($("#qr_search").val() != "")
+                                                $('#searchformtab').submit();
+                                            return false;
+
+                                        });
+
+                                        $(document).ready(function() {
+                                            $(".frm-search").click(function() {
+                                                $(".searchpc").stop().slideToggle("fast");
+                                                return false;
+                                            });
+
+                                        });
+                                    </script>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="c"></div>
+        </div>
+
+
+        <div class="content">

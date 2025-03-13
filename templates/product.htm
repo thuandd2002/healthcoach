@@ -1,0 +1,810 @@
+{pathpage}
+
+<div class="c"></div>
+{slideshow}
+<div class="c10"></div>
+<div class="c20"></div>
+
+
+<!-- START BLOCK : productCatList -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{site_address}{cat_link}"
+        },
+        "headline": "{cat_title}",
+        "image": [
+            "{site_address}{cat_image}"
+        ],
+        "datePublished": "{create_date}",
+        "dateModified": "{create_date}",
+        "author": {
+            "@type": "Person",
+            "name": "Admin"
+        },
+        "description": "{cat_description}"
+    }
+</script>
+<div class="c30"></div>
+<!-- Giới thiệu đầu -->
+<div class="category-product-info">
+    <div class="grid">
+        <div class="">
+            <div style="width:10%;"></div>
+            <div class="cell-1-1 tab-cell-1-1">
+
+                <h1 class="homecat-title text-center">
+                    <div class="hightlight" style="color: var(--maincolor);">{cat_title}</div>
+                </h1>
+                <div class="c"></div>
+                <div class="c20"></div>
+                {cat_content}
+                <div class="c10"></div>
+            </div>
+            <div style="width:10%;"></div>
+        </div>
+
+    </div>
+</div>
+<!-- end Giới thiệu đầu -->
+<div class="c20 hide-on-pad hide-on-tab"></div>
+<div class="c30"></div>
+
+<!-- Danh mục sản phẩm 1 -->
+<div class="category-product-list">
+    <div class="grid">
+        <div class="flex-container">
+            <!-- <div class="cell-1-5">
+                {leftcol}
+            </div> -->
+            <div class="cell-1-1">
+                <!-- START BLOCK : catItem -->
+                <div class="category-product-wrapper">
+                    <div class="grid">
+                        <div class="flex-container category-product">
+                            <!-- <div class="cell-2-6 tab-cell-1-1">
+                                <a href="{linkcat}" title="{name}">{catimage}</a>
+
+                            </div> -->
+
+                            <div class="cell-4-6 tab-cell-1-1">
+                                <div class="category-product-detail-odd">
+                                    <div class="c20"></div>
+                                    <div class="c30 hide-on-pad hide-on-tab"></div>
+                                    <h2 class="homecat-title">
+                                        <a href="{linkcat}">{catname}  </a>
+
+                                    </h2>
+                                    <!-- <div class="c15"></div>
+                                    <div class="text-line-4 category-product-detail_intro">
+                                        {catContentItem}
+                                    </div> -->
+                                    <div class="c10"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="c50"></div>
+
+                        <div class="flex-container text-center">
+
+                            <div class="flex-container">
+                                <!-- START BLOCK : catProductItem  -->
+                                <div class="cell-1-4 tab-cell-1-1">
+                                    <div class="product-item">
+                                        <div class="product-image">
+                                            <a href="{link_detail}" class="">
+                                                {image}
+                                            </a>
+                                        </div>
+                                        <div class="c10"></div>
+                                        <div class="productitem-box">
+                                            <div class="product-name">
+                                                <a href="{link_detail}" class="text-line-2">
+                                                    {name}
+                                                </a>
+                                            </div>
+                                            <div class="c5"></div>
+
+                                            <div class="c5"></div>
+                                            <div class="pricekm">
+                                                {pricekm}
+                                            </div>
+                                            <div class="price">
+                                                {price}
+                                            </div>
+                                            {discount-tags}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- END BLOCK : catProductItem  -->
+                            </div>
+
+                            <a href="{linkcat}" class="view-more-btn" style="border-radius: 0; float: right;">Xem thêm
+                                sản
+                                phẩm
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- END BLOCK : catItem -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- End Danh mục sản phẩm 1 -->
+</div>
+<div class="c20 hide-on-pad hide-on-tab"></div>
+<div class="c30"></div>
+
+
+<!-- END BLOCK : productCatList -->
+
+
+<!-- START BLOCK : productList -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{site_address}{cat_link}"
+        },
+        "headline": "{cat_title}",
+        "image": [
+            "{site_address}{cat_image}"
+        ],
+        "datePublished": "{create_date}",
+        "dateModified": "{create_date}",
+        "author": {
+            "@type": "Person",
+            "name": "Admin"
+        },
+        "description": "{cat_description}"
+    }
+</script>
+<div class="c20"></div>
+<div class="grid">
+    <!-- Giới thiệu đầu -->
+    <div class="category-product-info">
+        <div class="grid">
+            <div class="flex-container">
+                <div style="width:10%;"></div>
+                <div class="cell-4-5 tab-cell-1-1">
+
+
+                    <h1 class="category-product-info--title">{cat_title}</h1>
+                    <div class="c20"></div>
+                    <div class="category-product-info--intro">
+                        {cat_intro}
+                    </div>
+                    <div class="c20"></div>
+                </div>
+                <div style="width:10%;"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end Giới thiệu đầu -->
+    {menutab}
+    <div class="c30"></div>
+    <div class="c20 hide-on-tab"></div>
+
+    <!-- Các sản phẩm trong danh mục  -->
+    <div class="product-list">
+        <div class="grid">
+            <div class="flex-container">
+
+                <!-- START BLOCK : product_item -->
+                <div class="cell-1-4 tab-cell-1-1">
+                    <div class="product-item">
+                        <div class="product-image">
+                            <a href="{link_detail}" class="">
+                                {image}
+                            </a>
+                        </div>
+                        <div class="c10"></div>
+                        <div class="productitem-box">
+                            <div class="product-name">
+                                <a href="{link_detail}" class="text-line-2">
+                                    {name}
+                                </a>
+                            </div>
+                            <div class="c5"></div>
+                            <div class="c5"></div>
+                            <div class="pricekm">
+                                {pricekm}
+                            </div>
+                            <div class="price">
+                                {price}
+                            </div>
+                            {discount-tags}
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END BLOCK : product_item -->
+
+                <div class="cell-1-4 tab-cell-1-2"> </div>
+                <div class="cell-1-4 tab-cell-1-2"> </div>
+                <div class="cell-1-4 tab-cell-1-2"> </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Phân trang -->
+    <div class="grid flex_center">
+        {pages}
+    </div>
+
+    <div class="c5"></div>
+    {cat_content}
+
+    <!-- End các sản phẩm trong danh mục -->
+
+
+</div>
+<!-- END BLOCK : productList -->
+
+
+
+<!-- START BLOCK : proDetail -->
+<script type="text/javascript" src="{dir_path}/highslide/highslide-with-gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="{dir_path}/highslide/highslide.css" />
+<script type="text/javascript">
+    hs.graphicsDir = '{dir_path}/highslide/graphics/';
+    hs.align = 'center';
+    hs.transitions = ['expand', 'crossfade'];
+    hs.wrapperClassName = 'dark borderless floating-caption';
+    hs.fadeInOut = true;
+    hs.dimmingOpacity = .75;
+    if (hs.addSlideshow)
+        hs.addSlideshow({
+            interval: 5000,
+            repeat: false,
+            useControls: true,
+            fixedControls: 'fit',
+            overlayOptions: {
+                opacity: .6,
+                position: 'bottom center',
+                hideOnMouseOut: true
+            }
+        });
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "{name}",
+        "image": "{image}",
+        "description": "{description}",
+        "sku": "{ma}001",
+        "mpn": "{ma}",
+
+        "brand": {
+            "@type": "Organization",
+            "url": "{site_address}",
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "telephone": "+84-335-898-898",
+                "contactType": "customer service"
+            }]
+        },
+
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "4",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Administrator"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "510"
+        },
+
+        "offers": [{
+            "@type": "Offer",
+            "price": "{price_number}",
+            "priceCurrency": "VND",
+            "priceValidUntil": "2026-12-12T16:19:00+00:00",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "VND"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "businessDays": {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "https://schema.org/Monday",
+                            "https://schema.org/Tuesday",
+                            "https://schema.org/Wednesday",
+                            "https://schema.org/Thursday",
+                            "https://schema.org/Friday"
+                        ]
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "0",
+                        "maxValue": "0",
+                        "samedaydelivery": "Yes",
+                        "unitCode": "DAY"
+
+                    },
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "0",
+                        "maxValue": "0",
+                        "samedaydelivery": "Yes",
+                        "unitCode": "DAY"
+                    }
+                },
+                "shippingDestination": [{
+                    "@type": "DefinedRegion",
+                    "addressCountry": "Vi",
+                    "addressRegion": ["VN"]
+                }]
+            },
+            "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "VN",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": "7",
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+            },
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "lowPrice": "{price_number}",
+            "highPrice": "{price_number}",
+            "seller": {
+                "@type": "Organization",
+                "name": "MrM"
+            }
+        }],
+        "additionalProperty": [{
+            "@type": "PropertyValue",
+            "propertyID": "LB",
+            "value": "Furniture"
+        }]
+
+    }
+</script>
+
+
+
+<!-- Sản phẩm  -->
+<div class="product-detail-wrapper">
+
+    <div class="grid">
+        <div class="c20"></div>
+        <div class="c20 hide-on-tab"></div>
+        <div class="flex-container flex-space-between ">
+            <div class="cell-pro-left tab-cell-1-1 pad-cell-1-1">
+                <div class="flex-container flex-space-between">
+                    <div class="cell-1-6 hide-on-tab">
+                        <!--
+                        <div class="thumb-next">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="thumb-prev">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="c10"></div>
+                        -->
+                        <div style="position:relative;">
+
+                            <div class="swiper gallery-thumbs gallery-thumbs-height">
+                                <div class="swiper-wrapper">
+                                    {thumbimage}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="cell-5-6 tab-cell-1-1">
+                        <div>
+
+
+                            <div class="swiper gallery-top" style="border: 1px solid #d7d7d7;">
+                                <div class="swiper-wrapper">
+
+                                    <!-- START BLOCK : slider_image -->
+                                    <div class="swiper-slide">
+
+                                        {image}
+
+                                    </div>
+                                    <!-- END BLOCK : slider_image -->
+
+                                </div>
+                                <div class="swiper-button-next swiper-button-black"></div>
+                                <div class="swiper-button-prev swiper-button-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c10"></div>
+                <script>
+                    var swiper_thumbs = new Swiper(".gallery-thumbs", {
+                        loop: false,
+                        spaceBetween: 10,
+                        slidesPerView: 3,
+                        freeMode: true,
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                    });
+                    var swiper2 = new Swiper(".gallery-top", {
+                        loop: true,
+                        spaceBetween: 0,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        thumbs: {
+                            swiper: swiper_thumbs,
+                        },
+                    });
+                </script>
+                <div class="c10"></div>
+                <div class="c10 hide-on-pc hide-on-tab"></div>
+            </div>
+            <div class="cell-pro-right tab-cell-1-1 pad-cell-1-1">
+                <div style="position: relative;">
+                    <h1 class="product-name-detail">{name}</h1>
+                    <div class="c5"></div>
+                    <div class="pro-detail-intro">
+                        <span style="font-family: 'Muli-B';">Mã sp:</span> {ma}
+                    </div>
+
+                    <div class="pro-detail-intro">
+                        <span style="font-family: 'Muli-B';">Hãng sx:</span> {hangsx}
+                    </div>
+
+                    <div class="pro-detail-intro">
+                        <span style="font-family: 'Muli-B';">Xuất sứ:</span> {xuatxu}
+                    </div>
+
+                    <!-- START BLOCK : attr -->
+                    <div class="attr-item">
+                        <div class="attr-name">{attrname}:</div>
+                        <div class="attr-value">{attrvalue}</div>
+                    </div>
+                    <!-- END BLOCK : attr -->
+
+                    <div class="c10"></div>
+                    <div class="c5"></div>
+                    <div class="text-line-5">
+                        {ttkhuyenmai}
+                    </div>
+                    <div class="c20"></div>
+                    <div class="flex-container">
+
+                        <div class="price-detail" id="pricekm">
+
+                            <b style="color: green; text-decoration: line-through;"> Giá NY: {price}
+                            </b>
+
+                        </div>
+
+                        <b style="color: red;">Giá KM {pricekm}
+                        </b>
+
+                        <a href="{fileurl}" class="download-btn-product" download="">
+                            <i class="fas fa-download" style="color: #818181;"></i> Download file
+                        </a>
+
+                    </div>
+
+                </div>
+                <div class="c20"></div>
+                <a class="btn-buy-green" href="{linkcart}">Thêm vào giỏ hàng <i class="fa-solid fa-cart-plus"></i></a>
+                <br>
+                <div class="c30"></div>
+                <a class="btn-buy" href="tel:{hotline}">Mua ngay <i class="fas fa-phone-alt"></i> : {hotline}</a>
+                <div class="c10"></div>
+                <!-- START BLOCK : phienban -->
+                <div class="price-color" data-kolor="{tenphienban}" data-price="{gianumber}" data-price-format="{giaphienban} VNĐ">{tenphienban}</div>
+                <!-- END BLOCK : phienban -->
+
+                <!--
+                    <input type=" hidden" id="link_to_cart" value="{linkcart}" />
+
+                    <script>
+                        $(".price-color").click(function () {
+                            $(".price-color").removeClass("choose-price");
+                            $(this).addClass("choose-price");
+                            $("#pricekm").html($(this).attr("data-price-format"));
+                            linkcart();
+
+                        });
+
+
+                        function linkcart() {
+                            var link_to_cart = $("#link_to_cart").val() + "?qty=1&k=" + $(".choose-price").attr("data-kolor");
+                            $(".btn-buynow").attr("href", link_to_cart);
+                        }
+
+                        $(function () {
+                            $(".price-color").first().addClass("choose-price");
+                            linkcart();
+                        });
+                    </script>
+                    -->
+
+                <div class="c20 hide-on-tab"></div>
+
+                <div class="sharethis-inline-share-buttons"></div>
+                <div class="c20  hide-on-tab"></div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="c20"></div>
+</div>
+</div>
+<!-- End Sản phẩm -->
+<div class="c20 hide-on-pad hide-on-tab"></div>
+<!-- Thông tin sản phẩm -->
+<div class="tab-bar-wrapper">
+    <div class="grid">
+        <div class="c10"></div>
+        <div class="tab-bar">
+            <a href="#" class="tab-title tab-active" data-tab-id="tab1"> Tính năng </a>
+            <a href="#" class="tab-title" data-tab-id="tab2"> Thông số kĩ thuật </a>
+            <div class="c"></div>
+        </div>
+
+    </div>
+</div>
+<div class="grid">
+    <div class="tab-content" style="display:block;" id="content-tab1">
+        <div class="c20"></div>
+        <div class="c10"></div>
+        <div class="content-detail">
+            {content}
+        </div>
+    </div>
+    <div class="tab-content" style="display:none;" id="content-tab2">
+        <div class="c20"></div>
+        <div class="c10"></div>
+        <div class="content-detail">
+            {contenttab0}
+        </div>
+    </div>
+</div>
+<script>
+    $(".tab-title").click(function() {
+        $(".tab-title").removeClass("tab-active");
+        $(this).addClass("tab-active");
+        $(".tab-content").hide();
+        $("#content-" + $(this).attr("data-tab-id")).fadeIn();
+        return false;
+    });
+</script>
+<!-- end Thông tin sản phẩm -->
+<div class="c10 hide-on-pad hide-on-tab"></div>
+<div class="c20"></div>
+<div class="c20"></div>
+
+
+<!-- Sản phẩm cùng danh mục -->
+<div class="product-other">
+    <div class="grid">
+        <div class="c20"></div>
+        <div class="c20 hide-on-pad hide-on-tab"></div>
+        <h2 class="product-other-title">{_product_categories}</h2>
+        <div class="c20 hide-on-pad hide-on-tab"></div>
+        <div class="c10"></div>
+        <!-- Slide sản phẩm -->
+        <div class="product-slider-container" style="position: relative;">
+            <div class="btn-prev productother-prev flex_center hide-on-tab hide-on-pad" style="top: 50%; transform: translateY(-50%);">
+                <img src="/images/icon-prev.png" alt="Prev">
+            </div>
+            <div class="swiper" id="productother">
+                <div class="swiper-wrapper">
+                    <!-- START BLOCK : other_products -->
+                    <div class="swiper-slide">
+                        <div class="product-item">
+                            <a href="#" class="img-shine">
+                                {image}
+                            </a>
+                            <div class="product-name">
+                                <a href="#" class="text-line-2">
+                                    {name}
+                                </a>
+                            </div>
+
+                            <div class="pricekm">
+                                {pricekm}
+                            </div>
+                            <div class="price">
+                                {price}
+                            </div>
+                            <div class="discount">28%</div>
+                            <div class="btn-buy">Mua ngay</div>
+                        </div>
+                    </div>
+                    <!-- END BLOCK : other_products -->
+                </div>
+            </div>
+            <div class="btn-next productother-next flex_center hide-on-tab hide-on-pad" style="top: 50%; transform: translateY(-50%);">
+                <img src="/images/icon-next.png" alt="Next">
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var swiper = new Swiper('#productother', {
+                    slidesPerView: 4,
+                    spaceBetween: 26,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.productother-next',
+                        prevEl: '.productother-prev',
+                    },
+                    speed: 400,
+                    loop: true,
+                    breakpoints: {
+                        739: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        1023: {
+                            slidesPerView: 3,
+                            spaceBetween: 10
+                        }
+                    }
+                });
+
+                var sliderContainer = document.getElementById("productother");
+                sliderContainer.addEventListener("mouseover", function() {
+                    swiper.autoplay.stop();
+                });
+                sliderContainer.addEventListener("mouseout", function() {
+                    swiper.autoplay.start();
+                });
+            });
+        </script>
+        <!-- End slide sản phẩm -->
+    </div>
+    <div class="c30 hide-on-tab"></div>
+    <div class="c30"></div>
+</div>
+<!-- END Sản phẩm cùng danh mục -->
+
+<div class="c20"></div>
+
+
+<!-- dự án -->
+<!-- START BLOCK : relate_project -->
+<div class="duan-wrapper">
+    <div class="grid">
+        <div div class="c10 hide-on-tab"></div>
+        <div div class="c10"></div>
+        <div class="c20"></div>
+        <h2 class="product-other-title">Dự án liên quan</h2>
+        <div class="c"></div>
+        <div class="flex-container" style="position: relative;">
+            <div class="btn-next relate_project-next flex_center hide-on-tab hide-on-pad" style="top: 40%;">
+                <img src="/images/icon-next.png" alt="">
+            </div>
+            <div class="btn-prev relate_project-prev flex_center hide-on-tab hide-on-pad" style="top: 40%;">
+                <img src="/images/icon-prev.png" alt="">
+            </div>
+            <div class="swiper" id="relate_project" style="position: relative;">
+
+
+                <div class="swiper-wrapper">
+                    <!-- START BLOCK : relate_project_item -->
+                    <div class="swiper-slide">
+
+                        <div class="duan-card">
+                            <a href="{link_detail}">
+                                {image}
+                            </a>
+                            <div class="duan-detail">
+                                <a href="{link_detail}">
+                                    <div class="text-line-2 duan-detail--title">
+                                        {name}
+                                    </div>
+                                </a>
+                                <div class="c5"></div>
+                                <div class="text-line-3 duan-card_intro">
+                                    {intro}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END BLOCK : relate_project_item -->
+
+                </div>
+                <div class="c"></div>
+                <script>
+                    $(function() {
+                        var relate_project = new Swiper('#relate_project', {
+                            slidesPerView: 3,
+                            autoplay: {
+                                delay: 2000,
+                                disableOnInteraction: false,
+                            },
+                            spaceBetween: 26,
+                            navigation: {
+                                nextEl: '.relate_project-next',
+                                prevEl: '.relate_project-prev',
+                            },
+                            speed: 400,
+                            loop: true,
+                            breakpoints: {
+                                739: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 30
+                                },
+                                1023: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 10
+                                }
+                            }
+                        });
+                        $('#relate_project').on('mouseover', function() {
+                            relate_project.autoplay.stop();
+                        });
+                        $('#productother').on('mouseout', function() {
+                            relate_project.autoplay.start();
+                        });
+                    });
+                </script>
+                <div class="c"></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- END BLOCK : relate_project -->
+
+<!-- end dự án -->
+
+<div class="" style="display: flex;justify-content: space-around;">
+    {comment}
+</div>
+<!-- END BLOCK : proDetail -->
+
+<div class="c20"></div>
+<!--
+<script>
+    $(".product-item").hover(function () {
+        $(this).find(".product-item-overlay").show();
+        $(this).find(".product-home-info").addClass("product-home-info-active");
+    }, function () {
+        $(this).find(".product-item-overlay").hide();
+        $(this).find(".product-home-info").removeClass("product-home-info-active");
+    });
+</script>
+-->
