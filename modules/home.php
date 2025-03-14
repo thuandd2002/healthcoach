@@ -98,13 +98,13 @@ class clsHome
                     */
                     $this->proHome($rs['id_category']);
                 }
-                // if ($rs['data_type'] == 'news') {
-                //     $tpl->newBlock("news");
-                //     $tpl->assign("catname", html_entity_decode($rs['subname']));
-                //     $tpl->assign("link", $dir_path . '/' . $rs['url']);
-                //     $tpl->assign("catintro", $rs['intro']);
-                //     $this->newsHome($rs['id_category']);
-                // }
+                if ($rs['data_type'] == 'news') {
+                    $tpl->newBlock("news");
+                    $tpl->assign("catname", html_entity_decode($rs['subname']));
+                    $tpl->assign("link", $dir_path . '/' . $rs['url']);
+                    $tpl->assign("catintro", $rs['intro']);
+                    $this->newsHome($rs['id_category']);
+                }
 
                 if ($rs['data_type'] == 'info') {
                     $tpl->newBlock("info");
@@ -179,7 +179,7 @@ class clsHome
 
 
         include_once("modules/inhome.php");
-        $tpl->assignGlobal("inhome", inHome());
+        $tpl->assignGlobal("inhome", subInHome());
 
         /*
           $tpl->assignGlobal("menuProduct", menuProduct());
@@ -374,7 +374,8 @@ class clsHome
                 $tpl->assign("image", '<img src="' . $cache_image_path . cropimage(390, 250, $dir_path . '/' . $rs['image']) . '"  width="100%" alt="' . $rs['name'] . '">');
             $tpl->assign("createdate", date('d/m/Y', $rs['ngay_dang']));
             $tpl->assign("name", $rs['name']);
-            $tpl->assign("intro", strip_tags($rs['intro']));
+            $tpl->assign("intro", '<div style=" font-family: var(--fontLight)">' . strip_tags($rs['intro']) . '</div>');
+
             $tpl->assign("link_detail", $dir_path . '/' . url_process::getUrlCategory($rs['id_category']) . $rs['url']);
         }
 

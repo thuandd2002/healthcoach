@@ -73,7 +73,7 @@ class clsProduct
         // $tpl->assignGlobal("slideshow", slideshow());
         $tpl->assignGlobal("cat_title", $rs_cat['name']);
         $tpl->assignGlobal("cat_intro", '<div style="padding:10px 0px">' . $rs_cat['intro'] . '</div>');
-        $tpl->assignGlobal("cat_content", '<div style="padding:10px 0px">' . $rs_cat['content'] . '</div>');
+        $tpl->assignGlobal("cat_content", '<span">' . $rs_cat['content'] . '</span>');
 
         if ($rs_cat['image'] != "")
             $tpl->assignGlobal("cat_image", $rs_cat['image']);

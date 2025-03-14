@@ -1,19 +1,75 @@
-<div class="homeinfo-wrapper cat-mobile">
-
-    <div class="flex-container align-center">
-        <!-- START BLOCK : cell_cat_home -->
-        <div class="cell-1-3 tab-cell-1-1 box">
-            <a href="{linkcat}"> {catimage}
-                <div class="overlay">
-                    <div class="text-content">
-                        <div class="line"></div>
-                        <p>{catname}</p>
+<div class="inhome-wrapper">
+    <div class="grid">
+        <div class="homecat-title text-center" style="color: var(--maincolor);">
+            {catname}
+        </div>
+        <div class="c20"></div>
+        <div class="swiper slider-ihome">
+            <div class="swiper-wrapper">
+                <!-- START BLOCK : cell_cat_home -->
+                <div class="swiper-slide">
+                    <div class="product-item">
+                        <a href="{link_detail}" class="img-shine">
+                            {image}
+                        </a>
+                        <div class="product-name">
+                            <a href="{link_detail}" class="text-line-2">
+                                {name}
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </a>
+                <!-- END BLOCK : cell_cat_home -->
+                <!-- Đảm bảo có đủ slide -->
+            </div>
+            <div class="homeslide-next-solution"><i class="fas fa-chevron-right"></i></div>
+            <div class="homeslide-prev-solution"><i class="fas fa-chevron-left"></i></div>
         </div>
+        <script>
+            $(document).ready(function() {
+                var ihome = new Swiper(".slider-ihome", {
+                    slidesPerView: 5, // Hiển thị đúng 5 slide
+                    loop: true, // Chạy vô hạn
+                    spaceBetween: 20, // Khoảng cách giữa các slide
+                    autoplay: {
+                        delay: 2000, // Auto chạy sau 2s
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: ".homeslide-next-solution",
+                        prevEl: ".homeslide-prev-solution",
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 10
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 15
+                        },
+                        1040: {
+                            slidesPerView: 4,
+                            spaceBetween: 20
+                        },
+                        1400: {
+                            slidesPerView: 5,
+                            spaceBetween: 20
+                        } // Hiển thị 5 slide khi màn lớn
+                    }
+                });
 
-        <!-- END BLOCK : cell_cat_home -->
+                // Dừng auto khi hover vào slide
+                $('.swiper-slide').hover(
+                    function() {
+                        inhome.autoplay.stop();
+                    },
+                    function() {
+                        inhome.autoplay.start();
+                    }
+                );
+            });
+        </script>
     </div>
 
 </div>

@@ -1,32 +1,26 @@
-{slideshow} {inhome}
-
+{slideshow}
 
 <div class="homeservice-wrapper">
     <div class="c30"></div>
     <div class="c20 hide-on-mobile"></div>
     <div class="grid">
-        <div class="homeservice" style="position: relative;">
+        <div class="homeservice" style="position: relative">
             <div class="c30"></div>
             <div class="swiper slider-homeservice">
                 <div class="swiper-wrapper">
-
                     <!-- START BLOCK : infoHotItem -->
                     <div class="swiper-slide">
                         <div class="homeservice-item">
                             <div class="c30"></div>
                             <div class="c20"></div>
-                            <a href="{link_detail}">
-                                {image}
-                            </a>
+                            <a href="{link_detail}"> {image} </a>
                             <div class="c20"></div>
                             <div class="homeservice-box">
                                 <div class="homeservice-name">
                                     <a href="{link_detail}"> {name} </a>
                                 </div>
                                 <div class="c30"></div>
-                                <div class="texline-3">
-                                    {intro}
-                                </div>
+                                <div class="texline-3 font-text-light">{intro}</div>
                                 <div class="c30"></div>
                                 <a href="{link_detail}" class="more-details">More Details</a>
                             </div>
@@ -35,9 +29,12 @@
                     <!-- END BLOCK : infoHotItem -->
                 </div>
             </div>
-            <div class="slide-btn-prev homeservice-button-prev"><i class="fas fa-chevron-left"></i></div>
-            <div class="slide-btn-next homeservice-button-next"><i class="fas fa-chevron-right"></i></div>
-
+            <div class="slide-btn-prev homeservice-button-prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slide-btn-next homeservice-button-next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
         </div>
     </div>
     <div class="c30"></div>
@@ -62,23 +59,23 @@
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 20
+                        spaceBetween: 20,
                     },
                     768: {
                         slidesPerView: 2.5,
-                        spaceBetween: 20
+                        spaceBetween: 20,
                     },
                     1040: {
                         slidesPerView: 3,
-                        spaceBetween: 20
+                        spaceBetween: 20,
                     },
                     1600: {
                         slidesPerView: 3,
-                        spaceBetween: 20
-                    }
-                }
+                        spaceBetween: 20,
+                    },
+                },
             });
-            $('.slider-homeservice').hover(
+            $(".slider-homeservice").hover(
                 function() {
                     slidehomeservice.autoplay.stop();
                 }, // Hover vào: dừng
@@ -88,26 +85,179 @@
             );
         });
     </script>
+</div>
 
+<!-- gioi thieu catHomecatHome -->
+<div class="infoHome-wrapper">
+    <div class="grid">
+        <div class="flex-container">
+            <!-- START BLOCK : info -->
+            <div class="cell-2-3">
+                <div class="flex-container">
+                    <div class="cell-1-2">
+                        <div class="homecat-title" style="color: var(--maincolor)">
+                            {catname}
+                        </div>
+                        <div class="lighter">{catintro}</div>
+                    </div>
+                    <div class="cell-1-2">
+                        <div class="video-item videoitem-big">
+                            {catimage}
+                            <div class="fancy-video">
+                                <a data-fancybox="" class="fancybox__link" href="https://www.youtube.com/watch?v={videocode}">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="video-name">{name}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- START BLOCK : info -->
+            <div class="cell-1-3">
+                <div class="box-hoi-dap">
+                    <div class="expert-qa">
+                        <h3 style="color: var(--maincolor)">HỎI ĐÁP CHUYÊN GIA</h3>
+                        <p class="lighter">Gửi câu hỏi đến chuyên gia</p>
+                        <!-- Nút mở modal -->
+                        <a class="hotline" id="openModal">Gửi câu hỏi</a>
+
+                        <!-- Modal Form (ẩn mặc định) -->
+                        <div id="questionModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" id="closeModal">&times;</span>
+                                <h5>Gửi câu hỏi</h5>
+                                <form action="{dir_path}/index4.php?page=21&lang={lang}" method="post" id="contactform" data-alert="{_ban_can_nhap_thong_tin}" data-captcha="{_captcha_invalid}" data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/">
+                                    <input type="hidden" name="code" value="save" />
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Họ tên" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Điện thoại" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control" placeholder="Email" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" rows="3" placeholder="Câu hỏi"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning w-100">
+                    GỬI CÂU HỎI
+                  </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <p class="lighter">Gọi để tư vấn miễn phí</p>
+                        <a class="hotline-yl" href="tel:098321234">Hotline📞: 098321234</a>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Lấy phần tử modal
+                var modal = document.getElementById("questionModal");
+
+                // Lấy nút mở modal
+                var btn = document.getElementById("openModal");
+
+                // Lấy nút đóng modal
+                var closeBtn = document.getElementById("closeModal");
+
+                // Khi bấm vào nút, mở modal
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                };
+
+                // Khi bấm vào nút "x", đóng modal
+                closeBtn.onclick = function() {
+                    modal.style.display = "none";
+                };
+
+                // Khi bấm ra ngoài modal, cũng đóng nó
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
+            </script>
+        </div>
+    </div>
+</div>
+<div class="c20"></div>
+<!-- bao chi noi gì ve chung toitoi-->
+
+<div class="newspaper-wrapper">
+    <div class="grid">
+        <!-- START BLOCK : news -->
+        <div class="homecat-title">{catname}</div>
+        <div class="c30"></div>
+        <div class="swiper silde-newspaper">
+            <div class="swiper-wrapper">
+                <!-- START BLOCK : news_item -->
+                <div class="swiper-slide">
+                    <div class="newspaper-item">
+                        <div class="flex-container">
+                            <div class="cell-1-5">{image}</div>
+                            <div class="cell-4-5">
+                                {name}
+                                <div class="c10"></div>
+                                <div class="lighter">
+                                    {intro}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END BLOCK : news_item -->
+            </div>
+            <div class="homeslide-next-solution">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="homeslide-prev-solution">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </div>
+        <script>
+            var newspaper = new Swiper(".silde-newspaper", {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".homeslide-next-solution",
+                    prevEl: ".homeslide-prev-solution",
+                },
+            });
+            $(".silde-newspaper").hover(
+                function() {
+                    newspaper.autoplay.stop();
+                },
+                function() {
+                    newspaper.autoplay.start();
+                }
+            );
+        </script>
+        <!-- END BLOCK : news -->
+    </div>
 </div>
 
 <!-- tin tức sự kiện -->
 
 <!-- START BLOCK : newsHot  -->
-<div class="homenews-wrapper" style="position: relative;">
+<div class="homenews-wrapper" style="position: relative">
     <div class="c20 hide-on-mobile"></div>
     <div class="c30"></div>
     <div class="grid">
         <div class="flex-container center">
             <div class="cell-1-2 tab-cell-1-1">
-                <div class="homecat-title">
-                    {catname}
-                </div>
+                <div class="homecat-title">{catname}</div>
                 <div class="c30"></div>
                 <div class="intro-homenews">
-                    <div class="text-line3">
-                        {catintro}
-                    </div>
+                    <div class="text-line3 lighter">{catintro}</div>
                 </div>
                 <div class="c30"></div>
                 <div class="c20"></div>
@@ -115,20 +265,22 @@
             </div>
 
             <!-- START BLOCK : newsHotBig -->
-            <div class="cell-1-2 tab-cell-1-1" style="position: relative; overflow: hidden;">
+            <div class="cell-1-2 tab-cell-1-1" style="position: relative; overflow: hidden">
                 <a href="{link_detail}">
-                    {image}
-                    <div class="homenews overlay"></div>
-                    <div class="homenews text-overlay">
-                        <img class="text-center" src="/uploaded/gioi-thieu/ico1.png" alt="">
-                        <div class="c20"></div>
-                        <div class="text-line2 text-center">{name}</div>
-                    </div>
-                </a>
+          {image}
+          <div class="homenews overlay"></div>
+          <div class="homenews text-overlay">
+            <img
+              class="text-center"
+              src="/uploaded/gioi-thieu/ico1.png"
+              alt=""
+            />
+            <div class="c20"></div>
+            <div class="text-line2 text-center">{name}</div>
+          </div>
+        </a>
             </div>
             <!-- END BLOCK : newsHotBig -->
-
-
         </div>
         <div class="c30"></div>
         <div class="homenews">
@@ -150,30 +302,31 @@
     </div>
     <div class="c30"></div>
     <div class="c20 hide-on-mobile"></div>
-
 </div>
 <!-- END BLOCK : newsHot  -->
 
 <!-- end tin tức sự kiện -->
-
 
 <!-- START BLOCK : product  -->
 <div class="homeproduct-wrapper">
     <div class="c30"></div>
     <div class="c20 hide-on-mobile"></div>
     <div class="grid">
-
         <div class="flex-container algin-center">
             <div class="cell-1-2 tab-cell-1-1">
                 <div class="homecat-title">
                     <a href="#">
-                        <div class="hightligt" style="color: var(--maincolor);">{catname}</div>
+                        <div class="hightligt" style="color: var(--maincolor)">
+                            {catname}
+                        </div>
                     </a>
                 </div>
             </div>
             <div class="cell-4-2 tab-cell-1-1">
                 <div class="btn-all">
-                    <a href="#"> Xem tất cả <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                    <a href="#">
+            Xem tất cả <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </a>
                 </div>
             </div>
         </div>
@@ -183,38 +336,30 @@
                 <div class="swiper-wrapper">
                     <!-- START BLOCK : product_item -->
                     <div class="swiper-slide">
-
                         <div class="product-item">
-                            <a href="{link_detail}" class="img-shine">
-                                {image}
-                            </a>
+                            <a href="{link_detail}" class="img-shine"> {image} </a>
                             <div class="product-name">
-                                <a href="{link_detail}" class="text-line-2">
-                                    {name}
-                                </a>
+                                <a href="{link_detail}" class="text-line-2 lighter"> {name} </a>
                             </div>
 
-                            <div class="pricekm">
-                                {pricekm}
-                            </div>
-                            <div class="price">
-                                {price}
-                            </div>
+                            <div class="pricekm">{pricekm}</div>
+                            <div class="price">{price}</div>
                             <div class="discount">28%</div>
-                            <a href="{link_cart}" class="btn-buy">Mua ngay</a>
+                            <a href="{link_cart}" class="btn-buy-green">Mua ngay</a>
                         </div>
-
-
                     </div>
                     <!-- END BLOCK : product_item -->
                 </div>
-                <div class="slide-btn-next product01-button-next"> <i class="fas fa-chevron-right"></i> </div>
-                <div class="slide-btn-prev product01-button-prev"><i class="fas fa-chevron-left"></i> </div>
+                <div class="slide-btn-next product01-button-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="slide-btn-prev product01-button-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
 
                 <script>
                     $(function() {
                         var product01 = new Swiper(".slider-product01", {
-
                             loop: true,
 
                             spaceBetween: 20,
@@ -224,8 +369,8 @@
                             },
                             slidesPerView: 4,
                             navigation: {
-                                nextEl: '.product01-button-next',
-                                prevEl: '.product01-button-prev'
+                                nextEl: ".product01-button-next",
+                                prevEl: ".product01-button-prev",
                             },
 
                             breakpoints: {
@@ -246,12 +391,12 @@
                                 },
                                 1600: {
                                     slidesPerView: 5,
-                                    spaceBetween: 20
-                                }
-                            }
+                                    spaceBetween: 20,
+                                },
+                            },
                         });
 
-                        $('.slider-product01').hover(
+                        $(".slider-product01").hover(
                             function() {
                                 product01.autoplay.stop();
                             }, // Hover vào: dừng
@@ -259,7 +404,6 @@
                                 product01.autoplay.start();
                             } // Rời chuột: chạy tiếp
                         );
-
                     });
                 </script>
             </div>
@@ -269,6 +413,7 @@
     </div>
 </div>
 <!-- END BLOCK : product -->
+{inhome}
 
 <!-- START BLOCK : serviceHome -->
 <div class="homesolution-wrapper">
@@ -276,17 +421,15 @@
     <div class="c30"></div>
     <div class="grid">
         <!-- START BLOCK : service_sub -->
-        <div class="homecat-title">
-            {sub_catname}
-        </div>
+        <div class="homecat-title">{sub_catname}</div>
         <div class="c20"></div>
         <div class="swiper slider-homesolution">
             <div class="swiper-wrapper">
                 <!-- START BLOCK : serviceItem -->
                 <div class="swiper-slide">
                     <div class="homesolution-item">
-                        <img src="/uploaded/san-pham/12_grande.jpg" alt="Healthy Food">
-                        <span class="product-name text-line-1">{name}</span>
+                        <img src="/uploaded/san-pham/12_grande.jpg" alt="Healthy Food" />
+                        <span class="product-name text-line-1 lighter">{name}</span>
                         <span class="text-line-1 hide-on-tab">{intro}</span>
                         <div class="c10"></div>
                         <a href="{link_detail}" class="btn">Xem thêm</a>
@@ -294,8 +437,12 @@
                 </div>
                 <!-- START BLOCK : serviceItem -->
             </div>
-            <div class="homeslide-next-solution"><i class="fas fa-chevron-right"></i></div>
-            <div class="homeslide-prev-solution"><i class="fas fa-chevron-left"></i></div>
+            <div class="homeslide-next-solution">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="homeslide-prev-solution">
+                <i class="fas fa-chevron-left"></i>
+            </div>
         </div>
         <!-- END BLOCK : service_sub -->
         <div class="c20"></div>
@@ -329,23 +476,20 @@
                             slidesPerView: 3,
                             spaceBetween: 30,
                         },
-
-                    }
-
+                    },
                 });
 
-                $('.slider-homesolution').hover(
+                $(".slider-homesolution").hover(
                     function() {
                         homesolution.autoplay.stop();
                     },
                     function() {
                         homesolution.autoplay.start();
                     }
-                )
+                );
             });
         </script>
     </div>
-
 </div>
 <!-- END BLOCK : serviceHome -->
 <div class="c20"></div>
@@ -358,13 +502,12 @@
         <!-- START BLOCK : info_leaderHome -->
         <div class="homecat-title">
             {catname}
-            <div class="hightlight" style="color: var(--maincolor);">{subname}</div>
+            <div class="hightlight" style="color: var(--maincolor)">{subname}</div>
         </div>
-        <div class="swiper slider-homespecialist" style="position: relative;">
+        <div class="swiper slider-homespecialist" style="position: relative">
             <div class="swiper-wrapper">
                 <!-- START BLOCK : items_lead -->
                 <div class="swiper-slide">
-
                     <div class="homespecialist-item">
                         {image}
                         <div class="c30"></div>
@@ -376,7 +519,9 @@
                 </div>
                 <!-- END BLOCK : items_lead -->
             </div>
-            <div class="homespecialist-next"><i class="fas fa-chevron-right"></i></div>
+            <div class="homespecialist-next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
             <div class="homespecialist-prev"><i class="fas fa-chevron-left"></i></div>
         </div>
         <!-- END BLOCK : info_leaderHome -->
@@ -406,21 +551,16 @@
                         slidesPerView: 3,
                         spaceBetween: 15,
                     },
-
-
-
-                }
-
-
+                },
             });
-            $('.slider-homespecialist').hover(
+            $(".slider-homespecialist").hover(
                 function() {
                     homespecialist.autoplay.stop();
                 },
                 function() {
                     homespecialist.autoplay.start();
                 }
-            )
+            );
         });
     </script>
 </div>
@@ -434,14 +574,16 @@
                 <div class="appointment">
                     <div class="appoitment-content">
                         <div class="homecat-title">
-                            <div class="hightlight" style="color: var(--maincolor);">Make an Appointment</div>
+                            <div class="hightlight" style="color: var(--maincolor)">
+                                Make an Appointment
+                            </div>
                         </div>
                         <div class="line"></div>
                         <div class="c20"></div>
                         <b>Office Hours: 07:30 - 19:00 Mon to Sat, Sun - Holiday</b>
                         <div class="c30"></div>
                         <form action="{dir_path}/index4.php?page=21&lang={lang}" method="post" id="contactform" data-alert="{_ban_can_nhap_thong_tin}" data-captcha="{_captcha_invalid}" data-success="{_thong_tin_lien_he}" data-redirect="/contact-success/">
-                            <input type="hidden" name="code" value="save">
+                            <input type="hidden" name="code" value="save" />
 
                             <div class="form_booking">
                                 <div class="c10"></div>
@@ -449,20 +591,19 @@
                                 <input name="phone" type="text" class="txt-contact notNull" placeholder="Phone" />
                                 <input name="address" type="text" class="txt-contact notNull" placeholder="Address" />
                                 <select name="service">
-                                    <option value="service_required">Service Required</option>
-                                    <option value="consultation">Consultation</option>
-                                    <option value="check_up">Check-up</option>
-                                    <option value="nutrition_advice">Nutrition Advice</option>
-                                </select>
+                  <option value="service_required">Service Required</option>
+                  <option value="consultation">Consultation</option>
+                  <option value="check_up">Check-up</option>
+                  <option value="nutrition_advice">Nutrition Advice</option>
+                </select>
                                 <input name="email" type="text" class="txt-contact notNull" placeholder="Email" />
                                 <input name="other_request" type="text" class="txt-contact notNull" placeholder=" Content" />
                                 <div class="c30"></div>
-                                <a name="input" type="button" onClick="$('#contactform').submit()" class="btn" style="cursor: pointer;">{_send}</a>
-
-                            </div>
-
-                        </form>
-                        <!-- <form action="">
+                                <a name="input" type="button" onClick="$('#contactform').submit()" class="btn" style="cursor: pointer">{_send}</a
+                >
+              </div>
+            </form>
+            <!-- <form action="">
                             <input type="text" placeholder="Enter Your Name">
                             <input type="text" placeholder="Phone Number">
                             <select>
@@ -475,24 +616,24 @@
                             <div class="c30"></div>
                             <a href="" class="btn">Book now</a>
                         </form> -->
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="cell-1-2 tab-cell-1-1">
-                <!-- START BLOCK : faq -->
-                <div class="faq">
-                    <h2>{catname}</h2>
-                    <div class="c10"></div>
-                    <div class="line-white"></div>
-                    <div class="c10"></div>
-                    <!-- START BLOCK : item_faq -->
-                    <details class="faq-item">
-                        <summary>{name}</summary>
-                        <p>{content}</p>
-                    </details>
-                    <!-- END BLOCK : item_faq -->
-                    <!-- <details class="faq-item">
+                <div class="cell-1-2 tab-cell-1-1">
+                    <!-- START BLOCK : faq -->
+                    <div class="faq">
+                        <h2>{catname}</h2>
+                        <div class="c10"></div>
+                        <div class="line-white"></div>
+                        <div class="c10"></div>
+                        <!-- START BLOCK : item_faq -->
+                        <details class="faq-item">
+                            <summary>{name}</summary>
+                            <p>{content}</p>
+                        </details>
+                        <!-- END BLOCK : item_faq -->
+                        <!-- <details class="faq-item">
                         <summary>Healthy and Delicious Foods.</summary>
                         <div class="flex-container faq-item-open">
                             <p class="cell-4-5 tab-cell-1-1">Discover the benefits of nutritious meals.</p>
@@ -501,11 +642,11 @@
                             </div>
                         </div>
                     </details> -->
+                    </div>
+                    <!-- END BLOCK : faq -->
                 </div>
-                <!-- END BLOCK : faq -->
             </div>
         </div>
+        <div class="c30"></div>
+        <div class="c20"></div>
     </div>
-    <div class="c30"></div>
-    <div class="c20"></div>
-</div>

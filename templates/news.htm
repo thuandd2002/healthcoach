@@ -9,7 +9,9 @@
                 <div class="hightlight" style="color: var(--maincolor)">{catname}</div>
             </h2>
             <div class="c3"></div>
-            {catintro}
+            <div class="lighter">
+                {catintro}
+            </div>
             <div class="c5"></div>
 
             <!-- <div class="tocWrap">
@@ -49,7 +51,7 @@
                             <div class="newscat-info">
                                 <a href="{catItemLink}" class="newshot-cat"> {catItemName} </a>
 
-                                <span>{createdate}</span>
+                                <span style="opacity: 0.5;">{createdate}</span>
                             </div>
                         </div>
 
@@ -86,17 +88,18 @@
                                         <div class="newsItems">
                                             <a href="{link_detail}" class="newsimg"> {image} </a>
 
-                                            <h3 class="newsname text-line-3 m-text-line-2">
+                                            <h3 class="newsname text-line-2 m-text-line-2">
                                                 <a href="{link_detail}"> {name} </a>
                                             </h3>
+
                                             <div class="newscat-info">
                                                 <a href="{catItemLink}" class="newshot-cat">
                             {catItemName}
                           </a>
-                                                <span>{createdate}</span>
+                                                <span style="opacity: 0.5;">{createdate}</span>
                                             </div>
 
-                                            <div class="newscat-intro text-line-2 m-text-line-3">
+                                            <div class="newscat-intro lighter text-line-2 m-text-line-3">
                                                 {intro}
                                             </div>
                                             <div class="c20"></div>

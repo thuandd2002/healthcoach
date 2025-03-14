@@ -41,8 +41,9 @@
                 </h1>
                 <div class="c"></div>
                 <div class="c20"></div>
-                {cat_content}
-                <div class="c10"></div>
+                <span class="lighter">
+                    {cat_content}
+                </span>
             </div>
             <div style="width:10%;"></div>
         </div>
@@ -51,8 +52,6 @@
 </div>
 <!-- end Giới thiệu đầu -->
 <div class="c20 hide-on-pad hide-on-tab"></div>
-<div class="c30"></div>
-
 <!-- Danh mục sản phẩm 1 -->
 <div class="category-product-list">
     <div class="grid">
@@ -73,7 +72,6 @@
                             <div class="cell-4-6 tab-cell-1-1">
                                 <div class="category-product-detail-odd">
                                     <div class="c20"></div>
-                                    <div class="c30 hide-on-pad hide-on-tab"></div>
                                     <h2 class="homecat-title">
                                         <a href="{linkcat}">{catname}  </a>
 
@@ -110,14 +108,23 @@
                                             <div class="c5"></div>
 
                                             <div class="c5"></div>
-                                            <div class="pricekm">
-                                                {pricekm}
-                                            </div>
-                                            <div class="price">
-                                                {price}
+                                            <div class="flex-container" style="justify-content: space-around;">
+
+                                                <div class="pricekm">
+                                                    {pricekm}
+                                                </div>
+                                                <div class="price">
+                                                    {price}
+                                                </div>
                                             </div>
                                             {discount-tags}
                                         </div>
+                                        <a class="btn-buy-green">
+                                            Mua Ngay
+                                        </a>
+                                        <a class="btn-buy-green">
+                                            Xem Chi Tiết
+                                        </a>
                                     </div>
 
                                 </div>
@@ -183,7 +190,7 @@
 
                     <h1 class="category-product-info--title">{cat_title}</h1>
                     <div class="c20"></div>
-                    <div class="category-product-info--intro">
+                    <div class="category-product-info--intro lighter">
                         {cat_intro}
                     </div>
                     <div class="c20"></div>

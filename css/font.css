@@ -11,3 +11,9 @@
     font-display: swap;
     font-weight: normal;
 }
+
+@font-face {
+    font-family: Nunito-Light;
+    src: url('/css/fonts/Nunito-Light.ttf');
+    font-display: swap;
+}
